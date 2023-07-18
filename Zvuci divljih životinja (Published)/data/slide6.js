@@ -1,0 +1,3 @@
+(function(){var loadHandler=window['sl_{A6B3687E-8968-4EE6-8987-E8B110877BB3}'];loadHandler&&loadHandler(5, '<div id="spr0_4343da0b"><div id="spr1_4343da0b" class="kern slide"><img id="img1_4343da0b" src="data/img13.png" width="960px" height="540px" alt="" style="left:0px;top:0px;"/></div><div id="spr2_4343da0b" class="kern slide"><div id="spr3_4343da0b" style="left:178.218px;top:39.937px;"><img id="img0_4343da0b" src="data/img12.gif" width="619.798" height="472.5" alt="A group of stars with glitter\
+\
+Description automatically generated"/></div></div></div>', '{"s":[]}');})();
