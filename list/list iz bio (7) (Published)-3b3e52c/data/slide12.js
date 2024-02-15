@@ -1,3 +1,0 @@
-(function(){var loadHandler=window['sl_{59E94FC0-FC1D-44A4-983A-C3E655D705C8}'];loadHandler&&loadHandler(11, '<div id="spr0_2003a5f"><div id="spr1_2003a5f" class="kern slide"><img id="img1_2003a5f" src="data/img21.png" width="960px" height="540px" alt="" style="left:0px;top:0px;"/></div><div id="spr2_2003a5f" class="kern slide"><div id="spr3_2003a5f" style="left:106px;top:68px;"><img id="img0_2003a5f" src="data/img38.png" width="755" height="415" alt="Hvala na pažnji!\
-\
-İlginiz için teşekkür ederiz!"/></div></div></div>', '{"s":[]}');})();
