@@ -1,0 +1,13 @@
+(function(){var loadHandler=window['sl_{231C8438-71CD-4BB7-8F2B-E6123848C80D}'];loadHandler&&loadHandler(1, '<div id="spr0_30364f39"><div id="spr1_30364f39" class="kern slide"><img id="img10_30364f39" src="data/img8.png" width="540px" height="960px" alt="" style="left:0px;top:0px;"/></div><div id="spr2_30364f39" class="kern slide"><div id="spr3_30364f39" style="left:65.127px;top:664.254px;"><img id="img0_30364f39" src="data/img9.jpg" width="410" height="288" alt="A chef holding a pizza in front of a restaurant\
+\
+AI-generated content may be incorrect." style="left:-0.127px;"/></div><div id="spr4_30364f39" style="left:77.564px;top:28px;"><div style="width:0px;"><span id="txt0_30364f39" data-width="154.703125" style="left:114.999px;top:-1.298px;">ristorante</span></div></div><div id="spr5_30364f39" style="left:67px;top:662px;"><img id="img1_30364f39" src="data/img10.png" width="408" height="293" alt="A chef holding a pizza in front of a restaurant\
+\
+AI-generated content may be incorrect."/></div><div id="spr6_30364f39" style="left:135.324px;top:80.308px;"><img id="img2_30364f39" src="data/img11.png" width="269" height="257" alt="A cartoon of a church\
+\
+AI-generated content may be incorrect." style="left:0.176px;top:0.092px;"/></div><div id="spr7_30364f39" style="left:101.937px;top:381.845px;"><img id="img3_30364f39" src="data/img12.png" width="322" height="229" alt="A pharmacy building with a sign and trees\
+\
+AI-generated content may be incorrect." style="left:6.062px;top:11.89px;"/></div><div id="spr8_30364f39" style="left:599px;top:801.5px;"><a id="hl0_30364f39" href="#"><img id="img4_30364f39" src="data/img0.png" width="32" height="32" alt=""/></a></div><div id="spr9_30364f39" style="left:554px;top:500.235px;"><a id="hl1_30364f39" href="#"><img id="img5_30364f39" src="data/img0.png" width="32" height="32" alt=""/></a></div><div id="spr10_30364f39" style="left:560.5px;top:413.735px;"><a id="hl2_30364f39" href="#"><img id="img6_30364f39" src="data/img0.png" width="32" height="32" alt=""/></a></div><div id="spr11_30364f39" style="left:360.723px;top:34.588px;"><img id="img7_30364f39" src="data/img1.png" width="36" height="34" alt="" style="left:-0.223px;top:0.777px;"/></div><div id="spr12_30364f39" style="left:130px;top:77px;"><img id="img8_30364f39" src="data/img13.png" width="267" height="278" alt="A cartoon of a church\
+\
+AI-generated content may be incorrect."/></div><div id="spr13_30364f39" style="left:92px;top:376px;"><img id="img9_30364f39" src="data/img14.png" width="357" height="264" alt="A pharmacy building with a sign and trees\
+\
+AI-generated content may be incorrect."/></div></div></div>', '{"s":[]}');})();
