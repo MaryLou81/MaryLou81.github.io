@@ -1,0 +1,3 @@
+(function(){var loadHandler=window['sl_{B4C682B9-2AE1-4B56-9F3E-AC1228F9302D}'];loadHandler&&loadHandler(1, '<div id="spr0_e4fb33"><div id="spr1_e4fb33" class="kern slide"><img id="img1_e4fb33" src="data/img3.png" width="960px" height="540px" alt="" style="left:0px;top:0px;"/></div><div id="spr2_e4fb33" class="kern slide"><div id="spr3_e4fb33" style="left:3.938px;top:63px;"><div style="width:0px;"><span id="txt0_e4fb33" data-width="390.140625" style="left:41.338px;top:-0.97px;">Б б</span></div></div><div id="spr4_e4fb33" style="left:480px;top:41.561px;"><img id="img0_e4fb33" src="data/img2.gif" width="477.073" height="477.073" alt="A red and black ladybug\
+\
+AI-generated content may be incorrect."/></div></div></div>', '{"s":[]}');})();
