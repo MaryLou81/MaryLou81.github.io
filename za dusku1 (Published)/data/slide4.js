@@ -1,0 +1,15 @@
+(function(){var loadHandler=window['sl_{3FAF55EA-0D01-411E-9372-F71204EF0EE5}'];loadHandler&&loadHandler(3, '<div id="spr0_a9171cf"><div id="spr1_a9171cf" class="kern slide"><img id="img11_a9171cf" src="data/img1.png" width="960px" height="540px" alt="" style="left:0px;top:0px;"/></div><div id="spr2_a9171cf" class="kern slide"><div id="spr3_a9171cf" style="left:808.63px;top:9.016px;"><div id="spr4_a9171cf"><a id="hl0_a9171cf" href="#" onclick="document.getElementById(\'coreSpr_9504121\').getCore().processTriggerEffect(this);document.getElementById(\'coreSpr_9504121\').getCore().playHyperlinkSound(\'sound2\', this);document.getElementById(\'coreSpr_9504121\').getCore().gotoNextSlide(this);return false;"><img id="img0_a9171cf" src="data/img4.png" width="105" height="43" alt="" style="left:-0.189px;top:0.195px;"/></a></div></div><div id="spr5_a9171cf" style="left:46.749px;top:9.016px;"><div id="spr6_a9171cf"><a id="hl1_a9171cf" href="#" onclick="document.getElementById(\'coreSpr_9504121\').getCore().processTriggerEffect(this);document.getElementById(\'coreSpr_9504121\').getCore().gotoPreviousSlide(this);return false;"><img id="img1_a9171cf" src="data/img3.png" width="105" height="43" alt="" style="left:0.069px;top:0.195px;"/></a></div></div><div id="spr7_a9171cf" style="left:423px;top:15px;"><img id="img2_a9171cf" src="data/img6.png" width="118" height="35" alt="OCCHI"/></div><div id="spr8_a9171cf" style="left:47px;top:340px;"><img id="img3_a9171cf" src="data/img7.png" width="148" height="56" alt="occhi azzurri\
+plave oči"/></div><div id="spr9_a9171cf" style="left:511px;top:148px;"><img id="img4_a9171cf" src="data/img8.png" width="180" height="180" alt="A close up of a person\'s eyes\
+\
+AI-generated content may be incorrect."/></div><div id="spr10_a9171cf" style="left:271px;top:145px;"><img id="img5_a9171cf" src="data/img9.png" width="180" height="180" alt="A close up of a person\'s face\
+\
+AI-generated content may be incorrect."/></div><div id="spr11_a9171cf" style="left:31px;top:149px;"><img id="img6_a9171cf" src="data/img10.png" width="180" height="180" alt="A close up of a person\'s face\
+\
+AI-generated content may be incorrect."/></div><div id="spr12_a9171cf" style="left:751px;top:140px;"><img id="img7_a9171cf" src="data/img11.png" width="180" height="180" alt="A close up of a person\'s eyes\
+\
+AI-generated content may be incorrect."/></div><div id="spr13_a9171cf" style="left:299px;top:337px;"><img id="img8_a9171cf" src="data/img12.png" width="125" height="51" alt="occhi verdi\
+zelene oči"/></div><div id="spr14_a9171cf" style="left:524px;top:347px;"><img id="img9_a9171cf" src="data/img13.png" width="157" height="109" alt="occhi marroni\
+o\
+occhi castani\
+smeđe oči"/></div><div id="spr15_a9171cf" style="left:779px;top:347px;"><img id="img10_a9171cf" src="data/img14.png" width="114" height="51" alt="occhi neri\
+crne oči"/></div></div></div>', '{"s":[]}');})();
