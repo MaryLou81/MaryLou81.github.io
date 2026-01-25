@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Present Perfect Exercises</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Poppins', sans-serif; background: linear-gradient(135deg, #e6f3ff, #f0f8ff); color: #1a2b4c; margin: 0; padding: 20px; line-height: 1.6; }
+    h1 { color: #0066cc; text-align: center; margin-bottom: 30px; font-size: 2.5rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.1); }
+    .tabs { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-bottom: 30px; }
+    .tab-btn { padding: 12px 24px; background: #4da6ff; color: white; border: none; border-radius: 30px; cursor: pointer; font-size: 1.1rem; font-weight: 500; transition: all 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+    .tab-btn:hover { background: #3385ff; transform: translateY(-3px); }
+    .tab-btn.active { background: #0066cc; transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0,102,204,0.3); }
+    .exercise { display: none; background: white; padding: 35px; border-radius: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); max-width: 1000px; margin: 0 auto; }
+    .exercise.active { display: block; }
+    h2 { color: #0066cc; margin-bottom: 25px; font-size: 1.8rem; }
+    .sentence { margin: 18px 0; font-size: 1.15rem; }
+    input[type="text"], select { padding: 10px; font-size: 1.1rem; border: 2px solid #99c2ff; border-radius: 10px; width: 280px; margin: 0 8px; transition: all 0.2s; }
+    .correct { background: #e6ffe6 !important; border-color: #28a745 !important; color: #155724; }
+    .wrong { background: #ffe6e6 !important; border-color: #dc3545 !important; color: #721c24; text-decoration: line-through; }
+    .answer { margin-left: 12px; padding: 8px 14px; background: #28a745; color: white; border-radius: 10px; font-weight: bold; }
+    button.check-btn { margin: 30px auto; display: block; padding: 14px 40px; background: #28a745; color: white; border: none; border-radius: 12px; cursor: pointer; font-size: 1.2rem; box-shadow: 0 4px 12px rgba(40,167,69,0.3); }
+    button.check-btn:hover { background: #218838; transform: translateY(-2px); }
+    .options { display: inline-flex; gap: 8px; margin: 0 6px; vertical-align: middle; }
+    .option-btn { padding: 8px 16px; font-size: 1.1rem; border: 2px solid #0066cc; border-radius: 8px; cursor: pointer; background: white; transition: all 0.25s; text-align: center; display: inline-block; min-width: 120px; }
+    .option-btn.selected { background: #0066cc; color: white; transform: scale(1.05); box-shadow: 0 4px 10px rgba(0,102,204,0.3); }
+    .word-bank { display: flex; flex-wrap: wrap; gap: 14px; margin: 25px 0; min-height: 60px; padding: 15px; background: #f0f8ff; border-radius: 12px; border: 2px dashed #99c2ff; }
+    .word { padding: 12px 20px; background: #e6f3ff; border: 1px solid #4da6ff; border-radius: 10px; cursor: grab; user-select: none; font-weight: 500; }
+    .slots { min-height: 60px; padding: 15px; background: #f8f9fa; border-radius: 12px; border: 2px solid #00bfa6; margin-top: 20px; text-align: center; }
+    .slot { width: 160px; height: 46px; border: 2px dashed #00bfa6; border-radius: 10px; display: inline-block; margin: 8px; text-align: center; line-height: 42px; background: white; transition: all 0.2s; }
+    .slot.filled { background: #e6fff2; border-color: #28a745; cursor: default; }
+  </style>
+</head>
+<body>
+
+<h1>Present Perfect Exercises</h1>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="showExercise(1)">1</button>
+  <button class="tab-btn" onclick="showExercise(2)">2</button>
+  <button class="tab-btn" onclick="showExercise(3)">3</button>
+  <button class="tab-btn" onclick="showExercise(4)">4</button>
+  <button class="tab-btn" onclick="showExercise(5)">5</button>
+  <button class="tab-btn" onclick="showExercise(6)">6</button>
+  <button class="tab-btn" onclick="showExercise(7)">7</button>
+</div>
+
+<!-- Vježba 1: Tekst sa prazninama -->
+<div id="ex1" class="exercise active">
+  <h2>Exercise 1: Fill in the gaps (Past Simple or Present Perfect)</h2>
+  <p>Read the text from the present moment perspective and complete the gaps with the correct form of the verb in brackets.</p>
+  <div class="sentence">
+    I have just woken up and I still feel sleepy. My alarm <input type="text" data-correct="has not rung/hasn't rung"> (not ring) yet, but the sun is already shining through the window. I <input type="text" data-correct="have never liked"> (never / like) getting up early, but today I must hurry. Yesterday my friends <input type="text" data-correct="invited"> (invite) me to the cinema, but I <input type="text" data-correct="said"> (say) no because I was too tired. Now I regret it. I <input type="text" data-correct="have already checked"> (already / check) my phone – there are three new messages from them. They <input type="text" data-correct="have asked"> (ask) me why I didn’t come. I <input type="text" data-correct="have not answered/haven't answered"> (not answer) yet.
+  </div>
+  <div class="sentence">
+    Downstairs my mum <input type="text" data-correct="has just made"> (just / make) coffee. I can smell it. I <input type="text" data-correct="have always loved"> (always / love) her coffee. I <input type="text" data-correct="have drunk/have had"> (drink) some and I feel better already. My little brother <input type="text" data-correct="has run"> (run) into the kitchen and <input type="text" data-correct="shouted"> (shout): “Have you seen my new game?” I <input type="text" data-correct="have not seen/haven't seen"> (not see) it yet. He <input type="text" data-correct="bought"> (buy) it last week with his pocket money.
+  </div>
+  <div class="sentence">
+    I think today will be a good day. I <input type="text" data-correct="have promised"> (promise) myself to call my friends later and maybe meet them this afternoon. I <input type="text" data-correct="have never felt"> (never / feel) so motivated in the morning!
+  </div>
+  <button class="check-btn" onclick="checkEx1()">Check Exercise 1</button>
+  <div id="res1"></div>
+</div>
+
+<!-- Vježba 2: Complete sentences -->
+<div id="ex2" class="exercise">
+  <h2>Exercise 2: Complete the sentences (Past Simple or Present Perfect)</h2>
+  <div class="sentence">1. I <input type="text" data-correct="have seen"> (see) that film three times this month.</div>
+  <div class="sentence">2. She <input type="text" data-correct="has not finished/hasn't finished"> (not finish) her homework yet.</div>
+  <div class="sentence">3. When <input type="text" data-correct="did you arrive"> (you/arrive) at the station yesterday?</div>
+  <div class="sentence">4. They <input type="text" data-correct="have already eaten"> (already / eat) breakfast, so they are not hungry now.</div>
+  <div class="sentence">5. He <input type="text" data-correct="has never tried"> (never / try) sushi before yesterday.</div>
+  <div class="sentence">6. <input type="text" data-correct="Have"> (have) you <input type="text" data-correct="ever visited"> (ever / visit) London?</div>
+  <div class="sentence">7. We <input type="text" data-correct="have waited"> (wait) for the bus for 20 minutes already.</div>
+  <div class="sentence">8. My parents <input type="text" data-correct="bought"> (buy) a new car last weekend.</div>
+  <div class="sentence">9. Look! Someone <input type="text" data-correct="has just broken"> (just / break) the window!</div>
+  <div class="sentence">10. She <input type="text" data-correct="has not seen/hasn't seen"> (not see) her grandparents since last summer.</div>
+  <div class="sentence">11. <input type="text" data-correct="Has"> (have) he <input type="text" data-correct="called"> (call) you this morning? (it is 11:30 now)</div>
+  <div class="sentence">12. They <input type="text" data-correct="went"> (go) to the cinema yesterday evening.</div>
+  <div class="sentence">13. I <input type="text" data-correct="have already read"> (already / read) this book twice.</div>
+  <div class="sentence">14. <input type="text" data-correct="Have"> (have) you <input type="text" data-correct="ever tasted"> (ever / taste) real Italian pizza?</div>
+  <div class="sentence">15. The teacher <input type="text" data-correct="has not given/hasn't given"> (not give) us the test results yet.</div>
+  <button class="check-btn" onclick="checkEx2()">Check Exercise 2</button>
+  <div id="res2"></div>
+</div>
+
+<!-- Vježba 3: WH-questions -->
+<div id="ex3" class="exercise">
+  <h2>Exercise 3: Make WH-questions</h2>
+  <p><strong>Rule:</strong> 1. Make Yes/No question first. 2. Put the WH-word at the beginning. 3. Delete the bold part.</p>
+  <p><strong>Special rule for WHO (subject):</strong> Replace subject with WHO, no auxiliary, verb stays 3rd person singular.</p>
+
+  <div class="sentence">1. They have visited <strong>Paris</strong> three times.<br>
+    Yes/No: <input type="text" data-correct-yesno="Have they visited Paris three times?/have they visited paris three times?"><br>
+    WH: <input type="text" data-correct-wh="What city have they visited three times?/what city have they visited three times?/What city have they visited three times?/what city have they visited three times?/What city have they visited three times">
+  </div>
+  <div class="sentence">2. She has already finished <strong>her project</strong>.<br>
+    Yes/No: <input type="text" data-correct-yesno="Has she already finished her project?/has she already finished her project?"><br>
+    WH: <input type="text" data-correct-wh="What has she already finished?/what has she already finished?/What has she already finished">
+  </div>
+  <div class="sentence">3. He has never eaten <strong>sushi</strong>.<br>
+    Yes/No: <input type="text" data-correct-yesno="Has he ever eaten sushi?/has he ever eaten sushi?"><br>
+    WH: <input type="text" data-correct-wh="What has he never eaten?/what has he never eaten?/What has he never eaten">
+  </div>
+  <div class="sentence">4. We have just bought <strong>a new phone</strong>.<br>
+    Yes/No: <input type="text" data-correct-yesno="Have we just bought a new phone?/have we just bought a new phone?"><br>
+    WH: <input type="text" data-correct-wh="What have we just bought?/what have we just bought?/What have we just bought">
+  </div>
+  <div class="sentence">5. <strong>Five students</strong> have passed the exam.<br>
+    Yes/No: <input type="text" data-correct-yesno="Have five students passed the exam?/have five students passed the exam?"><br>
+    WH: <input type="text" data-correct-wh="How many students have passed the exam?/how many students have passed the exam?/How many students have passed the exam">
+  </div>
+  <div class="sentence">6. <strong>My sister</strong> has cooked dinner.<br>
+    Yes/No: <input type="text" data-correct-yesno="Has my sister cooked dinner?/has my sister cooked dinner?"><br>
+    WH: <input type="text" data-correct-wh="Who has cooked dinner?/who has cooked dinner?/Who has cooked dinner">
+  </div>
+  <div class="sentence">7. They have waited for the bus for <strong>30 minutes</strong>.<br>
+    Yes/No: <input type="text" data-correct-yesno="Have they waited for the bus for 30 minutes?/have they waited for the bus for 30 minutes?"><br>
+    WH: <input type="text" data-correct-wh="How long have they waited for the bus?/how long have they waited for the bus?/How long have they waited for the bus">
+  </div>
+  <div class="sentence">8. <strong>Tom</strong> has broken the cup.<br>
+    Yes/No: <input type="text" data-correct-yesno="Has Tom broken the cup?/has Tom broken the cup?"><br>
+    WH: <input type="text" data-correct-wh="Who has broken the cup?/who has broken the cup?/Who has broken the cup">
+  </div>
+  <div class="sentence">9. I have read this book <strong>twice</strong> this year.<br>
+    Yes/No: <input type="text" data-correct-yesno="Have you read this book twice this year?/have you read this book twice this year?"><br>
+    WH: <input type="text" data-correct-wh="How many times have you read this book this year?/how many times have you read this book this year?/How many times have you read this book this year">
+  </div>
+  <div class="sentence">10. She has lost her keys <strong>because she is very forgetful</strong>.<br>
+    Yes/No: <input type="text" data-correct-yesno="Has she lost her keys?/has she lost her keys?"><br>
+    WH: <input type="text" data-correct-wh="Why has she lost her keys?/why has she lost her keys?/Why has she lost her keys">
+  </div>
+  <div class="sentence">11. The children have already gone <strong>to bed</strong>.<br>
+    Yes/No: <input type="text" data-correct-yesno="Have the children already gone to bed?/have the children already gone to bed?"><br>
+    WH: <input type="text" data-correct-wh="Where have the children already gone?/where have the children already gone?/Where have the children already gone">
+  </div>
+  <div class="sentence">12. <strong>The purple cake</strong> tastes like vanilla and orange.<br>
+    Yes/No: <input type="text" data-correct-yesno="Does the purple cake taste like vanilla and orange?/does the purple cake taste like vanilla and orange?"><br>
+    WH: <input type="text" data-correct-wh="Which cake tastes like vanilla and orange?/which cake tastes like vanilla and orange?/Which cake tastes like vanilla and orange">
+  </div>
+  <div class="sentence">13. He has travelled to ten countries <strong>because he loves adventure</strong>.<br>
+    Yes/No: <input type="text" data-correct-yesno="Has he travelled to ten countries?/has he travelled to ten countries?"><br>
+    WH: <input type="text" data-correct-wh="Why has he travelled to ten countries?/why has he travelled to ten countries?/Why has he travelled to ten countries">
+  </div>
+  <div class="sentence">14. Nina has lost <strong>Mike's headphones</strong>.<br>
+    Yes/No: <input type="text" data-correct-yesno="Has Nina lost Mike's headphones?/has Nina lost Mike's headphones?"><br>
+    WH: <input type="text" data-correct-wh="Whose headphones has Nina lost?/whose headphones has Nina lost?/Whose headphones has Nina lost">
+  </div>
+  <div class="sentence">15. <strong>My best friend</strong> has helped me a lot.<br>
+    Yes/No: <input type="text" data-correct-yesno="Has your best friend helped you a lot?/has your best friend helped you a lot?"><br>
+    WH: <input type="text" data-correct-wh="Who has helped you a lot?/who has helped you a lot?/Who has helped you a lot">
+  </div>
+  <button class="check-btn" onclick="checkEx3()">Check Exercise 3</button>
+  <div id="res3"></div>
+</div>
+
+<!-- Vježba 4: Sentence transformations – ažurirana prema poslednjim uputstvima -->
+<div id="ex4" class="exercise">
+  <h2>Exercise 4: Sentence transformations</h2>
+  <p>Rewrite the underlined part using the word in brackets. Keep the same meaning.</p>
+
+  <div class="sentence">1. She doesn't want to watch the film because <strong>she watched it last week</strong>. (before)<br>
+    → She doesn't want to watch the film because <input type="text" data-correct="she has seen it before./she's seen it before./She has seen it before./She's seen it before.">
+  </div>
+
+  <div class="sentence">2. <strong>I ate lunch</strong> ten minutes ago. (just)<br>
+    → I’m not hungry. <input type="text" data-correct="I have just eaten lunch./I've just eaten lunch.">
+  </div>
+
+  <div class="sentence">3. Have you tasted sushi <strong>in your life</strong>? (ever)<br>
+    → <input type="text" data-correct="Have you ever tasted sushi?/have you ever tasted sushi?">
+  </div>
+
+  <div class="sentence">4. He <strong>still hasn’t done</strong> his homework. (yet)<br>
+    → <input type="text" data-correct="He has not done his homework yet./He hasn't done his homework yet./he has not done his homework yet./he hasn't done his homework yet.">
+  </div>
+
+  <div class="sentence">5. <strong>They bought</strong> a new car last month. They are very happy with it. (already)<br>
+    → <input type="text" data-correct="They have already bought a new car./they have already bought a new car.">
+  </div>
+
+  <div class="sentence">6. <strong>This is the first time</strong> I’ve tried this dessert. (never … before)<br>
+    → <input type="text" data-correct="I have never tried this dessert before./I've never tried this dessert before./i have never tried this dessert before.">
+  </div>
+
+  <div class="sentence">7. Is this <strong>your first visit</strong> to this city? (ever)<br>
+    → <input type="text" data-correct="Have you ever visited this city?/have you ever visited this city?">
+  </div>
+
+  <div class="sentence">8. <strong>We are still waiting</strong> for the train. (yet)<br>
+    → <input type="text" data-correct="The train hasn't arrived yet./The train has not arrived yet./the train hasn't arrived yet./the train has not arrived yet.">
+  </div>
+
+  <div class="sentence">9. <strong>She finished</strong> the book five minutes ago. (just)<br>
+    → <input type="text" data-correct="She has just finished the book./she has just finished the book.">
+  </div>
+
+  <div class="sentence">10. <strong>I haven’t seen her</strong> since 2020. (six)<br>
+    → <input type="text" data-correct="It's been six years since I last saw her./It’s been six years since I last saw her./it's been six years since I last saw her./I haven't seen her for six years.">
+  </div>
+
+  <button class="check-btn" onclick="checkEx4()">Check Exercise 4</button>
+  <div id="res4"></div>
+</div>
+
+<!-- Vježba 5: Choose verb form -->
+<div id="ex5" class="exercise">
+  <h2>Exercise 5: Choose Past Simple or Present Perfect</h2>
+  <p>Click the correct option in each sentence. Pay attention to time words and context!</p>
+  <div class="sentence">1. I <div class="options"><button class="option-btn" data-correct="saw">saw</button><button class="option-btn" data-correct="have seen">have seen</button></div> that film last weekend.</div>
+  <div class="sentence">2. She <div class="options"><button class="option-btn" data-correct="already finished">already finished</button><button class="option-btn" data-correct="has already finished">has already finished</button></div> her homework this afternoon. (it is 16:00 now)</div>
+  <div class="sentence">3. They <div class="options"><button class="option-btn" data-correct="lived">lived</button><button class="option-btn" data-correct="have lived">have lived</button></div> in this house since 2015.</div>
+  <div class="sentence">4. We <div class="options"><button class="option-btn" data-correct="didn’t eat">didn’t eat</button><button class="option-btn" data-correct="haven’t eaten">haven’t eaten</button></div> anything this morning. (it is 10 a.m. now)</div>
+  <div class="sentence">5. He <div class="options"><button class="option-btn" data-correct="was never">was never</button><button class="option-btn" data-correct="has never been">has never been</button></div> to Japan.</div>
+  <div class="sentence">6. Look! Someone <div class="options"><button class="option-btn" data-correct="just broke">just broke</button><button class="option-btn" data-correct="has just broken">has just broken</button></div> the window!</div>
+  <div class="sentence">7. My parents <div class="options"><button class="option-btn" data-correct="bought">bought</button><button class="option-btn" data-correct="have bought">have bought</button></div> a new car two weeks ago.</div>
+  <div class="sentence">8. <div class="options"><button class="option-btn" data-correct="Did you ever try">Did you ever try</button><button class="option-btn" data-correct="Have you ever tried">Have you ever tried</button></div> Korean food?</div>
+  <div class="sentence">9. I have called her three times this afternoon, but she decided to take her afternoon nap, and she <div class="options"><button class="option-btn" data-correct="didn’t wake up">didn’t wake up</button><button class="option-btn" data-correct="hasn’t woken up">hasn’t woken up</button></div> yet.</div>
+  <div class="sentence">10. We <div class="options"><button class="option-btn" data-correct="went">went</button><button class="option-btn" data-correct="have gone">have gone</button></div> to the beach yesterday.</div>
+  <div class="sentence">11. I <div class="options"><button class="option-btn" data-correct="read">read</button><button class="option-btn" data-correct="have read">have read</button></div> this book three times this year.</div>
+  <div class="sentence">12. He <div class="options"><button class="option-btn" data-correct="lost">lost</button><button class="option-btn" data-correct="has lost">has lost</button></div> his keys again last night. (it is 9:15 now)</div>
+  <div class="sentence">13. They <div class="options"><button class="option-btn" data-correct="waited">waited</button><button class="option-btn" data-correct="have waited">have waited</button></div> for the bus for 40 minutes already.</div>
+  <div class="sentence">14. When she <div class="options"><button class="option-btn" data-correct="finished">finished</button><button class="option-btn" data-correct="has finished">has finished</button></div> school last year, she started university.</div>
+  <button class="check-btn" onclick="checkEx5()">Check Exercise 5</button>
+  <div id="res5"></div>
+</div>
+
+<!-- Vježba 6: Choose adverb -->
+<div id="ex6" class="exercise">
+  <h2>Exercise 6: Choose the correct time adverb</h2>
+  <p>Complete each sentence with one time adverb from the box. Each word is used only once. All sentences are in Present Perfect.</p>
+  <div class="sentence">1. Have you <select data-correct="ever"><option>Choose...</option><option>always</option><option>ever</option><option>never</option><option>already</option><option>just</option><option>yet</option><option>before</option></select> tried sushi?</div>
+  <div class="sentence">2. She has <select data-correct="already"><option>Choose...</option><option>always</option><option>ever</option><option>never</option><option>already</option><option>just</option><option>yet</option><option>before</option></select> finished her homework – she did it an hour ago.</div>
+  <div class="sentence">3. He has <select data-correct="never"><option>Choose...</option><option>always</option><option>ever</option><option>never</option><option>already</option><option>just</option><option>yet</option><option>before</option></select> seen snow in his life – he lives in a hot country.</div>
+  <div class="sentence">4. Look! The train has <select data-correct="just"><option>Choose...</option><option>always</option><option>ever</option><option>never</option><option>already</option><option>just</option><option>yet</option><option>before</option></select> arrived! Let’s run!</div>
+  <div class="sentence">5. I have <select data-correct="always"><option>Choose...</option><option>always</option><option>ever</option><option>never</option><option>already</option><option>just</option><option>yet</option><option>before</option></select> loved her coffee – it’s the best!</div>
+  <div class="sentence">6. I haven’t seen that film <select data-correct="yet"><option>Choose...</option><option>always</option><option>ever</option><option>never</option><option>already</option><option>just</option><option>yet</option><option>before</option></select> – is it good?</div>
+  <div class="sentence">7. I haven't been on Mary-go-round <select data-correct="before"><option>Choose...</option><option>always</option><option>ever</option><option>never</option><option>already</option><option>just</option><option>yet</option><option>before</option></select>. Please, come with me, I want to try it.</div>
+  <button class="check-btn" onclick="checkEx6()">Check Exercise 6</button>
+  <div id="res6"></div>
+</div>
+
+<!-- Vježba 7: Drag & Drop -->
+<div id="ex7" class="exercise">
+  <h2>Exercise 7: Put the words in the correct order (Drag & Drop)</h2>
+  <p>Drag the words into the slots to make correct Present Perfect sentences. You can drag them back to the box if you change your mind.</p>
+
+  <div class="sentence">1. ever / you / sushi / tried / have / ?</div>
+  <div class="word-bank" id="bank1">
+    <div class="word" draggable="true">ever</div>
+    <div class="word" draggable="true">you</div>
+    <div class="word" draggable="true">sushi</div>
+    <div class="word" draggable="true">tried</div>
+    <div class="word" draggable="true">have</div>
+    <div class="word" draggable="true">?</div>
+  </div>
+  <div class="slots" id="slots1">
+    <div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div>
+  </div>
+
+  <div class="sentence">2. never / I / Japanese food / eaten / have</div>
+  <div class="word-bank" id="bank2">
+    <div class="word" draggable="true">never</div>
+    <div class="word" draggable="true">I</div>
+    <div class="word" draggable="true">Japanese food</div>
+    <div class="word" draggable="true">eaten</div>
+    <div class="word" draggable="true">have</div>
+  </div>
+  <div class="slots" id="slots2">
+    <div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div>
+  </div>
+
+  <div class="sentence">3. has / she / already / homework / finished / her</div>
+  <div class="word-bank" id="bank3">
+    <div class="word" draggable="true">has</div>
+    <div class="word" draggable="true">she</div>
+    <div class="word" draggable="true">already</div>
+    <div class="word" draggable="true">homework</div>
+    <div class="word" draggable="true">finished</div>
+    <div class="word" draggable="true">her</div>
+  </div>
+  <div class="slots" id="slots3">
+    <div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div>
+  </div>
+
+  <div class="sentence">4. yet / we / not / lunch / have / had</div>
+  <div class="word-bank" id="bank4">
+    <div class="word" draggable="true">yet</div>
+    <div class="word" draggable="true">we</div>
+    <div class="word" draggable="true">not</div>
+    <div class="word" draggable="true">lunch</div>
+    <div class="word" draggable="true">have</div>
+    <div class="word" draggable="true">had</div>
+  </div>
+  <div class="slots" id="slots4">
+    <div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div>
+  </div>
+
+  <div class="sentence">5. just / broken / someone / the window / has</div>
+  <div class="word-bank" id="bank5">
+    <div class="word" draggable="true">just</div>
+    <div class="word" draggable="true">broken</div>
+    <div class="word" draggable="true">someone</div>
+    <div class="word" draggable="true">the window</div>
+    <div class="word" draggable="true">has</div>
+  </div>
+  <div class="slots" id="slots5">
+    <div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div>
+  </div>
+
+  <div class="sentence">6. ever / travelled / you / abroad / have / ?</div>
+  <div class="word-bank" id="bank6">
+    <div class="word" draggable="true">ever</div>
+    <div class="word" draggable="true">travelled</div>
+    <div class="word" draggable="true">you</div>
+    <div class="word" draggable="true">abroad</div>
+    <div class="word" draggable="true">have</div>
+    <div class="word" draggable="true">?</div>
+  </div>
+  <div class="slots" id="slots6">
+    <div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div>
+  </div>
+
+  <div class="sentence">7. already / they / the film / seen / have</div>
+  <div class="word-bank" id="bank7">
+    <div class="word" draggable="true">already</div>
+    <div class="word" draggable="true">they</div>
+    <div class="word" draggable="true">the film</div>
+    <div class="word" draggable="true">seen</div>
+    <div class="word" draggable="true">have</div>
+  </div>
+  <div class="slots" id="slots7">
+    <div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div>
+  </div>
+
+  <div class="sentence">8. never / he / skydiving / tried / has</div>
+  <div class="word-bank" id="bank8">
+    <div class="word" draggable="true">never</div>
+    <div class="word" draggable="true">he</div>
+    <div class="word" draggable="true">skydiving</div>
+    <div class="word" draggable="true">tried</div>
+    <div class="word" draggable="true">has</div>
+  </div>
+  <div class="slots" id="slots8">
+    <div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div>
+  </div>
+
+  <div class="sentence">9. yet / your parents / arrived / have?</div>
+  <div class="word-bank" id="bank9">
+    <div class="word" draggable="true">yet</div>
+    <div class="word" draggable="true">your parents</div>
+    <div class="word" draggable="true">arrived</div>
+    <div class="word" draggable="true">have</div>
+    <div class="word" draggable="true">?</div>
+  </div>
+  <div class="slots" id="slots9">
+    <div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div>
+  </div>
+
+  <div class="sentence">10. just / I / coffee / made / have</div>
+  <div class="word-bank" id="bank10">
+    <div class="word" draggable="true">just</div>
+    <div class="word" draggable="true">I</div>
+    <div class="word" draggable="true">coffee</div>
+    <div class="word" draggable="true">made</div>
+    <div class="word" draggable="true">have</div>
+  </div>
+  <div class="slots" id="slots10">
+    <div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div>
+  </div>
+
+  <button class="check-btn" onclick="checkEx7()">Check Exercise 7</button>
+  <div id="res7"></div>
+</div>
+
+<script>
+// Tabovi
+function showExercise(n) {
+  document.querySelectorAll('.exercise').forEach(ex => ex.classList.remove('active'));
+  document.getElementById('ex' + n).classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+  document.querySelectorAll('.tab-btn')[n-1].classList.add('active');
+}
+
+// Drag & Drop za Vježbu 7
+document.querySelectorAll('.word').forEach(word => {
+  word.addEventListener('dragstart', e => {
+    e.dataTransfer.setData('text', e.target.textContent);
+    e.target.classList.add('dragging');
+  });
+  word.addEventListener('dragend', e => {
+    e.target.classList.remove('dragging');
+  });
+});
+
+document.querySelectorAll('.slot').forEach(slot => {
+  slot.addEventListener('dragover', e => {
+    e.preventDefault();
+  });
+  slot.addEventListener('drop', e => {
+    e.preventDefault();
+    const data = e.dataTransfer.getData('text');
+    const dragged = document.querySelector('.dragging');
+    if (dragged) {
+      if (slot.textContent.trim() !== '') {
+        const oldWord = document.createElement('div');
+        oldWord.className = 'word';
+        oldWord.draggable = true;
+        oldWord.textContent = slot.textContent.trim();
+        slot.closest('.exercise').querySelector('.word-bank').appendChild(oldWord);
+        oldWord.addEventListener('dragstart', e => {
+          e.dataTransfer.setData('text', oldWord.textContent);
+          oldWord.classList.add('dragging');
+        });
+        oldWord.addEventListener('dragend', () => oldWord.classList.remove('dragging'));
+      }
+      slot.textContent = data;
+      dragged.remove();
+    }
+  });
+});
+
+// Provjera za Vježbu 1
+function checkEx1() {
+  const inputs = document.querySelectorAll('#ex1 input');
+  let score = 0;
+  inputs.forEach(input => {
+    const user = input.value.trim().toLowerCase();
+    const correctStr = input.getAttribute('data-correct').toLowerCase();
+    const corrects = correctStr.split('/');
+    let isCorrect = corrects.some(c => user === c.trim());
+    if (isCorrect) {
+      input.classList.add('correct');
+      input.classList.remove('wrong');
+      score++;
+    } else {
+      input.classList.add('wrong');
+      input.classList.remove('correct');
+      if (!input.nextSibling || !input.nextSibling.classList.contains('answer')) {
+        input.insertAdjacentHTML('afterend', `<span class="answer">Correct: ${input.getAttribute('data-correct')}</span>`);
+      }
+    }
+  });
+  document.getElementById('res1').innerHTML = `You got ${score} correct!`;
+}
+
+// Provjera za Vježbu 2
+function checkEx2() {
+  const inputs = document.querySelectorAll('#ex2 input');
+  let score = 0;
+  inputs.forEach(input => {
+    const user = input.value.trim().toLowerCase();
+    const correctStr = input.getAttribute('data-correct').toLowerCase();
+    const corrects = correctStr.split('/');
+    let isCorrect = corrects.some(c => user === c.trim());
+    if (isCorrect) {
+      input.classList.add('correct');
+      input.classList.remove('wrong');
+      score++;
+    } else {
+      input.classList.add('wrong');
+      input.classList.remove('correct');
+      if (!input.nextSibling || !input.nextSibling.classList.contains('answer')) {
+        input.insertAdjacentHTML('afterend', `<span class="answer">Correct: ${input.getAttribute('data-correct')}</span>`);
+      }
+    }
+  });
+  document.getElementById('res2').innerHTML = `You got ${score} correct!`;
+}
+
+// Provjera za Vježbu 3
+function checkEx3() {
+  const sentences = document.querySelectorAll('#ex3 .sentence');
+  let score = 0;
+  sentences.forEach(sentence => {
+    const yesNoInput = sentence.querySelector('input:nth-of-type(1)');
+    const whInput = sentence.querySelector('input:nth-of-type(2)');
+    const correctYesNoStr = yesNoInput.getAttribute('data-correct-yesno').toLowerCase();
+    const correctWhStr = whInput.getAttribute('data-correct-wh').toLowerCase();
+    const userYesNo = yesNoInput.value.trim().toLowerCase();
+    const userWh = whInput.value.trim().toLowerCase();
+    const correctsYesNo = correctYesNoStr.split('/');
+    const correctsWh = correctWhStr.split('/');
+    let isCorrectYesNo = correctsYesNo.some(c => userYesNo.includes(c.trim()));
+    let isCorrectWh = correctsWh.some(c => userWh.includes(c.trim()));
+    if (isCorrectYesNo) {
+      yesNoInput.classList.add('correct');
+      score++;
+    } else {
+      yesNoInput.classList.add('wrong');
+      yesNoInput.insertAdjacentHTML('afterend', `<span class="answer">Correct: Have they visited Paris three times?</span>`);
+    }
+    if (isCorrectWh) {
+      whInput.classList.add('correct');
+      score++;
+    } else {
+      whInput.classList.add('wrong');
+      whInput.insertAdjacentHTML('afterend', `<span class="answer">Correct: What city have they visited three times?</span>`);
+    }
+  });
+  document.getElementById('res3').innerHTML = `You got ${score} correct!`;
+}
+
+// Provjera za Vježbu 4
+function checkEx4() {
+  const inputs = document.querySelectorAll('#ex4 input');
+  let score = 0;
+  inputs.forEach(input => {
+    const user = input.value.trim().toLowerCase().replace(/[.,!?]/g, '');
+    const correctStr = input.getAttribute('data-correct').toLowerCase();
+    const corrects = correctStr.split('/');
+    let isCorrect = corrects.some(c => user.includes(c.trim().replace(/[.,!?]/g, '')));
+    if (isCorrect) {
+      input.classList.add('correct');
+      input.classList.remove('wrong');
+      score++;
+    } else {
+      input.classList.add('wrong');
+      input.classList.remove('correct');
+      if (!input.nextSibling || !input.nextSibling.classList.contains('answer')) {
+        const standardAnswer = input.getAttribute('data-correct').split('/')[0];
+        input.insertAdjacentHTML('afterend', `<span class="answer">Correct: ${standardAnswer}</span>`);
+      }
+    }
+  });
+  document.getElementById('res4').innerHTML = `You got ${score} correct!`;
+}
+
+// Provjera za Vježbu 5
+function checkEx5() {
+  const sentences = document.querySelectorAll('#ex5 .sentence');
+  let score = 0;
+  sentences.forEach(sentence => {
+    const buttons = sentence.querySelectorAll('.option-btn');
+    let selected = false;
+    buttons.forEach(btn => {
+      if (btn.classList.contains('selected')) {
+        selected = true;
+        if (btn.getAttribute('data-correct') === btn.textContent.trim()) {
+          btn.classList.add('correct');
+          score++;
+        } else {
+          btn.classList.add('wrong');
+          sentence.insertAdjacentHTML('beforeend', `<span class="answer">Correct: ${sentence.querySelector('[data-correct]').textContent}</span>`);
+        }
+      }
+    });
+    if (!selected) {
+      sentence.insertAdjacentHTML('beforeend', `<span style="color:#dc3545">Please select an option!</span>`);
+    }
+  });
+  document.getElementById('res5').innerHTML = `You got ${score} correct!`;
+}
+
+// Provjera za Vježbu 6
+function checkEx6() {
+  const selects = document.querySelectorAll('#ex6 select');
+  let score = 0;
+  selects.forEach(select => {
+    const user = select.value.trim().toLowerCase();
+    const correct = select.getAttribute('data-correct').toLowerCase();
+    if (user === correct) {
+      select.classList.add('correct');
+      select.classList.remove('wrong');
+      score++;
+    } else {
+      select.classList.add('wrong');
+      select.classList.remove('correct');
+      select.insertAdjacentHTML('afterend', `<span class="answer">Correct: ${select.getAttribute('data-correct')}</span>`);
+    }
+  });
+  document.getElementById('res6').innerHTML = `You got ${score} correct!`;
+}
+
+// Provjera za Vježbu 7
+function checkEx7() {
+  let score = 0;
+  for (let i = 1; i <= 10; i++) {
+    const slots = document.querySelectorAll(`#slots${i} .slot`);
+    const order = Array.from(slots).map(s => s.textContent.trim()).join(' ');
+    let correctOrder = '';
+    switch (i) {
+      case 1: correctOrder = 'have you ever tried sushi ?'; break;
+      case 2: correctOrder = 'I have never eaten Japanese food'; break;
+      case 3: correctOrder = 'She has already finished her homework'; break;
+      case 4: correctOrder = 'We have not had lunch yet'; break;
+      case 5: correctOrder = 'Someone has just broken the window'; break;
+      case 6: correctOrder = 'Have you ever travelled abroad ?'; break;
+      case 7: correctOrder = 'They have already seen the film'; break;
+      case 8: correctOrder = 'He has never tried skydiving'; break;
+      case 9: correctOrder = 'Have your parents arrived yet ?'; break;
+      case 10: correctOrder = 'I have just made coffee'; break;
+    }
+    if (order.toLowerCase() === correctOrder.toLowerCase()) {
+      document.getElementById(`slots${i}`).style.borderColor = '#28a745';
+      score++;
+    } else {
+      document.getElementById(`slots${i}`).style.borderColor = '#dc3545';
+    }
+  }
+  document.getElementById('res7').innerHTML = `You got ${score} correct sets!`;
+}
+
+// Klik na dugme u Vježbi 5
+document.querySelectorAll('.option-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const siblings = btn.parentElement.querySelectorAll('.option-btn');
+    siblings.forEach(s => s.classList.remove('selected'));
+    btn.classList.add('selected');
+  });
+});
+</script>
+
+</body>
+</html>
