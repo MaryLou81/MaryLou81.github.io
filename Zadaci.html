@@ -1,0 +1,842 @@
+<!doctype html>
+<html lang="hr" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Present Perfect Practice</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    * {
+      font-family: 'Nunito', sans-serif;
+    }
+    .exercise-card {
+      transition: all 0.3s ease;
+    }
+    .exercise-card:hover {
+      transform: translateY(-2px);
+    }
+    .input-field {
+      transition: all 0.2s ease;
+    }
+    .input-field:focus {
+      transform: scale(1.02);
+    }
+    .check-btn {
+      transition: all 0.2s ease;
+    }
+    .check-btn:hover {
+      transform: scale(1.05);
+    }
+    .correct {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+      color: white !important;
+      border-color: #059669 !important;
+    }
+    .incorrect {
+      background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
+      color: white !important;
+      border-color: #dc2626 !important;
+    }
+    .nav-btn {
+      transition: all 0.3s ease;
+    }
+    .nav-btn:hover {
+      transform: translateY(-2px);
+    }
+    .nav-btn.active {
+      transform: scale(1.1);
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+    }
+    .progress-bar {
+      transition: width 0.5s ease;
+    }
+    @keyframes bounce-in {
+      0% { transform: scale(0.8); opacity: 0; }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .animate-bounce-in {
+      animation: bounce-in 0.4s ease forwards;
+    }
+    @keyframes confetti {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(-100px) rotate(720deg); opacity: 0; }
+    }
+    .confetti {
+      animation: confetti 1s ease forwards;
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full bg-gradient-to-br from-indigo-100 via-purple-50 to-pink-100">
+  <div id="app-wrapper" class="h-full w-full overflow-auto">
+   <div class="min-h-full w-full p-4 md:p-8"><!-- Header -->
+    <header class="text-center mb-8">
+     <h1 id="main-title" class="text-3xl md:text-4xl font-extrabold text-indigo-800 mb-2">🇬🇧 Present Perfect Practice</h1>
+     <p id="subtitle" class="text-lg text-indigo-600 font-semibold">Unit 3 – An English Breakfast</p><!-- Progress Bar -->
+     <div class="mt-6 max-w-2xl mx-auto">
+      <div class="flex justify-between text-sm text-indigo-700 mb-2"><span>Napredak</span> <span id="progress-text">0 / 8 vježbi</span>
+      </div>
+      <div class="h-4 bg-white/50 rounded-full overflow-hidden shadow-inner">
+       <div id="progress-bar" class="progress-bar h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full" style="width: 0%"></div>
+      </div>
+     </div>
+    </header><!-- Navigation -->
+    <nav class="flex flex-wrap justify-center gap-2 mb-8 max-w-4xl mx-auto"><button onclick="showExercise(0)" class="nav-btn active px-4 py-2 rounded-full bg-indigo-600 text-white font-bold shadow-lg text-sm" data-nav="0">A</button> <button onclick="showExercise(1)" class="nav-btn px-4 py-2 rounded-full bg-white text-indigo-600 font-bold shadow-lg text-sm" data-nav="1">B</button> <button onclick="showExercise(2)" class="nav-btn px-4 py-2 rounded-full bg-white text-indigo-600 font-bold shadow-lg text-sm" data-nav="2">C</button> <button onclick="showExercise(3)" class="nav-btn px-4 py-2 rounded-full bg-white text-indigo-600 font-bold shadow-lg text-sm" data-nav="3">D</button> <button onclick="showExercise(4)" class="nav-btn px-4 py-2 rounded-full bg-white text-indigo-600 font-bold shadow-lg text-sm" data-nav="4">E</button> <button onclick="showExercise(5)" class="nav-btn px-4 py-2 rounded-full bg-white text-indigo-600 font-bold shadow-lg text-sm" data-nav="5">F</button> <button onclick="showExercise(6)" class="nav-btn px-4 py-2 rounded-full bg-white text-indigo-600 font-bold shadow-lg text-sm" data-nav="6">G</button> <button onclick="showExercise(7)" class="nav-btn px-4 py-2 rounded-full bg-white text-indigo-600 font-bold shadow-lg text-sm" data-nav="7">H</button>
+    </nav><!-- Exercise Container -->
+    <div id="exercise-container" class="max-w-4xl mx-auto"><!-- Exercises will be rendered here -->
+    </div><!-- Score Display -->
+    <div id="score-display" class="fixed bottom-4 right-4 bg-white rounded-2xl shadow-xl p-4 hidden">
+     <div class="flex items-center gap-3"><span class="text-3xl">🏆</span>
+      <div>
+       <p class="text-sm text-gray-600">Ukupan rezultat</p>
+       <p id="total-score" class="text-xl font-bold text-indigo-600">0 / 0</p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script>
+    // Default configuration
+    const defaultConfig = {
+      main_title: '🇬🇧 Present Perfect Practice',
+      subtitle: 'Unit 3 – An English Breakfast',
+      primary_color: '#4f46e5',
+      background_color: '#eef2ff',
+      text_color: '#1e1b4b',
+      accent_color: '#8b5cf6',
+      surface_color: '#ffffff'
+    };
+
+    let config = { ...defaultConfig };
+    let currentExercise = 0;
+    let completedExercises = new Set();
+    let scores = {};
+
+    // Exercise Data
+    const exercises = [
+      {
+        id: 'A',
+        title: '🟦 A. FORM: Affirmative / Negative / Question',
+        type: 'fill-multiple',
+        sections: [
+          {
+            instruction: '1️⃣ Napravi potvrdne rečenice u Present Perfectu.',
+            questions: [
+              { prompt: 'Abe / just / eat / breakfast', answer: 'Abe has just eaten breakfast' },
+              { prompt: 'Bea / already / eat / a plate of beans', answer: 'Bea has already eaten a plate of beans' },
+              { prompt: 'They / try / beans on toast', answer: 'They have tried beans on toast' },
+              { prompt: 'Abe / have / a big breakfast', answer: 'Abe has had a big breakfast' },
+              { prompt: 'Bea / drink / strong tea', answer: 'Bea has drunk strong tea' }
+            ]
+          },
+          {
+            instruction: '2️⃣ Napravi negativne rečenice u Present Perfectu.',
+            questions: [
+              { prompt: 'Bea / not eat / her fried egg / yet', answer: "Bea hasn't eaten her fried egg yet" },
+              { prompt: 'Abe / not try / brown sauce with crisps', answer: "Abe hasn't tried brown sauce with crisps" },
+              { prompt: 'They / not finish / breakfast / yet', answer: "They haven't finished breakfast yet" },
+              { prompt: 'I / not eat / beans for breakfast', answer: "I haven't eaten beans for breakfast" },
+              { prompt: 'She / not drink / tea today', answer: "She hasn't drunk tea today" }
+            ]
+          },
+          {
+            instruction: '3️⃣ Napravi pitanja u Present Perfectu.',
+            questions: [
+              { prompt: 'you / ever / try / beans on toast / ?', answer: 'Have you ever tried beans on toast?' },
+              { prompt: 'Abe / finish / breakfast / yet / ?', answer: 'Has Abe finished breakfast yet?' },
+              { prompt: 'Bea / ever / eat / brown sauce with crisps / ?', answer: 'Has Bea ever eaten brown sauce with crisps?' },
+              { prompt: 'they / already / eat / breakfast / ?', answer: 'Have they already eaten breakfast?' },
+              { prompt: 'you / ever / taste / strong tea / ?', answer: 'Have you ever tasted strong tea?' }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'B',
+        title: '🟦 B. Short Answers',
+        type: 'short-answers',
+        instruction: 'Odgovori na pitanja koristeći kratke odgovore.',
+        questions: [
+          { question: 'Have you ever eaten beans on toast?', yesAnswer: 'I have', noAnswer: "I haven't" },
+          { question: 'Has Bea finished her breakfast yet?', yesAnswer: 'she has', noAnswer: "she hasn't" },
+          { question: 'Have they already eaten?', yesAnswer: 'they have', noAnswer: "they haven't" },
+          { question: 'Has Abe tried brown sauce with crisps?', yesAnswer: 'he has', noAnswer: "he hasn't" }
+        ]
+      },
+      {
+        id: 'C',
+        title: '🟦 C. Adverbs: ever, never, just, already, yet',
+        type: 'dropdown',
+        instruction: '4️⃣ Dopuni rečenice sa: ever – never – just – already – yet',
+        options: ['ever', 'never', 'just', 'already', 'yet'],
+        questions: [
+          { sentence: 'Bea has ___ got up.', answer: 'just' },
+          { sentence: "I've ___ eaten beans for breakfast.", answer: 'never' },
+          { sentence: 'Have you ___ tried brown sauce?', answer: 'ever' },
+          { sentence: 'Abe has ___ eaten a plate of beans.', answer: 'already' },
+          { sentence: "She hasn't finished her fried egg ___.", answer: 'yet' },
+          { sentence: 'Have you finished breakfast ___?', answer: 'yet' }
+        ]
+      },
+      {
+        id: 'D',
+        title: '🟦 D. Prepositions of Time',
+        type: 'choice',
+        instruction: '5️⃣ Odaberi točan vremenski izraz.',
+        questions: [
+          { sentence: "I've eaten breakfast", options: ['today', 'yesterday'], answer: 'today' },
+          { sentence: "She's had three cups of coffee", options: ['this morning', 'last morning'], answer: 'this morning' },
+          { sentence: "We've eaten a lot of food", options: ['this week', 'last week'], answer: 'this week' },
+          { sentence: "He's studied a lot", options: ['this year', 'in 2022'], answer: 'this year' },
+          { sentence: "They've already had breakfast", options: ['today', 'on Sunday'], answer: 'today' }
+        ]
+      },
+      {
+        id: 'E',
+        title: '🟦 E. Present Perfect or NOT?',
+        type: 'checkbox',
+        instruction: '6️⃣ Označi (✔) rečenice gdje je Present Perfect točan.',
+        questions: [
+          { sentence: "I've eaten too much, so I feel sick now.", correct: true },
+          { sentence: "I've eaten breakfast at 7 o'clock this morning.", correct: false },
+          { sentence: "She's had five cups of coffee today.", correct: true },
+          { sentence: "He's lost his keys, so he can't enter the house.", correct: true },
+          { sentence: "We've had breakfast yesterday.", correct: false }
+        ]
+      },
+      {
+        id: 'F',
+        title: '🟦 F. USE OF PRESENT PERFECT',
+        type: 'matching',
+        instruction: '7️⃣ Poveži svaku rečenicu s tipom situacije.',
+        situations: [
+          'A. Life experience (životno iskustvo)',
+          'B. Finished action with result now (završena radnja s rezultatom)',
+          'C. Unfinished time period (nezavršeno vrijeme)',
+          'D. Completion / achievement (dovršetak)',
+          'E. Repeated action up to now (ponovljena radnja)',
+          'F. First / second time (prvi/drugi put)'
+        ],
+        questions: [
+          { sentence: "I've never eaten black pudding.", answer: 'A' },
+          { sentence: "She's had three cups of coffee today.", answer: 'C' },
+          { sentence: "I've finally finished my homework.", answer: 'D' },
+          { sentence: "I've eaten too much, and now I feel sick.", answer: 'B' },
+          { sentence: "This is the first time I've tried beans on toast.", answer: 'F' },
+          { sentence: "We've eaten at that café many times.", answer: 'E' }
+        ]
+      },
+      {
+        id: 'G',
+        title: '🟦 G. Situation → Sentence',
+        type: 'situation',
+        instruction: '8️⃣ Napiši rečenicu u Present Perfectu za svaku situaciju.',
+        questions: [
+          { situation: 'Bea je upravo završila s jelom.', hint: 'Bea / just / finish / eating', answer: 'Bea has just finished eating' },
+          { situation: 'Abe sada nema ključeve.', hint: 'Abe / lose / his keys', answer: 'Abe has lost his keys' },
+          { situation: 'Želiš pitati je li netko probao čudan doručak.', hint: 'you / ever / try / a strange breakfast', answer: 'Have you ever tried a strange breakfast?' },
+          { situation: 'Netko nije završio jesti.', hint: 'Someone / not finish / eating / yet', answer: "Someone hasn't finished eating yet" },
+          { situation: 'Ovo ti je prvi put da jedeš puni engleski doručak.', hint: 'This / be / first time / I / eat...', answer: 'This is the first time I have eaten a full English breakfast' }
+        ]
+      },
+      {
+        id: 'H',
+        title: '🟦 H. Speaking Practice',
+        type: 'speaking',
+        instruction: '9️⃣ Vježba razgovora - Postavi i odgovori na pitanja.',
+        prompts: [
+          { topic: 'beans on toast', question: 'Have you ever eaten beans on toast?' },
+          { topic: 'brown sauce', question: 'Have you ever tried brown sauce?' },
+          { topic: 'strong tea', question: 'Have you ever drunk strong tea?' },
+          { topic: 'a full English breakfast', question: 'Have you ever had a full English breakfast?' }
+        ]
+      }
+    ];
+
+    // Render Exercise
+    function renderExercise(index) {
+      const exercise = exercises[index];
+      const container = document.getElementById('exercise-container');
+      let html = '';
+
+      html += `<div class="exercise-card bg-white rounded-3xl shadow-xl p-6 md:p-8 animate-bounce-in">`;
+      html += `<h2 class="text-xl md:text-2xl font-bold text-indigo-800 mb-4">${exercise.title}</h2>`;
+
+      switch(exercise.type) {
+        case 'fill-multiple':
+          html += renderFillMultiple(exercise, index);
+          break;
+        case 'short-answers':
+          html += renderShortAnswers(exercise, index);
+          break;
+        case 'dropdown':
+          html += renderDropdown(exercise, index);
+          break;
+        case 'choice':
+          html += renderChoice(exercise, index);
+          break;
+        case 'checkbox':
+          html += renderCheckbox(exercise, index);
+          break;
+        case 'matching':
+          html += renderMatching(exercise, index);
+          break;
+        case 'situation':
+          html += renderSituation(exercise, index);
+          break;
+        case 'speaking':
+          html += renderSpeaking(exercise, index);
+          break;
+      }
+
+      html += `</div>`;
+      container.innerHTML = html;
+    }
+
+    function renderFillMultiple(exercise, exIndex) {
+      let html = '';
+      exercise.sections.forEach((section, sIndex) => {
+        html += `<div class="mb-8">`;
+        html += `<p class="text-indigo-700 font-semibold mb-4">${section.instruction}</p>`;
+        section.questions.forEach((q, qIndex) => {
+          const inputId = `fill-${exIndex}-${sIndex}-${qIndex}`;
+          html += `
+            <div class="mb-4 p-4 bg-indigo-50 rounded-xl">
+              <p class="text-gray-700 mb-2 font-medium">📝 ${q.prompt}</p>
+              <input type="text" id="${inputId}" 
+                class="input-field w-full p-3 border-2 border-indigo-200 rounded-xl focus:border-indigo-500 focus:outline-none text-gray-800"
+                placeholder="Upiši odgovor...">
+              <p id="${inputId}-feedback" class="mt-2 text-sm hidden"></p>
+            </div>
+          `;
+        });
+        html += `</div>`;
+      });
+      html += `<button onclick="checkFillMultiple(${exIndex})" class="check-btn w-full py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl">✅ Provjeri odgovore</button>`;
+      return html;
+    }
+
+    function renderShortAnswers(exercise, exIndex) {
+      let html = `<p class="text-indigo-700 font-semibold mb-6">${exercise.instruction}</p>`;
+      exercise.questions.forEach((q, qIndex) => {
+        html += `
+          <div class="mb-6 p-4 bg-purple-50 rounded-xl">
+            <p class="text-gray-800 font-medium mb-3">❓ ${q.question}</p>
+            <div class="flex flex-wrap gap-3">
+              <div class="flex items-center gap-2">
+                <span class="text-green-600 font-semibold">Yes,</span>
+                <input type="text" id="short-yes-${exIndex}-${qIndex}" 
+                  class="input-field w-32 p-2 border-2 border-green-200 rounded-lg focus:border-green-500 focus:outline-none"
+                  placeholder="...">
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-red-500 font-semibold">No,</span>
+                <input type="text" id="short-no-${exIndex}-${qIndex}" 
+                  class="input-field w-32 p-2 border-2 border-red-200 rounded-lg focus:border-red-500 focus:outline-none"
+                  placeholder="...">
+              </div>
+            </div>
+            <p id="short-feedback-${exIndex}-${qIndex}" class="mt-2 text-sm hidden"></p>
+          </div>
+        `;
+      });
+      html += `<button onclick="checkShortAnswers(${exIndex})" class="check-btn w-full py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold rounded-xl shadow-lg">✅ Provjeri odgovore</button>`;
+      return html;
+    }
+
+    function renderDropdown(exercise, exIndex) {
+      let html = `<p class="text-indigo-700 font-semibold mb-6">${exercise.instruction}</p>`;
+      html += `<div class="flex flex-wrap gap-2 mb-6">`;
+      exercise.options.forEach(opt => {
+        html += `<span class="px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full font-semibold">${opt}</span>`;
+      });
+      html += `</div>`;
+      
+      exercise.questions.forEach((q, qIndex) => {
+        const parts = q.sentence.split('___');
+        html += `
+          <div class="mb-4 p-4 bg-indigo-50 rounded-xl flex flex-wrap items-center gap-2">
+            <span class="text-gray-800">${parts[0]}</span>
+            <select id="dropdown-${exIndex}-${qIndex}" class="input-field p-2 border-2 border-indigo-300 rounded-lg bg-white focus:border-indigo-500 focus:outline-none font-semibold">
+              <option value="">---</option>
+              ${exercise.options.map(opt => `<option value="${opt}">${opt}</option>`).join('')}
+            </select>
+            <span class="text-gray-800">${parts[1] || ''}</span>
+          </div>
+        `;
+      });
+      html += `<button onclick="checkDropdown(${exIndex})" class="check-btn w-full py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-xl shadow-lg">✅ Provjeri odgovore</button>`;
+      return html;
+    }
+
+    function renderChoice(exercise, exIndex) {
+      let html = `<p class="text-indigo-700 font-semibold mb-6">${exercise.instruction}</p>`;
+      exercise.questions.forEach((q, qIndex) => {
+        html += `
+          <div class="mb-4 p-4 bg-green-50 rounded-xl">
+            <p class="text-gray-800 mb-3">${q.sentence} ___</p>
+            <div class="flex flex-wrap gap-3">
+              ${q.options.map((opt, oIndex) => `
+                <button onclick="selectChoice(${exIndex}, ${qIndex}, '${opt}')" 
+                  id="choice-${exIndex}-${qIndex}-${oIndex}"
+                  class="px-6 py-2 border-2 border-green-300 rounded-full hover:bg-green-100 font-semibold transition-all">
+                  ${opt}
+                </button>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      });
+      html += `<button onclick="checkChoice(${exIndex})" class="check-btn w-full py-4 bg-gradient-to-r from-green-600 to-teal-600 text-white font-bold rounded-xl shadow-lg">✅ Provjeri odgovore</button>`;
+      return html;
+    }
+
+    let selectedChoices = {};
+
+    function selectChoice(exIndex, qIndex, value) {
+      if (!selectedChoices[exIndex]) selectedChoices[exIndex] = {};
+      selectedChoices[exIndex][qIndex] = value;
+      
+      // Update visual
+      const exercise = exercises[exIndex];
+      exercise.questions[qIndex].options.forEach((opt, oIndex) => {
+        const btn = document.getElementById(`choice-${exIndex}-${qIndex}-${oIndex}`);
+        if (opt === value) {
+          btn.classList.add('bg-green-500', 'text-white', 'border-green-500');
+        } else {
+          btn.classList.remove('bg-green-500', 'text-white', 'border-green-500');
+        }
+      });
+    }
+
+    function renderCheckbox(exercise, exIndex) {
+      let html = `<p class="text-indigo-700 font-semibold mb-6">${exercise.instruction}</p>`;
+      exercise.questions.forEach((q, qIndex) => {
+        html += `
+          <div class="mb-4 p-4 bg-yellow-50 rounded-xl flex items-start gap-3">
+            <input type="checkbox" id="check-${exIndex}-${qIndex}" 
+              class="w-6 h-6 mt-1 accent-indigo-600 cursor-pointer">
+            <label for="check-${exIndex}-${qIndex}" class="text-gray-800 cursor-pointer">${q.sentence}</label>
+          </div>
+        `;
+      });
+      html += `<button onclick="checkCheckbox(${exIndex})" class="check-btn w-full py-4 bg-gradient-to-r from-yellow-500 to-orange-500 text-white font-bold rounded-xl shadow-lg">✅ Provjeri odgovore</button>`;
+      return html;
+    }
+
+    function renderMatching(exercise, exIndex) {
+      let html = `<p class="text-indigo-700 font-semibold mb-4">${exercise.instruction}</p>`;
+      html += `<div class="mb-6 p-4 bg-blue-50 rounded-xl"><p class="font-semibold text-blue-800 mb-2">Situacije:</p>`;
+      exercise.situations.forEach(s => {
+        html += `<p class="text-gray-700 text-sm mb-1">${s}</p>`;
+      });
+      html += `</div>`;
+      
+      exercise.questions.forEach((q, qIndex) => {
+        html += `
+          <div class="mb-4 p-4 bg-indigo-50 rounded-xl flex flex-wrap items-center gap-3">
+            <select id="match-${exIndex}-${qIndex}" class="input-field p-2 border-2 border-indigo-300 rounded-lg bg-white w-16 font-bold">
+              <option value="">-</option>
+              <option value="A">A</option>
+              <option value="B">B</option>
+              <option value="C">C</option>
+              <option value="D">D</option>
+              <option value="E">E</option>
+              <option value="F">F</option>
+            </select>
+            <span class="text-gray-800">${q.sentence}</span>
+          </div>
+        `;
+      });
+      html += `<button onclick="checkMatching(${exIndex})" class="check-btn w-full py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold rounded-xl shadow-lg">✅ Provjeri odgovore</button>`;
+      return html;
+    }
+
+    function renderSituation(exercise, exIndex) {
+      let html = `<p class="text-indigo-700 font-semibold mb-6">${exercise.instruction}</p>`;
+      exercise.questions.forEach((q, qIndex) => {
+        html += `
+          <div class="mb-6 p-4 bg-pink-50 rounded-xl">
+            <p class="text-gray-800 font-medium mb-2">📍 ${q.situation}</p>
+            <p class="text-pink-600 text-sm mb-3">💡 Pomoć: ${q.hint}</p>
+            <input type="text" id="situation-${exIndex}-${qIndex}" 
+              class="input-field w-full p-3 border-2 border-pink-200 rounded-xl focus:border-pink-500 focus:outline-none"
+              placeholder="Napiši rečenicu...">
+            <p id="situation-feedback-${exIndex}-${qIndex}" class="mt-2 text-sm hidden"></p>
+          </div>
+        `;
+      });
+      html += `<button onclick="checkSituation(${exIndex})" class="check-btn w-full py-4 bg-gradient-to-r from-pink-600 to-rose-600 text-white font-bold rounded-xl shadow-lg">✅ Provjeri odgovore</button>`;
+      return html;
+    }
+
+    function renderSpeaking(exercise, exIndex) {
+      let html = `<p class="text-indigo-700 font-semibold mb-6">${exercise.instruction}</p>`;
+      html += `<p class="text-gray-600 mb-6">Koristi: <strong>Have you ever…?</strong></p>`;
+      
+      exercise.prompts.forEach((p, pIndex) => {
+        html += `
+          <div class="mb-6 p-6 bg-gradient-to-r from-violet-50 to-purple-50 rounded-xl">
+            <p class="text-lg font-bold text-purple-800 mb-3">🗣️ ${p.topic}</p>
+            <p class="text-gray-700 mb-4 italic">"${p.question}"</p>
+            <div class="flex flex-wrap gap-3">
+              <button onclick="showSpeakingResponse(${pIndex}, true)" 
+                class="px-6 py-3 bg-green-500 text-white rounded-full font-bold hover:bg-green-600 transition-all">
+                ✅ Yes, I have!
+              </button>
+              <button onclick="showSpeakingResponse(${pIndex}, false)" 
+                class="px-6 py-3 bg-red-400 text-white rounded-full font-bold hover:bg-red-500 transition-all">
+                ❌ No, I haven't.
+              </button>
+            </div>
+            <div id="speaking-response-${pIndex}" class="mt-4 hidden">
+              <p class="text-purple-700 font-semibold"></p>
+            </div>
+          </div>
+        `;
+      });
+      
+      html += `<div class="mt-6 p-4 bg-indigo-100 rounded-xl text-center">
+        <p class="text-indigo-800 font-semibold">🎯 Vježba: Postavi ova pitanja prijatelju i zabilježi odgovore!</p>
+      </div>`;
+      
+      return html;
+    }
+
+    function showSpeakingResponse(index, isYes) {
+      const responseDiv = document.getElementById(`speaking-response-${index}`);
+      responseDiv.classList.remove('hidden');
+      const emoji = isYes ? '😋' : '🤔';
+      const text = isYes ? 'Odlično! Reci više o tom iskustvu!' : 'Možda ćeš jednom probati!';
+      responseDiv.querySelector('p').textContent = `${emoji} ${text}`;
+      completedExercises.add(7);
+      updateProgress();
+    }
+
+    // Check Functions
+    function normalizeAnswer(str) {
+      return str.toLowerCase().trim().replace(/['']/g, "'").replace(/\s+/g, ' ');
+    }
+
+    function checkFillMultiple(exIndex) {
+      const exercise = exercises[exIndex];
+      let correct = 0;
+      let total = 0;
+      
+      exercise.sections.forEach((section, sIndex) => {
+        section.questions.forEach((q, qIndex) => {
+          total++;
+          const inputId = `fill-${exIndex}-${sIndex}-${qIndex}`;
+          const input = document.getElementById(inputId);
+          const feedback = document.getElementById(`${inputId}-feedback`);
+          const userAnswer = normalizeAnswer(input.value);
+          const correctAnswer = normalizeAnswer(q.answer);
+          
+          feedback.classList.remove('hidden');
+          if (userAnswer === correctAnswer) {
+            correct++;
+            input.classList.add('correct');
+            input.classList.remove('incorrect');
+            feedback.textContent = '✅ Točno!';
+            feedback.className = 'mt-2 text-sm text-green-600 font-semibold';
+          } else {
+            input.classList.add('incorrect');
+            input.classList.remove('correct');
+            feedback.textContent = `❌ Točan odgovor: ${q.answer}`;
+            feedback.className = 'mt-2 text-sm text-red-500 font-semibold';
+          }
+        });
+      });
+      
+      scores[exIndex] = { correct, total };
+      completedExercises.add(exIndex);
+      updateProgress();
+      showScorePopup(correct, total);
+    }
+
+    function checkShortAnswers(exIndex) {
+      const exercise = exercises[exIndex];
+      let correct = 0;
+      let total = exercise.questions.length * 2;
+      
+      exercise.questions.forEach((q, qIndex) => {
+        const yesInput = document.getElementById(`short-yes-${exIndex}-${qIndex}`);
+        const noInput = document.getElementById(`short-no-${exIndex}-${qIndex}`);
+        const feedback = document.getElementById(`short-feedback-${exIndex}-${qIndex}`);
+        
+        const userYes = normalizeAnswer(yesInput.value);
+        const userNo = normalizeAnswer(noInput.value);
+        const correctYes = normalizeAnswer(q.yesAnswer);
+        const correctNo = normalizeAnswer(q.noAnswer);
+        
+        let feedbackText = '';
+        
+        if (userYes === correctYes) {
+          correct++;
+          yesInput.classList.add('correct');
+          yesInput.classList.remove('incorrect');
+        } else {
+          yesInput.classList.add('incorrect');
+          yesInput.classList.remove('correct');
+          feedbackText += `Yes: ${q.yesAnswer} `;
+        }
+        
+        if (userNo === correctNo) {
+          correct++;
+          noInput.classList.add('correct');
+          noInput.classList.remove('incorrect');
+        } else {
+          noInput.classList.add('incorrect');
+          noInput.classList.remove('correct');
+          feedbackText += `No: ${q.noAnswer}`;
+        }
+        
+        feedback.classList.remove('hidden');
+        if (feedbackText) {
+          feedback.textContent = `❌ Točni odgovori: ${feedbackText}`;
+          feedback.className = 'mt-2 text-sm text-red-500 font-semibold';
+        } else {
+          feedback.textContent = '✅ Oba točna!';
+          feedback.className = 'mt-2 text-sm text-green-600 font-semibold';
+        }
+      });
+      
+      scores[exIndex] = { correct, total };
+      completedExercises.add(exIndex);
+      updateProgress();
+      showScorePopup(correct, total);
+    }
+
+    function checkDropdown(exIndex) {
+      const exercise = exercises[exIndex];
+      let correct = 0;
+      
+      exercise.questions.forEach((q, qIndex) => {
+        const select = document.getElementById(`dropdown-${exIndex}-${qIndex}`);
+        if (select.value.toLowerCase() === q.answer.toLowerCase()) {
+          correct++;
+          select.classList.add('correct');
+          select.classList.remove('incorrect');
+        } else {
+          select.classList.add('incorrect');
+          select.classList.remove('correct');
+        }
+      });
+      
+      scores[exIndex] = { correct, total: exercise.questions.length };
+      completedExercises.add(exIndex);
+      updateProgress();
+      showScorePopup(correct, exercise.questions.length);
+    }
+
+    function checkChoice(exIndex) {
+      const exercise = exercises[exIndex];
+      let correct = 0;
+      
+      exercise.questions.forEach((q, qIndex) => {
+        const selected = selectedChoices[exIndex]?.[qIndex];
+        q.options.forEach((opt, oIndex) => {
+          const btn = document.getElementById(`choice-${exIndex}-${qIndex}-${oIndex}`);
+          btn.classList.remove('bg-green-500', 'bg-red-500', 'text-white');
+          
+          if (opt === q.answer) {
+            btn.classList.add('correct');
+            if (selected === opt) correct++;
+          } else if (selected === opt) {
+            btn.classList.add('incorrect');
+          }
+        });
+      });
+      
+      scores[exIndex] = { correct, total: exercise.questions.length };
+      completedExercises.add(exIndex);
+      updateProgress();
+      showScorePopup(correct, exercise.questions.length);
+    }
+
+    function checkCheckbox(exIndex) {
+      const exercise = exercises[exIndex];
+      let correct = 0;
+      
+      exercise.questions.forEach((q, qIndex) => {
+        const checkbox = document.getElementById(`check-${exIndex}-${qIndex}`);
+        const parent = checkbox.parentElement;
+        
+        if (checkbox.checked === q.correct) {
+          correct++;
+          parent.classList.add('bg-green-100', 'border-2', 'border-green-500');
+          parent.classList.remove('bg-red-100', 'border-red-500');
+        } else {
+          parent.classList.add('bg-red-100', 'border-2', 'border-red-500');
+          parent.classList.remove('bg-green-100', 'border-green-500');
+        }
+      });
+      
+      scores[exIndex] = { correct, total: exercise.questions.length };
+      completedExercises.add(exIndex);
+      updateProgress();
+      showScorePopup(correct, exercise.questions.length);
+    }
+
+    function checkMatching(exIndex) {
+      const exercise = exercises[exIndex];
+      let correct = 0;
+      
+      exercise.questions.forEach((q, qIndex) => {
+        const select = document.getElementById(`match-${exIndex}-${qIndex}`);
+        if (select.value === q.answer) {
+          correct++;
+          select.classList.add('correct');
+          select.classList.remove('incorrect');
+        } else {
+          select.classList.add('incorrect');
+          select.classList.remove('correct');
+        }
+      });
+      
+      scores[exIndex] = { correct, total: exercise.questions.length };
+      completedExercises.add(exIndex);
+      updateProgress();
+      showScorePopup(correct, exercise.questions.length);
+    }
+
+    function checkSituation(exIndex) {
+      const exercise = exercises[exIndex];
+      let correct = 0;
+      
+      exercise.questions.forEach((q, qIndex) => {
+        const input = document.getElementById(`situation-${exIndex}-${qIndex}`);
+        const feedback = document.getElementById(`situation-feedback-${exIndex}-${qIndex}`);
+        const userAnswer = normalizeAnswer(input.value);
+        const correctAnswer = normalizeAnswer(q.answer);
+        
+        feedback.classList.remove('hidden');
+        if (userAnswer === correctAnswer) {
+          correct++;
+          input.classList.add('correct');
+          input.classList.remove('incorrect');
+          feedback.textContent = '✅ Točno!';
+          feedback.className = 'mt-2 text-sm text-green-600 font-semibold';
+        } else {
+          input.classList.add('incorrect');
+          input.classList.remove('correct');
+          feedback.textContent = `❌ Točan odgovor: ${q.answer}`;
+          feedback.className = 'mt-2 text-sm text-red-500 font-semibold';
+        }
+      });
+      
+      scores[exIndex] = { correct, total: exercise.questions.length };
+      completedExercises.add(exIndex);
+      updateProgress();
+      showScorePopup(correct, exercise.questions.length);
+    }
+
+    function showScorePopup(correct, total) {
+      const scoreDisplay = document.getElementById('score-display');
+      const totalScore = document.getElementById('total-score');
+      
+      let totalCorrect = 0;
+      let totalQuestions = 0;
+      Object.values(scores).forEach(s => {
+        totalCorrect += s.correct;
+        totalQuestions += s.total;
+      });
+      
+      totalScore.textContent = `${totalCorrect} / ${totalQuestions}`;
+      scoreDisplay.classList.remove('hidden');
+      scoreDisplay.classList.add('animate-bounce-in');
+    }
+
+    function updateProgress() {
+      const progressBar = document.getElementById('progress-bar');
+      const progressText = document.getElementById('progress-text');
+      const percentage = (completedExercises.size / exercises.length) * 100;
+      
+      progressBar.style.width = `${percentage}%`;
+      progressText.textContent = `${completedExercises.size} / ${exercises.length} vježbi`;
+    }
+
+    function showExercise(index) {
+      currentExercise = index;
+      renderExercise(index);
+      
+      // Update nav buttons
+      document.querySelectorAll('[data-nav]').forEach((btn, i) => {
+        if (i === index) {
+          btn.classList.add('active', 'bg-indigo-600', 'text-white');
+          btn.classList.remove('bg-white', 'text-indigo-600');
+        } else {
+          btn.classList.remove('active', 'bg-indigo-600', 'text-white');
+          btn.classList.add('bg-white', 'text-indigo-600');
+        }
+      });
+    }
+
+    // Element SDK Integration
+    async function initializeApp() {
+      if (window.elementSdk) {
+        await window.elementSdk.init({
+          defaultConfig,
+          onConfigChange: async (newConfig) => {
+            config = { ...defaultConfig, ...newConfig };
+            
+            const mainTitle = document.getElementById('main-title');
+            const subtitle = document.getElementById('subtitle');
+            
+            if (mainTitle) mainTitle.textContent = config.main_title || defaultConfig.main_title;
+            if (subtitle) subtitle.textContent = config.subtitle || defaultConfig.subtitle;
+          },
+          mapToCapabilities: (cfg) => ({
+            recolorables: [
+              {
+                get: () => cfg.primary_color || defaultConfig.primary_color,
+                set: (value) => { cfg.primary_color = value; window.elementSdk.setConfig({ primary_color: value }); }
+              },
+              {
+                get: () => cfg.background_color || defaultConfig.background_color,
+                set: (value) => { cfg.background_color = value; window.elementSdk.setConfig({ background_color: value }); }
+              },
+              {
+                get: () => cfg.text_color || defaultConfig.text_color,
+                set: (value) => { cfg.text_color = value; window.elementSdk.setConfig({ text_color: value }); }
+              },
+              {
+                get: () => cfg.accent_color || defaultConfig.accent_color,
+                set: (value) => { cfg.accent_color = value; window.elementSdk.setConfig({ accent_color: value }); }
+              },
+              {
+                get: () => cfg.surface_color || defaultConfig.surface_color,
+                set: (value) => { cfg.surface_color = value; window.elementSdk.setConfig({ surface_color: value }); }
+              }
+            ],
+            borderables: [],
+            fontEditable: undefined,
+            fontSizeable: undefined
+          }),
+          mapToEditPanelValues: (cfg) => new Map([
+            ['main_title', cfg.main_title || defaultConfig.main_title],
+            ['subtitle', cfg.subtitle || defaultConfig.subtitle]
+          ])
+        });
+      }
+      
+      // Initial render
+      showExercise(0);
+    }
+
+    // Initialize on page load
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initializeApp);
+    } else {
+      initializeApp();
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c09fd72e224d814',t:'MTc2ODg2NDA2NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
