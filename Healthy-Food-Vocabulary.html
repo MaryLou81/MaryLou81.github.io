@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Super Healthy Food</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f9fafc;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    header h1 {
+      color: #007bff;
+      font-size: 26px;
+      margin: 0;
+    }
+    header a {
+      text-decoration: none;
+      color: #fff;
+      background: linear-gradient(135deg, #00bfa6, #007bff);
+      padding: 10px 24px;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    header a:hover {
+      background: linear-gradient(135deg, #007bff, #00bfa6);
+      transform: translateY(-2px);
+    }
+    .hero {
+      display: flex;
+      height: 360px;
+      overflow: hidden;
+    }
+    .hero img {
+      width: 50%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .container {
+      max-width: 960px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+    .word-block {
+      margin-bottom: 36px;
+    }
+    .word-block h2 {
+      color: #00bfa6;
+      margin-bottom: 12px;
+      font-size: 1.45rem;
+    }
+    .meaning {
+      font-style: italic;
+      color: #555;
+      margin-bottom: 12px;
+    }
+    .example {
+      margin-left: 24px;
+      color: #444;
+      margin-bottom: 8px;
+    }
+    .note {
+      color: #e67e22;
+      font-weight: 500;
+    }
+    .table-section {
+      margin-top: 60px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 24px;
+      font-size: 0.95rem;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: center;
+      vertical-align: middle;
+    }
+    th {
+      background: linear-gradient(135deg, #007bff, #0056b3);
+      color: white;
+      font-weight: 600;
+    }
+    tr:nth-child(even) {
+      background-color: #f8f9fa;
+    }
+    input[type="text"] {
+      width: 85%;
+      padding: 6px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 0.95rem;
+    }
+    .correct { background-color: #d4edda !important; color: #155724; }
+    .wrong   { background-color: #f8d7da !important; color: #721c24; }
+    button {
+      margin-top: 20px;
+      padding: 12px 28px;
+      background: #28a745;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+    button:hover {
+      background: #218838;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>SUPER HEALTHY FOOD</h1>
+  <a href="exercise.html">EXERCISE</a>
+</header>
+
+<div class="hero">
+  <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Fresh healthy colorful salad">
+  <img src="https://cdn.pixabay.com/photo/2022/03/01/09/28/fast-food-7040934_1280.jpg" alt="Unhealthy fast food with burger and fries">
+</div>
+
+<div class="container">
+
+  <div class="word-block">
+    <h2>1. ability (n)</h2>
+    <p class="meaning">Meaning: the skill or power to do something.</p>
+    <p class="example">🔹 ability (n) – sposobnost<br>➡ She has the ability to learn languages quickly.</p>
+    <p class="example">🔹 able (adj) – capable of doing something<br>➡ He is able to solve difficult problems.</p>
+    <p class="example">🔹 enable (v) – to make something possible<br>➡ Good education enables people to find better jobs.</p>
+  </div>
+
+  <div class="word-block">
+    <h2>2. multitask (v)</h2>
+    <p class="meaning">Meaning: to do more than one thing at the same time.</p>
+    <p class="example">🔹 multitask (v)<br>➡ I can’t multitask when I’m tired.</p>
+    <p class="example">🔹 multitasking (n) – doing many things at once<br>➡ Multitasking can be difficult for children.</p>
+    <p class="example">🔹 multitasker (n) – a person who multitasks<br>➡ She is a good multitasker at school.</p>
+  </div>
+
+  <div class="word-block">
+    <h2>3. abstract (adj)</h2>
+    <p class="meaning">Meaning: difficult to understand because it is about ideas, not physical things.</p>
+    <p class="example">🔹 abstract (adj)<br>➡ Love is an abstract idea.</p>
+    <p class="example">🔹 abstraction (n) – an abstract idea<br>➡ Freedom is an important abstraction.</p>
+    <p class="example note">📌 Concrete = something you can see or touch<br>📌 Abstract = something you can only think about</p>
+  </div>
+
+  <div class="word-block">
+    <h2>4. improve (v)</h2>
+    <p class="meaning">Meaning: to make something better.</p>
+    <p class="example">🔹 improve (v)<br>➡ Eating healthy food can improve your memory.</p>
+    <p class="example">🔹 improvement (n) – a change that makes something better<br>➡ There is a big improvement in his English.</p>
+    <p class="example">🔹 improving (adj) – getting better<br>➡ Her health is improving.</p>
+  </div>
+
+  <div class="word-block">
+    <h2>5. rich (adj)</h2>
+    <p class="example">Meaning 1: wealthy (having a lot of money)<br>➡ His family is rich and lives in a big house.</p>
+    <p class="example">Meaning 2: full of flavour or nutrients<br>➡ Salmon is rich in Omega-3.</p>
+    <p class="example">🔹 richness (n)<br>➡ The richness of the soup comes from the spices.</p>
+    <p class="example">🔹 enrich (v)<br>➡ Reading can enrich your vocabulary.</p>
+  </div>
+
+  <div class="word-block">
+    <h2>6. salmon (n)</h2>
+    <p class="meaning">Meaning: a type of fish; losos</p>
+    <p class="example">🔹 salmon (n)<br>➡ Salmon is rich in Omega-3.</p>
+    <p class="example">Other common fish:<br>tuna – tuna<br>cod – bakalar<br>sardines – sardine<br>trout – pastrmka<br>mackerel – skuša<br>➡ Tuna and sardines are often eaten in the Mediterranean.</p>
+  </div>
+
+  <div class="word-block">
+    <h2>7. protect (v)</h2>
+    <p class="meaning">Meaning: to keep someone or something safe from danger.</p>
+    <p class="example">🔹 protect (v)<br>➡ Helmets protect your head.</p>
+    <p class="example">🔹 protection (n)<br>➡ Sunscreen gives protection from the sun.</p>
+    <p class="example">🔹 protective (adj)<br>➡ Garlic has protective effects on health.</p>
+  </div>
+
+  <div class="word-block">
+    <h2>8. disease (n)</h2>
+    <p class="meaning">Meaning: an illness that affects the body or mind.</p>
+    <p class="example">🔹 disease (n)<br>➡ Heart disease is very serious.</p>
+    <p class="example">🔹 diseased (adj)<br>➡ The doctor treated diseased tissue.</p>
+  </div>
+
+  <div class="word-block">
+    <h2>9. dementia (n)</h2>
+    <p class="meaning">Meaning: a serious illness that affects memory and thinking.</p>
+    <p class="example">🔹 dementia (n)<br>➡ Dementia affects the brain and memory.</p>
+    <p class="example">🔹 demented (adj) (samo spomenuti)<br>➡ The disease can make patients confused.</p>
+  </div>
+
+  <div class="word-block">
+    <h2>10. effect (n)</h2>
+    <p class="meaning">Meaning: a result or change caused by something.</p>
+    <p class="example">🔹 effect (n)<br>➡ Exercise has a positive effect on the brain.</p>
+    <p class="example">🔹 effective (adj)<br>➡ This medicine is very effective.</p>
+    <p class="example">🔹 effectively (adv)<br>➡ She studies effectively every day.</p>
+    <p class="example note">📌 effect = noun</p>
+  </div>
+
+  <div class="word-block">
+    <h2>11. pickles (n, plural)</h2>
+    <p class="meaning">Meaning: vegetables preserved in vinegar or salt water.</p>
+    <p class="example">🔹 pickles (n)<br>➡ Pickles are often eaten in burgers.</p>
+    <p class="example">🔹 pickle (v)<br>➡ People pickle vegetables to keep them longer.</p>
+  </div>
+
+  <div class="word-block">
+    <h2>12. pickled food (n)</h2>
+    <p class="meaning">Meaning: food preserved in vinegar or brine.</p>
+    <p class="example">🔹 pickled food (n)<br>➡ Pickled food is popular in many countries.</p>
+  </div>
+
+  <div class="word-block">
+    <h2>13. crunchy (adj)</h2>
+    <p class="meaning">Meaning: hard and noisy when you bite it.</p>
+    <p class="example">🔹 crunchy (adj)<br>➡ Pickles are crunchy and tasty.</p>
+    <p class="example">🔹 crunch (v)<br>➡ I crunched an apple.</p>
+  </div>
+
+  <div class="word-block">
+    <h2>14. relaxed (adj)</h2>
+    <p class="meaning">Meaning: calm, not nervous.</p>
+    <p class="example">🔹 relaxed (adj)<br>➡ After the exam, I felt relaxed.</p>
+    <p class="example">🔹 relax (v)<br>➡ Music helps me relax.</p>
+    <p class="example">🔹 relaxation (n)<br>➡ Reading is a form of relaxation.</p>
+  </div>
+
+  <div class="word-block">
+    <h2>15. treat (n / v)</h2>
+    <p class="example">treat (n) – something special<br>➡ Pumpkin seeds are a healthy treat.</p>
+    <p class="example">treat (v) – give medical care<br>➡ Doctors treat sick people.</p>
+    <p class="example">treat (v) – behave towards<br>➡ Treat others with respect.</p>
+  </div>
+
+  <div class="word-block">
+    <h2>16. raw (adj)</h2>
+    <p class="meaning">Meaning: not cooked.</p>
+    <p class="example">🔹 raw (adj)<br>➡ It is healthier to eat pumpkin seeds raw.</p>
+    <p class="example">🔹 raw food (n)<br>➡ Some people prefer raw food.</p>
+  </div>
+
+  <div class="word-block">
+    <h2>17. dish (n / v)</h2>
+    <p class="example">dish (n) – meal<br>➡ This dish is popular in Italy.</p>
+    <p class="example">dish (n) – plate<br>➡ Put the dish on the table.</p>
+    <p class="example">dish (v) – serve food<br>➡ She dished the soup.</p>
+  </div>
+
+  <div class="word-block">
+    <h2>18. common (adj)</h2>
+    <p class="example">Meaning 1: usual<br>➡ The common cold is common in winter.</p>
+    <p class="example">Meaning 2: shared<br>➡ We have a common goal.</p>
+    <p class="example">🔹 commonly (adv)<br>➡ Garlic is commonly used in cooking.</p>
+  </div>
+
+  <div class="word-block">
+    <h2>19. strengthen (v)</h2>
+    <p class="meaning">Meaning: to make stronger.</p>
+    <p class="example">🔹 strengthen (v)<br>➡ Milk helps strengthen bones.</p>
+    <p class="example">🔹 strength (n)<br>➡ Exercise gives you strength.</p>
+    <p class="example">🔹 strong (adj)<br>➡ Garlic has a strong taste.</p>
+  </div>
+
+  <div class="word-block">
+    <h2>20. spicy (adj)</h2>
+    <p class="meaning">Meaning: having a hot, strong taste.</p>
+    <p class="example">🔹 spicy (adj)<br>➡ I like spicy food.</p>
+    <p class="example">🔹 spice (n)<br>➡ Chili is a spice.</p>
+    <p class="example">🔹 spice (v)<br>➡ She spiced the soup with garlic.</p>
+  </div>
+
+  <div class="table-section">
+    <h2>Word Forms – Vježba: Dopunite oblike riječi</h2>
+    <p>Upišite ostale oblike riječi. Samo prvi oblik je dat – ostalo dopunite!</p>
+
+    <table id="wordTable">
+      <tr>
+        <th>Word Root</th>
+        <th>Noun</th>
+        <th>Verb</th>
+        <th>Adjective</th>
+        <th>Adverb</th>
+      </tr>
+
+      <tr data-correct='{"noun":"ability","verb":"enable","adj":"able"}'>
+        <td>ability</td>
+        <td>ability</td>
+        <td><input type="text" data-type="verb"></td>
+        <td><input type="text" data-type="adj"></td>
+        <td><input type="text" data-type="adv"></td>
+      </tr>
+
+      <tr data-correct='{"noun":"multitasking","verb":"multitask"}'>
+        <td>multitask</td>
+        <td><input type="text" data-type="noun"></td>
+        <td>multitask</td>
+        <td><input type="text" data-type="adj"></td>
+        <td><input type="text" data-type="adv"></td>
+      </tr>
+
+      <tr data-correct='{"noun":"abstraction","adj":"abstract"}'>
+        <td>abstract</td>
+        <td><input type="text" data-type="noun"></td>
+        <td><input type="text" data-type="verb"></td>
+        <td>abstract</td>
+        <td><input type="text" data-type="adv"></td>
+      </tr>
+
+      <tr data-correct='{"noun":"improvement","verb":"improve","adj":"improving"}'>
+        <td>improve</td>
+        <td><input type="text" data-type="noun"></td>
+        <td>improve</td>
+        <td><input type="text" data-type="adj"></td>
+        <td><input type="text" data-type="adv"></td>
+      </tr>
+
+      <tr data-correct='{"noun":"richness","verb":"enrich","adj":"rich"}'>
+        <td>rich</td>
+        <td><input type="text" data-type="noun"></td>
+        <td><input type="text" data-type="verb"></td>
+        <td>rich</td>
+        <td><input type="text" data-type="adv"></td>
+      </tr>
+
+      <tr data-correct='{"noun":"salmon"}'>
+        <td>salmon</td>
+        <td>salmon</td>
+        <td><input type="text" data-type="verb"></td>
+        <td><input type="text" data-type="adj"></td>
+        <td><input type="text" data-type="adv"></td>
+      </tr>
+
+      <tr data-correct='{"noun":"protection","verb":"protect","adj":"protective"}'>
+        <td>protect</td>
+        <td><input type="text" data-type="noun"></td>
+        <td>protect</td>
+        <td><input type="text" data-type="adj"></td>
+        <td><input type="text" data-type="adv"></td>
+      </tr>
+
+      <tr data-correct='{"noun":"disease","adj":"diseased"}'>
+        <td>disease</td>
+        <td>disease</td>
+        <td><input type="text" data-type="verb"></td>
+        <td><input type="text" data-type="adj"></td>
+        <td><input type="text" data-type="adv"></td>
+      </tr>
+
+      <tr data-correct='{"noun":"dementia","adj":"demented"}'>
+        <td>dementia</td>
+        <td>dementia</td>
+        <td><input type="text" data-type="verb"></td>
+        <td><input type="text" data-type="adj"></td>
+        <td><input type="text" data-type="adv"></td>
+      </tr>
+
+      <tr data-correct='{"noun":"effect","adj":"effective","adv":"effectively"}'>
+        <td>effect</td>
+        <td>effect</td>
+        <td><input type="text" data-type="verb"></td>
+        <td><input type="text" data-type="adj"></td>
+        <td><input type="text" data-type="adv"></td>
+      </tr>
+
+      <tr data-correct='{"noun":"pickles","verb":"pickle","adj":"pickled"}'>
+        <td>pickles</td>
+        <td>pickles</td>
+        <td><input type="text" data-type="verb"></td>
+        <td><input type="text" data-type="adj"></td>
+        <td><input type="text" data-type="adv"></td>
+      </tr>
+
+      <tr data-correct='{"verb":"crunch","adj":"crunchy"}'>
+        <td>crunch / crunchy</td>
+        <td><input type="text" data-type="noun"></td>
+        <td>crunch</td>
+        <td><input type="text" data-type="adj"></td>
+        <td><input type="text" data-type="adv"></td>
+      </tr>
+
+      <tr data-correct='{"noun":"relaxation","verb":"relax","adj":"relaxed"}'>
+        <td>relax</td>
+        <td><input type="text" data-type="noun"></td>
+        <td>relax</td>
+        <td><input type="text" data-type="adj"></td>
+        <td><input type="text" data-type="adv"></td>
+      </tr>
+
+      <tr data-correct='{"noun":"treat","verb":"treat"}'>
+        <td>treat</td>
+        <td>treat</td>
+        <td>treat</td>
+        <td><input type="text" data-type="adj"></td>
+        <td><input type="text" data-type="adv"></td>
+      </tr>
+
+      <tr data-correct='{"adj":"raw"}'>
+        <td>raw</td>
+        <td><input type="text" data-type="noun"></td>
+        <td><input type="text" data-type="verb"></td>
+        <td>raw</td>
+        <td><input type="text" data-type="adv"></td>
+      </tr>
+
+      <tr data-correct='{"noun":"dish","verb":"dish"}'>
+        <td>dish</td>
+        <td>dish</td>
+        <td>dish</td>
+        <td><input type="text" data-type="adj"></td>
+        <td><input type="text" data-type="adv"></td>
+      </tr>
+
+      <tr data-correct='{"adj":"common","adv":"commonly"}'>
+        <td>common</td>
+        <td><input type="text" data-type="noun"></td>
+        <td><input type="text" data-type="verb"></td>
+        <td>common</td>
+        <td><input type="text" data-type="adv"></td>
+      </tr>
+
+      <tr data-correct='{"noun":"strength","verb":"strengthen","adj":"strong"}'>
+        <td>strengthen</td>
+        <td><input type="text" data-type="noun"></td>
+        <td>strengthen</td>
+        <td><input type="text" data-type="adj"></td>
+        <td><input type="text" data-type="adv"></td>
+      </tr>
+
+      <tr data-correct='{"noun":"spice","verb":"spice","adj":"spicy"}'>
+        <td>spicy</td>
+        <td><input type="text" data-type="noun"></td>
+        <td><input type="text" data-type="verb"></td>
+        <td>spicy</td>
+        <td><input type="text" data-type="adv"></td>
+      </tr>
+
+    </table>
+
+    <button onclick="checkAnswers()">Provjeri odgovore</button>
+    <div id="result"></div>
+  </div>
+
+</div>
+
+<script>
+function checkAnswers() {
+  const rows = document.querySelectorAll('#wordTable tr[data-correct]');
+  let score = 0;
+  let total = 0;
+  let allCorrect = true;
+
+  rows.forEach(row => {
+    const correctData = JSON.parse(row.getAttribute('data-correct'));
+    const inputs = row.querySelectorAll('input');
+
+    inputs.forEach(input => {
+      const field = input.getAttribute('data-type');
+      if (!correctData[field]) return;  // preskoči ako nema tog oblika u rješenju
+
+      total++;
+      const user = input.value.trim().toLowerCase();
+      const answer = (correctData[field] || '').toLowerCase();
+
+      if (user === answer) {
+        input.classList.add('correct');
+        input.classList.remove('wrong');
+        score++;
+      } else {
+        input.classList.add('wrong');
+        input.classList.remove('correct');
+        allCorrect = false;
+      }
+    });
+  });
+
+  const resultEl = document.getElementById('result');
+  if (total === 0) {
+    resultEl.textContent = "Nema polja za provjeru.";
+  } else if (allCorrect) {
+    resultEl.textContent = "Odlično! Sve je tačno! 🎉";
+    resultEl.style.color = "#155724";
+  } else {
+    resultEl.textContent = `Imate ${score} od ${total} tačnih odgovora. Probajte ponovo!`;
+    resultEl.style.color = "#721c24";
+  }
+}
+</script>
+
+</body>
+</html>
