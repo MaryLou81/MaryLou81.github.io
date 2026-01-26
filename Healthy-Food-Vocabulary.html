@@ -107,11 +107,14 @@
       background-color: #f8f9fa;
     }
     input[type="text"] {
-      width: 85%;
+      width: auto;
       padding: 6px;
       border: 1px solid #ccc;
       border-radius: 4px;
       font-size: 0.95rem;
+      display: inline-block;
+      vertical-align: middle;
+      margin: 0 5px;
     }
     .correct { background-color: #d4edda !important; color: #155724; }
     .wrong   { background-color: #f8d7da !important; color: #721c24; }
@@ -139,7 +142,7 @@
 
 <header>
   <h1>SUPER HEALTHY FOOD</h1>
-  <a href="https://tinyurl.com/5n6dcxve">EXERCISE</a>
+  <a href="exercise.html">EXERCISE</a>
 </header>
 
 <div class="hero">
@@ -159,7 +162,7 @@
 
   <div class="word-block">
     <h2>2. multitask (v)</h2>
-    <p class="meaning">Meaning: to do more than one thing at the same time.</p>
+    <p class="meaning">Meaning: to do more than one thing or task at the same time.</p>
     <p class="example">🔹 multitask (v)<br>➡ I can’t multitask when I’m tired.</p>
     <p class="example">🔹 multitasking (n) – doing many things at once<br>➡ Multitasking can be difficult for children.</p>
     <p class="example">🔹 multitasker (n) – a person who multitasks<br>➡ She is a good multitasker at school.</p>
@@ -169,7 +172,6 @@
     <h2>3. abstract (adj)</h2>
     <p class="meaning">Meaning: difficult to understand because it is about ideas, not physical things.</p>
     <p class="example">🔹 abstract (adj)<br>➡ Love is an abstract idea.</p>
-    <p class="example">🔹 abstraction (n) – an abstract idea<br>➡ Freedom is an important abstraction.</p>
     <p class="example note">📌 Concrete = something you can see or touch<br>📌 Abstract = something you can only think about</p>
   </div>
 
@@ -178,7 +180,6 @@
     <p class="meaning">Meaning: to make something better.</p>
     <p class="example">🔹 improve (v)<br>➡ Eating healthy food can improve your memory.</p>
     <p class="example">🔹 improvement (n) – a change that makes something better<br>➡ There is a big improvement in his English.</p>
-    <p class="example">🔹 improving (adj) – getting better<br>➡ Her health is improving.</p>
   </div>
 
   <div class="word-block">
@@ -208,14 +209,12 @@
     <h2>8. disease (n)</h2>
     <p class="meaning">Meaning: an illness that affects the body or mind.</p>
     <p class="example">🔹 disease (n)<br>➡ Heart disease is very serious.</p>
-    <p class="example">🔹 diseased (adj)<br>➡ The doctor treated diseased tissue.</p>
   </div>
 
   <div class="word-block">
     <h2>9. dementia (n)</h2>
     <p class="meaning">Meaning: a serious illness that affects memory and thinking.</p>
     <p class="example">🔹 dementia (n)<br>➡ Dementia affects the brain and memory.</p>
-    <p class="example">🔹 demented (adj) (samo spomenuti)<br>➡ The disease can make patients confused.</p>
   </div>
 
   <div class="word-block">
@@ -244,7 +243,6 @@
     <h2>13. crunchy (adj)</h2>
     <p class="meaning">Meaning: hard and noisy when you bite it.</p>
     <p class="example">🔹 crunchy (adj)<br>➡ Pickles are crunchy and tasty.</p>
-    <p class="example">🔹 crunch (v)<br>➡ I crunched an apple.</p>
   </div>
 
   <div class="word-block">
@@ -266,7 +264,6 @@
     <h2>16. raw (adj)</h2>
     <p class="meaning">Meaning: not cooked.</p>
     <p class="example">🔹 raw (adj)<br>➡ It is healthier to eat pumpkin seeds raw.</p>
-    <p class="example">🔹 raw food (n)<br>➡ Some people prefer raw food.</p>
   </div>
 
   <div class="word-block">
@@ -299,172 +296,158 @@
     <p class="example">🔹 spice (v)<br>➡ She spiced the soup with garlic.</p>
   </div>
 
+  <!-- Tabela na kraju objašnjenja -->
   <div class="table-section">
-    <h2>Word Forms – Vježba: Dopunite oblike riječi</h2>
-    <p>Upišite ostale oblike riječi. Samo prvi oblik je dat – ostalo dopunite!</p>
-
-    <table id="wordTable">
+    <h2>Word Forms – Pregled</h2>
+    <table>
       <tr>
-        <th>Word Root</th>
         <th>Noun</th>
         <th>Verb</th>
         <th>Adjective</th>
         <th>Adverb</th>
       </tr>
-
-      <tr data-correct='{"noun":"ability","verb":"enable","adj":"able"}'>
-        <td>ability</td>
-        <td>ability</td>
-        <td><input type="text" data-type="verb"></td>
-        <td><input type="text" data-type="adj"></td>
-        <td><input type="text" data-type="adv"></td>
-      </tr>
-
-      <tr data-correct='{"noun":"multitasking","verb":"multitask"}'>
-        <td>multitask</td>
-        <td><input type="text" data-type="noun"></td>
-        <td>multitask</td>
-        <td><input type="text" data-type="adj"></td>
-        <td><input type="text" data-type="adv"></td>
-      </tr>
-
-      <tr data-correct='{"noun":"abstraction","adj":"abstract"}'>
-        <td>abstract</td>
-        <td><input type="text" data-type="noun"></td>
-        <td><input type="text" data-type="verb"></td>
-        <td>abstract</td>
-        <td><input type="text" data-type="adv"></td>
-      </tr>
-
-      <tr data-correct='{"noun":"improvement","verb":"improve","adj":"improving"}'>
-        <td>improve</td>
-        <td><input type="text" data-type="noun"></td>
-        <td>improve</td>
-        <td><input type="text" data-type="adj"></td>
-        <td><input type="text" data-type="adv"></td>
-      </tr>
-
-      <tr data-correct='{"noun":"richness","verb":"enrich","adj":"rich"}'>
-        <td>rich</td>
-        <td><input type="text" data-type="noun"></td>
-        <td><input type="text" data-type="verb"></td>
-        <td>rich</td>
-        <td><input type="text" data-type="adv"></td>
-      </tr>
-
-      <tr data-correct='{"noun":"salmon"}'>
-        <td>salmon</td>
-        <td>salmon</td>
-        <td><input type="text" data-type="verb"></td>
-        <td><input type="text" data-type="adj"></td>
-        <td><input type="text" data-type="adv"></td>
-      </tr>
-
-      <tr data-correct='{"noun":"protection","verb":"protect","adj":"protective"}'>
-        <td>protect</td>
-        <td><input type="text" data-type="noun"></td>
-        <td>protect</td>
-        <td><input type="text" data-type="adj"></td>
-        <td><input type="text" data-type="adv"></td>
-      </tr>
-
-      <tr data-correct='{"noun":"disease","adj":"diseased"}'>
-        <td>disease</td>
-        <td>disease</td>
-        <td><input type="text" data-type="verb"></td>
-        <td><input type="text" data-type="adj"></td>
-        <td><input type="text" data-type="adv"></td>
-      </tr>
-
-      <tr data-correct='{"noun":"dementia","adj":"demented"}'>
-        <td>dementia</td>
-        <td>dementia</td>
-        <td><input type="text" data-type="verb"></td>
-        <td><input type="text" data-type="adj"></td>
-        <td><input type="text" data-type="adv"></td>
-      </tr>
-
-      <tr data-correct='{"noun":"effect","adj":"effective","adv":"effectively"}'>
-        <td>effect</td>
-        <td>effect</td>
-        <td><input type="text" data-type="verb"></td>
-        <td><input type="text" data-type="adj"></td>
-        <td><input type="text" data-type="adv"></td>
-      </tr>
-
-      <tr data-correct='{"noun":"pickles","verb":"pickle","adj":"pickled"}'>
-        <td>pickles</td>
-        <td>pickles</td>
-        <td><input type="text" data-type="verb"></td>
-        <td><input type="text" data-type="adj"></td>
-        <td><input type="text" data-type="adv"></td>
-      </tr>
-
-      <tr data-correct='{"verb":"crunch","adj":"crunchy"}'>
-        <td>crunch / crunchy</td>
-        <td><input type="text" data-type="noun"></td>
-        <td>crunch</td>
-        <td><input type="text" data-type="adj"></td>
-        <td><input type="text" data-type="adv"></td>
-      </tr>
-
-      <tr data-correct='{"noun":"relaxation","verb":"relax","adj":"relaxed"}'>
-        <td>relax</td>
-        <td><input type="text" data-type="noun"></td>
-        <td>relax</td>
-        <td><input type="text" data-type="adj"></td>
-        <td><input type="text" data-type="adv"></td>
-      </tr>
-
-      <tr data-correct='{"noun":"treat","verb":"treat"}'>
-        <td>treat</td>
-        <td>treat</td>
-        <td>treat</td>
-        <td><input type="text" data-type="adj"></td>
-        <td><input type="text" data-type="adv"></td>
-      </tr>
-
-      <tr data-correct='{"adj":"raw"}'>
-        <td>raw</td>
-        <td><input type="text" data-type="noun"></td>
-        <td><input type="text" data-type="verb"></td>
-        <td>raw</td>
-        <td><input type="text" data-type="adv"></td>
-      </tr>
-
-      <tr data-correct='{"noun":"dish","verb":"dish"}'>
-        <td>dish</td>
-        <td>dish</td>
-        <td>dish</td>
-        <td><input type="text" data-type="adj"></td>
-        <td><input type="text" data-type="adv"></td>
-      </tr>
-
-      <tr data-correct='{"adj":"common","adv":"commonly"}'>
-        <td>common</td>
-        <td><input type="text" data-type="noun"></td>
-        <td><input type="text" data-type="verb"></td>
-        <td>common</td>
-        <td><input type="text" data-type="adv"></td>
-      </tr>
-
-      <tr data-correct='{"noun":"strength","verb":"strengthen","adj":"strong"}'>
-        <td>strengthen</td>
-        <td><input type="text" data-type="noun"></td>
-        <td>strengthen</td>
-        <td><input type="text" data-type="adj"></td>
-        <td><input type="text" data-type="adv"></td>
-      </tr>
-
-      <tr data-correct='{"noun":"spice","verb":"spice","adj":"spicy"}'>
-        <td>spicy</td>
-        <td><input type="text" data-type="noun"></td>
-        <td><input type="text" data-type="verb"></td>
-        <td>spicy</td>
-        <td><input type="text" data-type="adv"></td>
-      </tr>
-
+      <tr><td>ability</td><td>enable</td><td>able</td><td>-</td></tr>
+      <tr><td>multitasking / multitasker</td><td>multitask</td><td>-</td><td>-</td></tr>
+      <tr><td>abstraction</td><td>-</td><td>abstract</td><td>-</td></tr>
+      <tr><td>improvement</td><td>improve</td><td>improving</td><td>-</td></tr>
+      <tr><td>richness</td><td>enrich</td><td>rich</td><td>-</td></tr>
+      <tr><td>salmon</td><td>-</td><td>-</td><td>-</td></tr>
+      <tr><td>protection</td><td>protect</td><td>protective</td><td>-</td></tr>
+      <tr><td>disease</td><td>-</td><td>diseased</td><td>-</td></tr>
+      <tr><td>dementia</td><td>-</td><td>demented</td><td>-</td></tr>
+      <tr><td>effect</td><td>-</td><td>effective</td><td>effectively</td></tr>
+      <tr><td>pickles</td><td>pickle</td><td>pickled</td><td>-</td></tr>
+      <tr><td>crunch</td><td>crunch</td><td>crunchy</td><td>-</td></tr>
+      <tr><td>relaxation</td><td>relax</td><td>relaxed</td><td>-</td></tr>
+      <tr><td>treat</td><td>treat</td><td>-</td><td>-</td></tr>
+      <tr><td>-</td><td>-</td><td>raw</td><td>-</td></tr>
+      <tr><td>dish</td><td>dish</td><td>-</td><td>-</td></tr>
+      <tr><td>-</td><td>-</td><td>common</td><td>commonly</td></tr>
+      <tr><td>strength</td><td>strengthen</td><td>strong</td><td>-</td></tr>
+      <tr><td>spice</td><td>spice</td><td>spicy</td><td>-</td></tr>
     </table>
+  </div>
+
+  <!-- Interaktivni zadatak sa input poljima integriranim u rečenice -->
+  <div class="table-section">
+    <h2>Exercise – Use the correct word form</h2>
+    <p>(Use the correct form of the word in brackets.)</p>
+
+    <div class="word-block">
+      <p>1. We think he might have some natural <input type="text" id="q1" placeholder="..."> . (able)</p>
+    </div>
+
+    <div class="word-block">
+      <p>2. She had the <input type="text" id="q2" placeholder="..."> to make delicious dishes with very simple ingredients. (able)</p>
+    </div>
+
+    <div class="word-block">
+      <p>3. Brandon wasn’t sure when he would be <input type="text" id="q3" placeholder="..."> to leave the office. (able)</p>
+    </div>
+
+    <div class="word-block">
+      <p>4. I’d call him, but I don’t think he would be <input type="text" id="q4" placeholder="..."> to answer. (able)</p>
+    </div>
+
+    <div class="word-block">
+      <p>5. Computers <input type="text" id="q5" placeholder="..."> faster learning. (able)</p>
+    </div>
+
+    <div class="word-block">
+      <p>6. Eating healthy food <input type="text" id="q6" placeholder="..."> the body to be strong. (able)</p>
+    </div>
+
+    <div class="word-block">
+      <p>7. Mums have the superpower to <input type="text" id="q7" placeholder="..."> even when they are tired. (task)</p>
+    </div>
+
+    <div class="word-block">
+      <p>8. <input type="text" id="q8" placeholder="..."> is difficult for me because I need to focus. (task)</p>
+    </div>
+
+    <div class="word-block">
+      <p>9. My granny used to be a great <input type="text" id="q9" placeholder="..."> . (task)</p>
+    </div>
+
+    <div class="word-block">
+      <p>10. His health has to <input type="text" id="q10" placeholder="..."> before he goes back to work. (improve)</p>
+    </div>
+
+    <div class="word-block">
+      <p>11. The editor made some <input type="text" id="q11" placeholder="..."> to the article. (improve)</p>
+    </div>
+
+    <div class="word-block">
+      <p>12. This food is <input type="text" id="q12" placeholder="..."> in vitamins. (rich)</p>
+    </div>
+
+    <div class="word-block">
+      <p>13. Reading books can <input type="text" id="q13" placeholder="..."> your language. (rich)</p>
+    </div>
+
+    <div class="word-block">
+      <p>14. The <input type="text" id="q14" placeholder="..."> of the sauce comes from herbs. (rich)</p>
+    </div>
+
+    <div class="word-block">
+      <p>15. Helmets <input type="text" id="q15" placeholder="..."> your head. (protect)</p>
+    </div>
+
+    <div class="word-block">
+      <p>16. Sunscreen gives <input type="text" id="q16" placeholder="..."> from the sun. (protect)</p>
+    </div>
+
+    <div class="word-block">
+      <p>17. This jacket is <input type="text" id="q17" placeholder="..."> in cold weather. (protect)</p>
+    </div>
+
+    <div class="word-block">
+      <p>18. Exercise has a positive <input type="text" id="q18" placeholder="..."> on health. (effect)</p>
+    </div>
+
+    <div class="word-block">
+      <p>19. This medicine is very <input type="text" id="q19" placeholder="..."> . (effect)</p>
+    </div>
+
+    <div class="word-block">
+      <p>20. She studies <input type="text" id="q20" placeholder="..."> every day. (effect)</p>
+    </div>
+
+    <div class="word-block">
+      <p>21. Music helps me <input type="text" id="q21" placeholder="..."> . (relax)</p>
+    </div>
+
+    <div class="word-block">
+      <p>22. After the exam, I felt <input type="text" id="q22" placeholder="..."> . (relax)</p>
+    </div>
+
+    <div class="word-block">
+      <p>23. Reading is a form of <input type="text" id="q23" placeholder="..."> . (relax)</p>
+    </div>
+
+    <div class="word-block">
+      <p>24. This is a very <input type="text" id="q24" placeholder="..."> problem. (common)</p>
+    </div>
+
+    <div class="word-block">
+      <p>25. Garlic is <input type="text" id="q25" placeholder="..."> used in cooking. (common)</p>
+    </div>
+
+    <div class="word-block">
+      <p>26. Colds are <input type="text" id="q26" placeholder="..."> in winter. (common)</p>
+    </div>
+
+    <div class="word-block">
+      <p>27. Exercise gives you <input type="text" id="q27" placeholder="..."> . (strong)</p>
+    </div>
+
+    <div class="word-block">
+      <p>28. Milk helps <input type="text" id="q28" placeholder="..."> bones. (strong)</p>
+    </div>
+
+    <div class="word-block">
+      <p>29. He is very <input type="text" id="q29" placeholder="..."> for his age. (strong)</p>
+    </div>
 
     <button onclick="checkAnswers()">Provjeri odgovore</button>
     <div id="result"></div>
@@ -474,51 +457,61 @@
 
 <script>
 function checkAnswers() {
-  const rows = document.querySelectorAll('#wordTable tr[data-correct]');
+  const answers = {
+    q1: "ability",
+    q2: "ability",
+    q3: "able",
+    q4: "able",
+    q5: "enable",
+    q6: "enables",
+    q7: "multitask",
+    q8: "multitasking",
+    q9: "multitasker",
+    q10: "improve",
+    q11: "improvements",
+    q12: "rich",
+    q13: "enrich",
+    q14: "richness",
+    q15: "protect",
+    q16: "protection",
+    q17: "protective",
+    q18: "effect",
+    q19: "effective",
+    q20: "effectively",
+    q21: "relax",
+    q22: "relaxed",
+    q23: "relaxation",
+    q24: "common",
+    q25: "commonly",
+    q26: "common",
+    q27: "strength",
+    q28: "strengthen",
+    q29: "strong"
+  };
+
   let score = 0;
-  let total = 0;
-  let allCorrect = true;
+  let total = Object.keys(answers).length;
 
-  rows.forEach(row => {
-    const correctData = JSON.parse(row.getAttribute('data-correct'));
-    const inputs = row.querySelectorAll('input');
-
-    inputs.forEach(input => {
-      const field = input.getAttribute('data-type');
-      if (!correctData[field]) return;  // preskoči ako nema tog oblika u rješenju
-
-      total++;
+  for (let i = 1; i <= total; i++) {
+    const input = document.getElementById(`q${i}`);
+    if (input) {
       const user = input.value.trim().toLowerCase();
-      const answer = (correctData[field] || '').toLowerCase();
-
-      if (user === answer) {
+      const correct = answers[`q${i}`].toLowerCase();
+      if (user === correct) {
         input.classList.add('correct');
         input.classList.remove('wrong');
         score++;
       } else {
         input.classList.add('wrong');
         input.classList.remove('correct');
-        allCorrect = false;
+        input.insertAdjacentHTML('afterend', `<span class="answer">Correct: ${answers[`q${i}`]}</span>`);
       }
-    });
-  });
-
-  const resultEl = document.getElementById('result');
-  if (total === 0) {
-    resultEl.textContent = "Nema polja za provjeru.";
-  } else if (allCorrect) {
-    resultEl.textContent = "Odlično! Sve je tačno! 🎉";
-    resultEl.style.color = "#155724";
-  } else {
-    resultEl.textContent = `Imate ${score} od ${total} tačnih odgovora. Probajte ponovo!`;
-    resultEl.style.color = "#721c24";
+    }
   }
+
+  document.getElementById('result').innerHTML = `You got ${score} out of ${total} correct!`;
 }
 </script>
 
 </body>
-
 </html>
-
-
-
