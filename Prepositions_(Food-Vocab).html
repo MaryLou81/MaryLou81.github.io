@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preposition Patterns – Word Friends</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f9fafc;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    header h1 {
+      color: #007bff;
+      font-size: 26px;
+      margin: 0;
+    }
+    .hero {
+      height: 300px;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+    }
+    .container {
+      max-width: 960px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+    .preposition-block {
+      margin-bottom: 40px;
+      padding: 20px;
+      background: #f8f9fa;
+      border-radius: 12px;
+      border-left: 5px solid #00bfa6;
+    }
+    .preposition-block h3 {
+      color: #007bff;
+      margin-bottom: 12px;
+    }
+    .example {
+      margin-left: 20px;
+      color: #444;
+      margin-bottom: 8px;
+    }
+    .note {
+      color: #e67e22;
+      font-weight: 500;
+      margin: 12px 0;
+    }
+    .exercise-section {
+      margin-top: 50px;
+    }
+    .sentence {
+      margin: 18px 0;
+      font-size: 1.1rem;
+    }
+    select {
+      padding: 8px 12px;
+      font-size: 1rem;
+      border: 2px solid #ccc;
+      border-radius: 6px;
+      margin: 0 8px;
+      min-width: 120px;
+    }
+    .correct { background-color: #d4edda !important; border-color: #28a745 !important; }
+    .wrong   { background-color: #f8d7da !important; border-color: #dc3545 !important; text-decoration: line-through; }
+    .answer { color: #28a745; font-weight: bold; margin-left: 10px; }
+    button {
+      margin: 30px auto;
+      display: block;
+      padding: 14px 40px;
+      background: #28a745;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 12px rgba(40,167,69,0.3);
+    }
+    button:hover { background: #218838; }
+    #result {
+      margin-top: 20px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Preposition Patterns – Word Friends</h1>
+</header>
+
+<div class="hero">
+  <h2>Preposition Patterns – Word Friends</h2>
+</div>
+
+<div class="container">
+
+  <!-- FOR -->
+  <div class="preposition-block">
+    <h3>🔵 FOR (namjena, korist, razlog)</h3>
+    <p><strong>Glagol + FOR</strong></p>
+    <div class="example">• be good for – Fruit is good for you.</div>
+    <div class="example">• be bad for – Too much sugar is bad for your teeth.</div>
+    <div class="example">• be healthy for – Fish is healthy for your heart.</div>
+    <div class="example">• use … for – We use garlic for cooking.</div>
+    <div class="example">• pay for – I pay for my lunch.</div>
+    <p class="note">📌 FOR = kome / čemu nešto služi ili koristi</p>
+  </div>
+
+  <!-- FROM -->
+  <div class="preposition-block">
+    <h3>🔵 FROM (izvor, zaštita, promjena)</h3>
+    <p><strong>Glagol + FROM</strong></p>
+    <div class="example">• protect from – This food protects you from illness.</div>
+    <div class="example">• stop someone from – Fruit can stop you from getting sick.</div>
+    <div class="example">• save someone from – Helmets save people from injury.</div>
+    <div class="example">• come from – Milk comes from cows.</div>
+    <div class="example">• make something from – Cheese is made from milk.</div>
+    <div class="example">• keep … from – This keeps me from eating junk food.</div>
+    <p class="note">📌 FROM = odakle nešto dolazi / od čega štiti</p>
+    <p class="note">🟡 MADE FROM – koristi se kada originalni materijal više nije vidljiv u proizvodu<br>➡ Cheese is made from milk.</p>
+  </div>
+
+  <!-- OF -->
+  <div class="preposition-block">
+    <h3>🔵 OF (dio nečega, sadržaj, količina)</h3>
+    <p><strong>Glagol / izraz + OF</strong></p>
+    <div class="example">• be full of – Vegetables are full of vitamins.</div>
+    <div class="example">• consist of – A healthy meal consists of vegetables.</div>
+    <div class="example">• be made of – The bowl is made of glass.</div>
+    <div class="example">• taste of – This soup tastes of garlic.</div>
+    <div class="example">• think of – I think of food when I'm hungry.</div>
+    <div class="example">• be afraid of – Some people are afraid of fatty food.</div>
+    <p class="note">📌 OF = sadržaj ili dio cjeline</p>
+    <p class="note">🟡 MADE OF – koristi se kada materijal još uvijek vidi ili je prepoznatljiv<br>➡ The bowl is made of glass.</p>
+  </div>
+
+  <!-- WITH -->
+  <div class="preposition-block">
+    <h3>🔵 WITH (društvo, kombinacija, sredstvo)</h3>
+    <p><strong>Glagol + WITH</strong></p>
+    <div class="example">• go well with – Cheese goes well with pasta.</div>
+    <div class="example">• eat with – I eat salad with fish.</div>
+    <div class="example">• mix … with – Mix fruit with yoghurt.</div>
+    <div class="example">• help with – This food helps with digestion.</div>
+    <div class="example">• cook with – I cook with olive oil.</div>
+    <div class="example">• agree with – I don’t agree with this diet.</div>
+    <p class="note">📌 WITH = zajedno / u kombinaciji</p>
+  </div>
+
+  <!-- TO -->
+  <div class="preposition-block">
+    <h3>🔵 TO (pravac, dodavanje, promjena)</h3>
+    <p><strong>Glagol + TO</strong></p>
+    <div class="example">• add … to – Add sugar to the tea.</div>
+    <div class="example">• go to – I go to the market.</div>
+    <div class="example">• listen to – Listen to your body.</div>
+    <div class="example">• get used to – I’m getting used to healthy food.</div>
+    <p class="note">📌 TO = smjer, cilj, promjena</p>
+  </div>
+
+  <!-- Vježba sa padajućim menijem -->
+  <div class="exercise-section">
+    <h2>✏️ EXERCISE</h2>
+    <p>Complete the sentences with the correct preposition: <strong>for, from, of, with, to</strong></p>
+
+    <div class="sentence">
+      1. Vegetables are full <select id="s1"><option value="">---</option><option>for</option><option>from</option><option>of</option><option>with</option><option>to</option></select> vitamins.
+    </div>
+
+    <div class="sentence">
+      2. Add salt <select id="s2"><option value="">---</option><option>for</option><option>from</option><option>of</option><option>with</option><option>to</option></select> the soup.
+    </div>
+
+    <div class="sentence">
+      3. This food protects you <select id="s3"><option value="">---</option><option>for</option><option>from</option><option>of</option><option>with</option><option>to</option></select> illness.
+    </div>
+
+    <div class="sentence">
+      4. Cheese goes well <select id="s4"><option value="">---</option><option>for</option><option>from</option><option>of</option><option>with</option><option>to</option></select> pasta.
+    </div>
+
+    <div class="sentence">
+      5. I pay <select id="s5"><option value="">---</option><option>for</option><option>from</option><option>of</option><option>with</option><option>to</option></select> my lunch every day.
+    </div>
+
+    <div class="sentence">
+      6. Milk comes <select id="s6"><option value="">---</option><option>for</option><option>from</option><option>of</option><option>with</option><option>to</option></select> cows.
+    </div>
+
+    <div class="sentence">
+      7. Some people are afraid <select id="s7"><option value="">---</option><option>for</option><option>from</option><option>of</option><option>with</option><option>to</option></select> fatty food.
+    </div>
+
+    <div class="sentence">
+      8. Mix fruit <select id="s8"><option value="">---</option><option>for</option><option>from</option><option>of</option><option>with</option><option>to</option></select> yoghurt.
+    </div>
+
+    <div class="sentence">
+      9. Fish is healthy <select id="s9"><option value="">---</option><option>for</option><option>from</option><option>of</option><option>with</option><option>to</option></select> your heart.
+    </div>
+
+    <div class="sentence">
+      10. I’m getting used <select id="s10"><option value="">---</option><option>for</option><option>from</option><option>of</option><option>with</option><option>to</option></select> healthy food.
+    </div>
+
+    <div class="sentence">
+      11. Fruit can stop you <select id="s11"><option value="">---</option><option>for</option><option>from</option><option>of</option><option>with</option><option>to</option></select> getting sick.
+    </div>
+
+    <div class="sentence">
+      12. We use olive oil <select id="s12"><option value="">---</option><option>for</option><option>from</option><option>of</option><option>with</option><option>to</option></select> cooking.
+    </div>
+
+    <div class="sentence">
+      13. The bowl is made <select id="s13"><option value="">---</option><option>for</option><option>from</option><option>of</option><option>with</option><option>to</option></select> glass.
+    </div>
+
+    <div class="sentence">
+      14. Cheese is made <select id="s14"><option value="">---</option><option>for</option><option>from</option><option>of</option><option>with</option><option>to</option></select> milk.
+    </div>
+
+    <div class="sentence">
+      15. Too much sugar is bad <select id="s15"><option value="">---</option><option>for</option><option>from</option><option>of</option><option>with</option><option>to</option></select> your teeth.
+    </div>
+
+    <div class="sentence">
+      16. Listen <select id="s16"><option value="">---</option><option>for</option><option>from</option><option>of</option><option>with</option><option>to</option></select> your body.
+    </div>
+
+    <div class="sentence">
+      17. A healthy meal consists <select id="s17"><option value="">---</option><option>for</option><option>from</option><option>of</option><option>with</option><option>to</option></select> vegetables.
+    </div>
+
+    <div class="sentence">
+      18. Helmets save people <select id="s18"><option value="">---</option><option>for</option><option>from</option><option>of</option><option>with</option><option>to</option></select> injury.
+    </div>
+
+    <div class="sentence">
+      19. I eat salad <select id="s19"><option value="">---</option><option>for</option><option>from</option><option>of</option><option>with</option><option>to</option></select> fish.
+    </div>
+
+    <div class="sentence">
+      20. This rule keeps me <select id="s20"><option value="">---</option><option>for</option><option>from</option><option>of</option><option>with</option><option>to</option></select> eating junk food.
+    </div>
+
+    <div class="sentence">
+      21. Fruit is good <select id="s21"><option value="">---</option><option>for</option><option>from</option><option>of</option><option>with</option><option>to</option></select> you.
+    </div>
+
+    <div class="sentence">
+      22. I go <select id="s22"><option value="">---</option><option>for</option><option>from</option><option>of</option><option>with</option><option>to</option></select> the market on Saturdays.
+    </div>
+
+    <div class="sentence">
+      23. We cook <select id="s23"><option value="">---</option><option>for</option><option>from</option><option>of</option><option>with</option><option>to</option></select> olive oil.
+    </div>
+
+    <button onclick="checkAnswers()">Check Answers</button>
+    <div id="result"></div>
+  </div>
+
+</div>
+
+<script>
+function checkAnswers() {
+  const correctAnswers = [
+    "of",    // 1
+    "to",    // 2
+    "from",  // 3
+    "with",  // 4
+    "for",   // 5
+    "from",  // 6
+    "of",    // 7
+    "with",  // 8
+    "for",   // 9
+    "to",    // 10
+    "from",  // 11
+    "for",   // 12
+    "of",    // 13
+    "from",  // 14
+    "for",   // 15
+    "to",    // 16
+    "of",    // 17
+    "from",  // 18
+    "with",  // 19
+    "from",  // 20
+    "for",   // 21
+    "to",    // 22
+    "with"   // 23
+  ];
+
+  let score = 0;
+  const total = correctAnswers.length;
+
+  for (let i = 1; i <= total; i++) {
+    const select = document.getElementById(`s${i}`);
+    if (select) {
+      const user = select.value.trim().toLowerCase();
+      const correct = correctAnswers[i-1].toLowerCase();
+
+      if (user === correct) {
+        select.classList.add('correct');
+        select.classList.remove('wrong');
+        score++;
+      } else {
+        select.classList.add('wrong');
+        select.classList.remove('correct');
+        select.insertAdjacentHTML('afterend', `<span class="answer">Correct: ${correctAnswers[i-1]}</span>`);
+      }
+    }
+  }
+
+  document.getElementById('result').innerHTML = `You got ${score} out of ${total} correct! 🎉`;
+}
+</script>
+
+</body>
+</html>
