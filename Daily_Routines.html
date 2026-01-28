@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Activities - Vocabulary & Drag and Drop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 { color: #2c3e50; margin-bottom: 10px; }
+
+        .tabs {
+            overflow: hidden;
+            border-bottom: 2px solid #ccc;
+            margin-bottom: 20px;
+        }
+        .tab-button {
+            background-color: #f1f1f1;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 20px;
+            transition: 0.3s;
+            font-size: 1.1em;
+        }
+        .tab-button:hover { background-color: #ddd; }
+        .tab-button.active { background-color: #ccc; border-bottom: 3px solid #3498db; }
+
+        .tabcontent {
+            display: none;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .vocab-item {
+            background: #fff;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .vocab-item img, .item img {
+            width: 140px;
+            height: 140px;
+            object-fit: contain;
+            border: 2px solid #ecf0f1;
+            border-radius: 10px;
+            background: #f9f9f9;
+        }
+        .vocab-item p {
+            margin: 10px 0 0;
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #2c3e50;
+        }
+
+        /* Drag & Drop */
+        .container { max-width: 960px; margin: 0 auto; }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        .item {
+            width: 220px;
+            text-align: center;
+        }
+        .item img {
+            width: 100%;
+            height: 140px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+        .dropzone {
+            width: 100%;
+            min-height: 50px;
+            margin-top: 10px;
+            border: 2px dashed #aaa;
+            border-radius: 8px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            font-size: 0.95em;
+            color: #777;
+        }
+        .dropzone.over {
+            border-color: #3498db;
+            background: #e8f4fd;
+        }
+        .dropzone.correct {
+            background: #d4edda !important;
+            border-color: #28a745 !important;
+        }
+        .dropzone.incorrect {
+            background: #f8d7da !important;
+            border-color: #dc3545 !important;
+        }
+
+        /* KLJUČNO – tekst na ubačenom balončiću je bold crn */
+        .dropzone .word {
+            background: transparent !important;
+            color: #000000 !important;
+            font-weight: bold !important;
+            font-size: 1.05em !important;
+            padding: 6px 12px !important;
+            margin: 0 !important;
+            box-shadow: none !important;
+            text-shadow: none !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            display: block !important;
+            width: 100%;
+            text-align: center;
+            white-space: normal;
+            word-wrap: break-word;
+        }
+
+        .word {
+            background: #a8d0e6;
+            color: #2c3e50;
+            padding: 10px 20px;
+            margin: 8px;
+            border-radius: 999px;
+            cursor: grab;
+            font-weight: bold;
+            user-select: none;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            display: inline-block;
+        }
+        .word:active { cursor: grabbing; }
+
+        .words-container {
+            padding: 20px;
+            min-height: 120px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        #reset {
+            padding: 10px 24px;
+            font-size: 1.1em;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Daily Activities - Učenje i vježba</h1>
+
+<div class="tabs">
+    <button class="tab-button active" onclick="openTab('vocabulary')">Vocabulary</button>
+    <button class="tab-button" onclick="openTab('dragdrop')">Drag & Drop</button>
+</div>
+
+<div id="vocabulary" class="tabcontent" style="display: block;">
+    <p>Pogledaj slike i pročitaj riječi da naučiš dnevne aktivnosti!</p>
+    <div class="grid">
+        <div class="vocab-item"><img src="https://marylou81.github.io/wake%20up.png" alt="Wake up"><p>Wake up</p></div>
+        <div class="vocab-item"><img src="https://marylou81.github.io/get%20up.png" alt="Get up"><p>Get up</p></div>
+        <div class="vocab-item"><img src="https://marylou81.github.io/get_dressed.png" alt="Get dressed"><p>Get dressed</p></div>
+        <div class="vocab-item"><img src="https://marylou81.github.io/have_breakfast.png" alt="Have breakfast"><p>Have breakfast</p></div>
+        <div class="vocab-item"><img src="https://cdn.creazilla.com/cliparts/38581/toothbrush-children-clipart-xl.png" alt="Brush one's teeth"><p>Brush one's teeth</p></div>
+        <div class="vocab-item"><img src="https://marylou81.github.io/brush%20your%20hair.png" alt="Brush your hair"><p>Brush your hair</p></div>
+        <div class="vocab-item"><img src="https://cdn.creazilla.com/cliparts/6983/kids-going-to-school-clipart-xl.png" alt="Go to school"><p>Go to school</p></div>
+        <div class="vocab-item"><img src="https://cdn.creazilla.com/cliparts/36088/children-girls-studying-clipart-xl.png" alt="Study"><p>Study</p></div>
+        <div class="vocab-item"><img src="https://cdn.creazilla.com/cliparts/35991/child-boy-homework-clipart-xl.png" alt="Do one's homework"><p>Do one's homework</p></div>
+        <div class="vocab-item"><img src="https://cdn.creazilla.com/cliparts/6990/boy-and-a-girl-playing-video-games-clipart-xl.png" alt="Play video game"><p>Play video game</p></div>
+        <div class="vocab-item"><img src="https://cdn.creazilla.com/cliparts/7771395/children-soccer-football-clipart-xl.png" alt="Play football"><p>Play football</p></div>
+        <div class="vocab-item"><img src="https://marylou81.github.io/go_to_bed.png" alt="Go to bed"><p>Go to bed</p></div>
+    </div>
+</div>
+
+<div id="dragdrop" class="tabcontent">
+    <p>Prevuci svaki balončić sa riječima na odgovarajuću sliku.</p>
+    <button id="reset">Resetuj vježbu</button>
+
+    <div class="container">
+        <div class="row">
+            <div class="item">
+                <img src="https://marylou81.github.io/wake%20up.png" alt="Wake up">
+                <div class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="leave(event)" data-correct="wake up">Drop here</div>
+            </div>
+            <div class="item">
+                <img src="https://marylou81.github.io/get%20up.png" alt="Get up">
+                <div class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="leave(event)" data-correct="get up">Drop here</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="item">
+                <img src="https://marylou81.github.io/get_dressed.png" alt="Get dressed">
+                <div class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="leave(event)" data-correct="get dressed">Drop here</div>
+            </div>
+            <div class="item">
+                <img src="https://marylou81.github.io/have_breakfast.png" alt="Have breakfast">
+                <div class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="leave(event)" data-correct="have breakfast">Drop here</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="item">
+                <img src="https://cdn.creazilla.com/cliparts/38581/toothbrush-children-clipart-xl.png" alt="Brush one's teeth">
+                <div class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="leave(event)" data-correct="brush one's teeth">Drop here</div>
+            </div>
+            <div class="item">
+                <img src="https://marylou81.github.io/brush%20your%20hair.png" alt="Brush your hair">
+                <div class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="leave(event)" data-correct="brush your hair">Drop here</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="item">
+                <img src="https://cdn.creazilla.com/cliparts/6983/kids-going-to-school-clipart-xl.png" alt="Go to school">
+                <div class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="leave(event)" data-correct="go to school">Drop here</div>
+            </div>
+            <div class="item">
+                <img src="https://cdn.creazilla.com/cliparts/36088/children-girls-studying-clipart-xl.png" alt="Study">
+                <div class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="leave(event)" data-correct="study">Drop here</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="item">
+                <img src="https://cdn.creazilla.com/cliparts/35991/child-boy-homework-clipart-xl.png" alt="Do one's homework">
+                <div class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="leave(event)" data-correct="do one's homework">Drop here</div>
+            </div>
+            <div class="item">
+                <img src="https://cdn.creazilla.com/cliparts/6990/boy-and-a-girl-playing-video-games-clipart-xl.png" alt="Play video game">
+                <div class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="leave(event)" data-correct="play video game">Drop here</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="item">
+                <img src="https://cdn.creazilla.com/cliparts/7771395/children-soccer-football-clipart-xl.png" alt="Play football">
+                <div class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="leave(event)" data-correct="play football">Drop here</div>
+            </div>
+            <div class="item">
+                <img src="https://marylou81.github.io/go_to_bed.png" alt="Go to bed">
+                <div class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="leave(event)" data-correct="go to bed">Drop here</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="words-container" id="words-container"></div>
+
+    <button id="reset">Resetuj vježbu</button>
+</div>
+
+<script>
+    function openTab(tabName) {
+        document.querySelectorAll('.tabcontent').forEach(el => el.style.display = 'none');
+        document.querySelectorAll('.tab-button').forEach(el => el.classList.remove('active'));
+        document.getElementById(tabName).style.display = 'block';
+        event.currentTarget.classList.add('active');
+    }
+
+    const activities = [
+        "wake up", "get up", "get dressed", "have breakfast", "brush one's teeth",
+        "brush your hair", "go to school", "study", "do one's homework",
+        "play video game", "play football", "go to bed"
+    ];
+
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
+    function initWords() {
+        const container = document.getElementById("words-container");
+        container.innerHTML = "";
+        const shuffled = shuffle([...activities]);
+        shuffled.forEach(text => {
+            const el = document.createElement("div");
+            el.className = "word";
+            el.draggable = true;
+            el.textContent = text;
+            el.ondragstart = drag;
+            container.appendChild(el);
+        });
+    }
+
+    function allowDrop(e) {
+        e.preventDefault();
+        e.target.classList.add("over");
+    }
+
+    function leave(e) {
+        e.target.classList.remove("over");
+    }
+
+    function drag(e) {
+        e.dataTransfer.setData("text", e.target.textContent);
+        e.dataTransfer.effectAllowed = "move";
+    }
+
+    function drop(e) {
+        e.preventDefault();
+        e.target.classList.remove("over");
+
+        const text = e.dataTransfer.getData("text");
+        const target = e.target;
+
+        if (target.children.length > 0) return;
+
+        const newWord = document.createElement("div");
+        newWord.className = "word";
+        newWord.textContent = text;
+        target.appendChild(newWord);
+
+        if (target.dataset.correct === text) {
+            target.classList.add("correct");
+        } else {
+            target.classList.add("incorrect");
+        }
+
+        // Brišemo originalni balončić iz liste
+        const originals = document.querySelectorAll("#words-container .word");
+        for (let el of originals) {
+            if (el.textContent === text) {
+                el.remove();
+                break;
+            }
+        }
+    }
+
+    document.querySelectorAll(".dropzone").forEach(zone => {
+        zone.ondragover = allowDrop;
+        zone.ondragleave = leave;
+        zone.ondrop = drop;
+    });
+
+    document.getElementById("reset").onclick = () => {
+        document.querySelectorAll(".dropzone").forEach(zone => {
+            zone.innerHTML = "Drop here";
+            zone.classList.remove("correct", "incorrect");
+        });
+        initWords();
+    };
+
+    initWords();
+</script>
+</body>
+</html>
