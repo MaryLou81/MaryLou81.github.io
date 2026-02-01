@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Restaurant Conversations – Practice</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      line-height: 1.65;
+      max-width: 960px;
+      margin: 30px auto;
+      padding: 0 15px;
+      background: #f9f9f9;
+      color: #222;
+    }
+    h1 { color: #1a3c5e; text-align: center; }
+    .tabs {
+      display: flex;
+      border-bottom: 2px solid #ccc;
+      margin: 2rem 0 1.5rem;
+    }
+    .tab-button {
+      padding: 12px 32px;
+      background: #eee;
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: all 0.2s;
+    }
+    .tab-button:hover { background: #ddd; }
+    .tab-button.active {
+      background: white;
+      border-bottom: 3px solid #1a3c5e;
+      font-weight: bold;
+    }
+    .tab-content {
+      display: none;
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+    .tab-content.active { display: block; }
+
+    .task-image {
+      width: 100%;
+      max-height: 360px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 1.6rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .bank {
+      background: #f0f4f8;
+      padding: 1.2rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+      border: 1px solid #d0e0f0;
+    }
+    .bank h3 { margin: 0 0 0.8rem 0; color: #444; font-size: 1.1rem; }
+
+    .draggable {
+      display: inline-block;
+      background: #e3f2fd;
+      border: 1px solid #90caf9;
+      border-radius: 6px;
+      padding: 0.55rem 1.1rem;
+      margin: 0.4rem 0.5rem;
+      cursor: grab;
+      transition: all 0.15s;
+      font-size: 0.97rem;
+    }
+    .draggable:hover { background: #bbdefb; transform: translateY(-1px); }
+    .draggable:active { cursor: grabbing; }
+
+    .dropzone {
+      display: inline-block;
+      min-width: 20px;
+      height: 1.4em;
+      margin: 0 4px;
+      vertical-align: middle;
+      background: transparent;
+      border-bottom: 2px dashed #aaa;
+      transition: all 0.2s;
+    }
+    .dropzone.over { border-color: #1a3c5e; }
+    .dropzone.filled {
+      border: none;
+      background: transparent;
+      padding: 0;
+      min-width: auto;
+      display: inline;
+    }
+    .dropzone.filled span {
+      background: #e8f5e9;
+      padding: 2px 6px;
+      border-radius: 4px;
+      border: 1px solid #a5d6a7;
+    }
+
+    .gap {
+      display: inline-block;
+      min-width: 200px;
+      padding: 4px 8px;
+      background: #fffdf0;
+      border: 1px dashed #aaa;
+      border-radius: 5px;
+      margin: 0 4px;
+      vertical-align: middle;
+      cursor: text;
+      color: #555;
+      font-style: italic;
+      transition: all 0.2s;
+    }
+    .gap:focus {
+      outline: 2px solid #1a3c5e;
+      background: #fff;
+      font-style: normal;
+    }
+    .gap.correct {
+      border: 2px solid #2e7d32;
+      background: #e8f5e9;
+    }
+    .gap.wrong {
+      border: 2px solid #d32f2f;
+      background: #ffebee;
+    }
+
+    .controls { text-align: center; margin: 2.5rem 0 1rem; }
+    .btn {
+      padding: 12px 28px;
+      font-size: 1.08rem;
+      margin: 0 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      color: white;
+    }
+    .check-btn { background: #2e7d32; }
+    .reset-btn { background: #616161; }
+
+    .feedback {
+      margin-top: 1.2rem;
+      font-weight: bold;
+      min-height: 1.4em;
+      text-align: center;
+    }
+    .good { color: #2e7d32; }
+    .bad  { color: #d32f2f; }
+  </style>
+</head>
+<body>
+
+<h1>Restaurant Conversations – Practice</h1>
+
+<div class="tabs">
+  <button class="tab-button active" data-tab="task1">Task 1 – Drag & Drop</button>
+  <button class="tab-button" data-tab="task2">Task 2 – Fill in Phrases</button>
+</div>
+
+<!-- Task 1 – Drag & Drop (izmiješane fraze) -->
+<div id="task1" class="tab-content active">
+  <img src="https://img.freepik.com/free-photo/young-happy-couple-celebrating-toasting-with-wineglasses-while-eating-restaurant_637285-2025.jpg" alt="Couple toasting" class="task-image">
+
+  <h2>Task 1 – Drag & Drop missing lines</h2>
+  <p>Drag the phrases into the small dashed gaps.</p>
+
+  <div class="bank" id="bank1">
+    <h3>Phrases to drag (mixed order):</h3>
+    <div class="draggable" draggable="true">Not for me, thanks.</div>
+    <div class="draggable" draggable="true">Have you got any roasted potatoes with it?</div>
+    <div class="draggable" draggable="true">Here you are — your bottle of white wine. Your food will arrive shortly.</div>
+    <div class="draggable" draggable="true">Excuse me, can we share some bread?</div>
+    <div class="draggable" draggable="true">Are you ready to order?</div>
+    <div class="draggable" draggable="true">Just a side of roasted potatoes for me, please.</div>
+    <div class="draggable" draggable="true">What would you like to drink?</div>
+    <div class="draggable" draggable="true">For the starter, I’ll have the pumpkin soup.</div>
+  </div>
+
+  <div id="dialogue1" style="font-size:1.05rem;">
+    <p><strong>Waiter:</strong> Good evening. Take a seat and I'll get you the menu.</p>
+    <p><strong>Customer 1:</strong> Thank you.</p>
+    <p><strong>Customer 2:</strong> Thanks.</p>
+
+    <p><strong>Waiter:</strong> <span class="dropzone" id="drop1"></span></p>
+
+    <p><strong>Customer 1:</strong> Excuse me, could we have a bottle of white wine, please?</p>
+    <p><strong>Customer 2:</strong> <span class="dropzone" id="drop7"></span></p>
+
+    <p><strong>Waiter:</strong> <span class="dropzone" id="drop2"></span></p>
+
+    <p><strong>Customer 1:</strong> Yes.</p>
+    <p><strong>Customer 1:</strong> <span class="dropzone" id="drop3"></span></p>
+    <p><strong>Customer 2:</strong> And I’d like the chicken and vegetable soup.</p>
+
+    <p><strong>Waiter:</strong> Very good. And for your main course?</p>
+    <p><strong>Customer 1:</strong> I’d like the grilled salmon. <span class="dropzone" id="drop4"></span></p>
+    <p><strong>Customer 2:</strong> I’ll have the chicken parmesan. <span class="dropzone" id="drop5"></span></p>
+
+    <p><strong>Waiter:</strong> Would you like anything else to eat?</p>
+    <p><strong>Customer 1:</strong> <span class="dropzone" id="drop6"></span></p>
+
+    <p><strong>Waiter:</strong> <span class="dropzone" id="drop8"></span></p>
+  </div>
+
+  <div class="controls">
+    <button class="btn check-btn" onclick="checkTask1()">Check your answers</button>
+    <button class="btn reset-btn" onclick="resetTask1()">Reset</button>
+    <div id="feedback1" class="feedback"></div>
+  </div>
+</div>
+
+<!-- Task 2 – Fill in Phrases (izmiješane fraze u banci) -->
+<div id="task2" class="tab-content">
+  <img src="https://img.freepik.com/free-photo/side-view-woman-eating-baked-salmon-with-vegetables-th-table_140725-12131.jpg" alt="Woman eating salmon" class="task-image">
+
+  <h2>Task 2 – Fill in the missing phrases</h2>
+  <p>Type the correct phrase from the list below into each dashed box.</p>
+
+  <div class="phrase-bank">
+    <h3>Choose from these phrases (mixed order):</h3>
+    <div class="phrase-example">Would you like anything else/to eat?</div>
+    <div class="phrase-example">Have you got any ... ?</div>
+    <div class="phrase-example">Just ... for me, please.</div>
+    <div class="phrase-example">Here you are.</div>
+    <div class="phrase-example">For the/your starter/main course/dessert?</div>
+    <div class="phrase-example">Not for me, thanks.</div>
+    <div class="phrase-example">Excuse me, can/could I/we have/share ... ?</div>
+    <div class="phrase-example">I’ll have / I’d like a slice of ...</div>
+  </div>
+
+  <div id="dialogue2" style="font-size:1.05rem;">
+    <p><strong>Waiter:</strong> Hello! Take a seat and I'll get you the menu.</p>
+    <p><strong>Customer 1:</strong> Thanks.</p>
+    <p><strong>Customer 2:</strong> Thank you.</p>
+
+    <p><strong>Waiter:</strong> <span class="gap" id="gap1" contenteditable="true"></span></p>
+
+    <p><strong>Customer 1:</strong> Excuse me, can we have a bottle of white wine, please?</p>
+    <p><strong>Customer 2:</strong> <span class="gap" id="gap2" contenteditable="true"></span></p>
+
+    <p><strong>Waiter:</strong> <span class="gap" id="gap3" contenteditable="true"></span></p>
+
+    <p><strong>Customer 1:</strong> Yes. <span class="gap" id="gap4" contenteditable="true"></span></p>
+    <p><strong>Customer 2:</strong> And I’d like the stuffed mushrooms.</p>
+
+    <p><strong>Waiter:</strong> Very good. And for your main course?</p>
+    <p><strong>Customer 1:</strong> I’ll have the mushroom risotto. <span class="gap" id="gap5" contenteditable="true"></span></p>
+    <p><strong>Customer 2:</strong> I’d like the vegetable stir-fry. <span class="gap" id="gap6" contenteditable="true"></span></p>
+
+    <p><strong>Waiter:</strong> <span class="gap" id="gap7" contenteditable="true"></span></p>
+
+    <p><strong>Customer 1:</strong> <span class="gap" id="gap8" contenteditable="true"></span></p>
+    <p><strong>Customer 2:</strong> Yes, please.</p>
+
+    <p><strong>Waiter:</strong> <span class="gap" id="gap9" contenteditable="true"></span></p>
+  </div>
+
+  <div class="controls">
+    <button class="btn check-btn" onclick="checkTask2()">Check your answers</button>
+    <button class="btn reset-btn" onclick="resetTask2()">Reset</button>
+    <div id="feedback2" class="feedback"></div>
+  </div>
+</div>
+
+<script>
+// Tab switching
+document.querySelectorAll('.tab-button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.tab).classList.add('active');
+  });
+});
+
+// Task 1 – Drag & Drop
+const draggables = document.querySelectorAll('#bank1 .draggable');
+const dropzones = document.querySelectorAll('#dialogue1 .dropzone');
+let dragged = null;
+
+draggables.forEach(item => {
+  item.addEventListener('dragstart', (e) => {
+    dragged = item;
+    e.dataTransfer.setData('text/plain', item.textContent);
+    item.style.opacity = '0.5';
+  });
+  item.addEventListener('dragend', () => {
+    item.style.opacity = '1';
+    dragged = null;
+  });
+});
+
+dropzones.forEach(zone => {
+  zone.addEventListener('dragover', e => {
+    e.preventDefault();
+    zone.classList.add('over');
+  });
+  zone.addEventListener('dragleave', () => zone.classList.remove('over'));
+  zone.addEventListener('drop', e => {
+    e.preventDefault();
+    zone.classList.remove('over');
+    if (dragged && zone.children.length === 0) {
+      const clone = dragged.cloneNode(true);
+      clone.draggable = false;
+      clone.style.margin = '0';
+      clone.style.padding = '2px 6px';
+      zone.innerHTML = '';
+      zone.appendChild(clone);
+      zone.classList.add('filled');
+      // dragged.remove();  // ako želiš da fraza nestane iz banke nakon upotrebe, odkomentariši
+    }
+  });
+});
+
+function checkTask1() {
+  const correct = {
+    drop1: "What would you like to drink?",
+    drop2: "Are you ready to order?",
+    drop3: "For the starter, I’ll have the pumpkin soup.",
+    drop4: "Have you got any roasted potatoes with it?",
+    drop5: "Just a side of roasted potatoes for me, please.",
+    drop6: "Excuse me, can we share some bread?",
+    drop7: "Not for me, thanks.",
+    drop8: "Here you are — your bottle of white wine. Your food will arrive shortly."
+  };
+  let score = 0;
+  let total = 8;
+
+  Object.keys(correct).forEach(key => {
+    const zone = document.getElementById(key);
+    const text = zone.textContent.trim();
+    if (text === correct[key]) {
+      score++;
+      zone.style.borderBottomColor = '#2e7d32';
+    } else if (text) {
+      zone.style.borderBottomColor = '#d32f2f';
+    }
+  });
+
+  document.getElementById('feedback1').textContent = score === total ? "Excellent!" : `Correct: ${score}/${total}`;
+  document.getElementById('feedback1').className = score === total ? 'good' : 'bad';
+}
+
+function resetTask1() {
+  dropzones.forEach(z => {
+    z.innerHTML = '';
+    z.classList.remove('filled');
+    z.style.borderBottomColor = '';
+  });
+  document.getElementById('feedback1').textContent = '';
+  document.getElementById('feedback1').className = 'feedback';
+}
+
+// Task 2 – Kucanje
+const correctAnswers = {
+  gap1: "What would you like to drink?",
+  gap2: "Not for me, thanks.",
+  gap3: "Are you ready to order?",
+  gap4: "For the starter, I’ll have the bruschetta.",
+  gap5: "Have you got any salad to go with it?",
+  gap6: "Just the salad for me, please.",
+  gap7: "Would you like anything else?",
+  gap8: "Excuse me, can we share a dessert?",
+  gap9: "Here you are."
+};
+
+function checkTask2() {
+  let score = 0;
+  let total = Object.keys(correctAnswers).length;
+
+  for (let key in correctAnswers) {
+    const gap = document.getElementById(key);
+    const typed = gap.textContent.trim();
+    if (typed === correctAnswers[key]) {
+      score++;
+      gap.classList.add('correct');
+      gap.classList.remove('wrong');
+    } else if (typed) {
+      gap.classList.add('wrong');
+      gap.classList.remove('correct');
+    }
+  }
+
+  document.getElementById('feedback2').textContent = score === total ? "Perfect – all correct!" : `Correct: ${score} / ${total}`;
+  document.getElementById('feedback2').className = score === total ? 'good' : 'bad';
+}
+
+function resetTask2() {
+  for (let key in correctAnswers) {
+    const gap = document.getElementById(key);
+    gap.textContent = '';
+    gap.classList.remove('correct', 'wrong');
+  }
+  document.getElementById('feedback2').textContent = '';
+  document.getElementById('feedback2').className = 'feedback';
+}
+</script>
+
+</body>
+</html>

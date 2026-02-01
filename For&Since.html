@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Present Perfect – for & since + vs Past Simple</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      line-height: 1.7;
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 20px 15px;
+      background: #f9f9f9;
+      color: #222;
+    }
+    h1, h2, h3 { color: #1a3c5e; }
+    .tabs {
+      display: flex;
+      border-bottom: 2px solid #ccc;
+      margin: 1.5rem 0;
+    }
+    .tab-button {
+      padding: 12px 28px;
+      background: #eee;
+      border: none;
+      cursor: pointer;
+      font-size: 1.05rem;
+      transition: all 0.2s;
+    }
+    .tab-button:hover { background: #ddd; }
+    .tab-button.active {
+      background: white;
+      border-bottom: 3px solid #1a3c5e;
+      font-weight: bold;
+    }
+    .tab-content {
+      display: none;
+      background: white;
+      padding: 2rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+    .tab-content.active { display: block; }
+
+    /* Color coding */
+    .pp { color: #2e7d32; font-weight: 600; } /* green – Present Perfect */
+    .ps { color: #7b1fa2; font-weight: 600; } /* purple – Past Simple */
+    .time-expr {
+      color: #555;
+      font-weight: bold;
+      font-style: italic;
+    }
+
+    .example-box {
+      background: #f0f8ff;
+      padding: 1.3rem;
+      border-left: 5px solid #1a3c5e;
+      margin: 1.6rem 0;
+      border-radius: 5px;
+    }
+
+    ul.check {
+      list-style: none;
+      padding-left: 0;
+    }
+    ul.check li:before {
+      content: "✔ ";
+      color: #2e7d32;
+      font-weight: bold;
+    }
+
+    /* ── EXERCISE STYLES ── */
+    .exercise {
+      font-size: 1.05rem;
+      margin-top: 2rem;
+    }
+    .sentence {
+      margin: 1.8rem 0;
+      padding: 0.8rem 1.2rem;
+      background: #fdfdfd;
+      border-radius: 8px;
+      border: 1px solid #e0e0e0;
+    }
+    .choice-group {
+      display: inline-flex;
+      gap: 0.5rem;
+      vertical-align: middle;
+    }
+    .option {
+      padding: 0.45rem 0.9rem;
+      background: #e0e0e0;
+      border: 1px solid #bbb;
+      border-radius: 6px;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.15s;
+      font-size: 0.97rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+      position: relative;
+      top: 0;
+    }
+    .option:hover {
+      background: #d0d0d0;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+    }
+    .option.selected {
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.15);
+      top: 1px;
+    }
+    .option.correct {
+      background: #4caf50;
+      color: white;
+      border-color: #388e3c;
+    }
+    .option.wrong {
+      background: #f44336;
+      color: white;
+      border-color: #d32f2f;
+    }
+
+    .controls {
+      margin-top: 2.5rem;
+      text-align: center;
+    }
+    .btn {
+      padding: 12px 32px;
+      font-size: 1.1rem;
+      margin: 0 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    #checkBtn {
+      background: #1a3c5e;
+      color: white;
+    }
+    #checkBtn:hover { background: #0f2a45; }
+    #resetBtn {
+      background: #777;
+      color: white;
+    }
+    #resetBtn:hover { background: #555; }
+
+    .status {
+      margin-top: 1.2rem;
+      font-weight: bold;
+      min-height: 1.4em;
+    }
+    .status.good { color: #2e7d32; }
+    .status.bad  { color: #d32f2f; }
+  </style>
+</head>
+<body>
+
+<h1>Present Perfect – for & since  /  vs  Past Simple</h1>
+
+<div class="tabs">
+  <button class="tab-button active" data-tab="tab1">Present Perfect with FOR & SINCE</button>
+  <button class="tab-button" data-tab="tab2">Present Perfect or Past Simple</button>
+  <button class="tab-button" data-tab="tab3">Exercise</button>
+</div>
+
+<div id="tab1" class="tab-content active">
+
+  <h2>1. Introduction – Why do we need Present Perfect?</h2>
+  <p>We use the <span class="pp">Present Perfect</span> to talk about actions and states that <strong>started in the past</strong> but are <strong>connected to the present</strong> in some way.</p>
+  <p>Very often we are not interested in <em>when exactly</em> something happened, but in <strong>how long</strong> it has lasted or whether we <strong>have had the experience</strong>.</p>
+
+  <h2>2. Present Perfect with <span class="time-expr">for</span> and <span class="time-expr">since</span></h2>
+  <p>We use <span class="pp">Present Perfect</span> + <span class="time-expr">for</span> / <span class="time-expr">since</span> to describe:</p>
+  <ul class="check">
+    <li>an action or state that <strong>started in the past</strong></li>
+    <li>and <strong>still continues now</strong> (unfinished action / state)</li>
+  </ul>
+
+  <div class="example-box">
+    <p><span class="pp">He’s lived</span> in Paris <span class="time-expr">for three years</span>.<br>
+    <small>(He still lives there now.)</small></p>
+
+    <p><span class="pp">We haven’t seen</span> him <span class="time-expr">since the summer</span>.<br>
+    <small>(From that time until today.)</small></p>
+  </div>
+
+  <h3>The difference between <span class="time-expr">for</span> and <span class="time-expr">since</span></h3>
+
+  <p><strong><span class="time-expr">For</span></strong> – period of time → answers <em>How long?</em></p>
+  <ul>
+    <li><span class="time-expr">for a week</span> • <span class="time-expr">for a month</span> • <span class="time-expr">for ages</span> • <span class="time-expr">for three hours</span></li>
+  </ul>
+  <p>Example: <span class="pp">She has loved</span> cooking <span class="time-expr">for thirty years</span>.</p>
+
+  <p><strong><span class="time-expr">Since</span></strong> – point in time → answers <em>Since when?</em></p>
+  <ul>
+    <li><span class="time-expr">since 2012</span> • <span class="time-expr">since March</span> • <span class="time-expr">since last Tuesday</span> • <span class="time-expr">since the day we met</span></li>
+  </ul>
+  <p>Example: <span class="time-expr">Since the day I was born</span>, my home <span class="pp">has smelled</span> of delicious Indian spices.</p>
+
+  <h2>3. How do we form Present Perfect?</h2>
+  <p><strong>have / has + past participle</strong></p>
+  <div class="example-box">
+    <p><span class="pp">They have owned</span> this café <span class="time-expr">for two years</span>.</p>
+    <p><span class="pp">I’ve been</span> at the restaurant <span class="time-expr">for half an hour</span>.</p>
+    <p><span class="pp">We’ve had</span> this dishwasher <span class="time-expr">since February</span>.</p>
+    <p><span class="pp">She’s known</span> him <span class="time-expr">since her first day at school</span>.</p>
+  </div>
+
+</div>
+
+<div id="tab2" class="tab-content">
+
+  <h2>Present Perfect vs Past Simple – Key differences</h2>
+
+  <h3>Present Perfect</h3>
+  <p>We use it when:</p>
+  <ul class="check">
+    <li>talking about life experiences up to now</li>
+    <li>talking about duration (<span class="time-expr">how long</span> / <span class="time-expr">since when</span>)</li>
+    <li>the exact time in the past is <strong>not mentioned</strong> or <strong>not important</strong></li>
+  </ul>
+  <div class="example-box">
+    <p><span class="pp">Have you been</span> to Paris?</p>
+    <p><span class="pp">I’ve been</span> to this pizzeria. It’s really nice.</p>
+    <p><span class="pp">She’s worked</span> in the café <span class="time-expr">for ten years</span>.</p>
+  </div>
+
+  <h3>Past Simple</h3>
+  <p>We use it when:</p>
+  <ul>
+    <li>talking about a <strong>finished</strong> action</li>
+    <li>there is a <strong>specific time</strong> in the past</li>
+  </ul>
+  <div class="example-box">
+    <p><span class="ps">I went</span> to the pizzeria <span class="time-expr">last Sunday</span>.</p>
+    <p><span class="ps">She moved</span> to Britain <span class="time-expr">in 2001</span>.</p>
+    <p><span class="ps">She opened</span> the restaurant <span class="time-expr">last May</span>.</p>
+  </div>
+
+  <h2>Example text – both tenses together</h2>
+  <div class="example-box">
+    <p>My mum is from India, but <span class="ps">she moved</span> to Britain <span class="time-expr">in 2001</span>.</p>
+    <p><span class="pp">She has loved</span> cooking <span class="time-expr">for thirty years</span>.</p>
+    <p><span class="time-expr">Since the day I was born</span>, my home <span class="pp">has smelled</span> of delicious Indian spices.</p>
+    <p>But <span class="pp">she’s only owned</span> a restaurant <span class="time-expr">for six months</span>.</p>
+    <p><span class="ps">She opened</span> it <span class="time-expr">last May</span>, and it’s already become very successful.</p>
+  </div>
+
+  <p><strong>Rule to remember:</strong></p>
+  <ul>
+    <li>Duration or connection to now → <span class="pp">Present Perfect</span></li>
+    <li>Specific time in the past → <span class="ps">Past Simple</span></li>
+  </ul>
+
+</div>
+
+<div id="tab3" class="tab-content">
+
+  <h2>Exercise – Choose the correct option</h2>
+  <p>Click the correct word/phrase in each pair. Then press <strong>Check Answers</strong>.</p>
+
+  <div class="exercise">
+
+    <div class="sentence" data-q="1">
+      <span>1. I’ve lived in this house</span>
+      <span class="choice-group" data-correct="since">
+        <span class="option" data-value="for">for</span>
+        <span class="option" data-value="since">since</span>
+      </span>
+      <span>I was born. My parents</span>
+      <span class="choice-group" data-correct="moved">
+        <span class="option" data-value="moved">moved</span>
+        <span class="option" data-value="have moved">have moved</span>
+      </span>
+      <span>here in 1999.</span>
+    </div>
+
+    <div class="sentence" data-q="2">
+      <span>2. I’ve known him</span>
+      <span class="choice-group" data-correct="for">
+        <span class="option" data-value="for">for</span>
+        <span class="option" data-value="since">since</span>
+      </span>
+      <span>ten years. We</span>
+      <span class="choice-group" data-correct="met">
+        <span class="option" data-value="met">met</span>
+        <span class="option" data-value="have met">have met</span>
+      </span>
+      <span>on our first day at primary school.</span>
+    </div>
+
+    <div class="sentence" data-q="3">
+      <span>3. I’ve had this furniture</span>
+      <span class="choice-group" data-correct="for">
+        <span class="option" data-value="for">for</span>
+        <span class="option" data-value="since">since</span>
+      </span>
+      <span>two years, but for six months I</span>
+      <span class="choice-group" data-correct="have hated">
+        <span class="option" data-value="hated">hated</span>
+        <span class="option" data-value="have hated">have hated</span>
+      </span>
+      <span>it.</span>
+    </div>
+
+    <div class="sentence" data-q="4">
+      <span>4. Marisa</span>
+      <span class="choice-group" data-correct="got">
+        <span class="option" data-value="got">got</span>
+        <span class="option" data-value="has got">has got</span>
+      </span>
+      <span>her mobile phone last Christmas. She</span>
+      <span class="choice-group" data-correct="'s had">
+        <span class="option" data-value="had">had</span>
+        <span class="option" data-value="'s had">'s had</span>
+      </span>
+      <span>it for three months now.</span>
+    </div>
+
+    <div class="sentence" data-q="5">
+      <span>5. She</span>
+      <span class="choice-group" data-correct="won">
+        <span class="option" data-value="won">won</span>
+        <span class="option" data-value="has won">has won</span>
+      </span>
+      <span>her skis in a skiing competition in December, but she</span>
+      <span class="choice-group" data-correct="hasn’t skied">
+        <span class="option" data-value="didn’t ski">didn’t ski</span>
+        <span class="option" data-value="hasn’t skied">hasn’t skied</span>
+      </span>
+      <span>on them at all.</span>
+    </div>
+
+    <div class="sentence" data-q="6">
+      <span>6. I</span>
+      <span class="choice-group" data-correct="haven’t seen">
+        <span class="option" data-value="didn’t see">didn’t see</span>
+        <span class="option" data-value="haven’t seen">haven’t seen</span>
+      </span>
+      <span>him since yesterday. That means it’s been 16 hours</span>
+      <span class="choice-group" data-correct="since">
+        <span class="option" data-value="for">for</span>
+        <span class="option" data-value="since">since</span>
+      </span>
+      <span>our last meeting.</span>
+    </div>
+
+  </div>
+
+  <div class="controls">
+    <button id="checkBtn" class="btn">Check Answers</button>
+    <button id="resetBtn" class="btn">Reset</button>
+    <div id="status" class="status"></div>
+  </div>
+
+</div>
+
+<script>
+// Tab switching
+document.querySelectorAll('.tab-button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.tab).classList.add('active');
+  });
+});
+
+// Exercise logic
+const choices = document.querySelectorAll('.option');
+
+choices.forEach(opt => {
+  opt.addEventListener('click', () => {
+    const group = opt.parentElement;
+    group.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+    opt.classList.add('selected');
+  });
+});
+
+document.getElementById('checkBtn').addEventListener('click', () => {
+  let correctCount = 0;
+  let total = 0;
+
+  document.querySelectorAll('.choice-group').forEach(group => {
+    total++;
+    const correct = group.dataset.correct;
+    const selected = group.querySelector('.selected');
+
+    group.querySelectorAll('.option').forEach(opt => {
+      opt.classList.remove('correct', 'wrong');
+      if (opt.dataset.value === correct) {
+        opt.classList.add('correct');
+      }
+      if (opt.classList.contains('selected') && opt.dataset.value !== correct) {
+        opt.classList.add('wrong');
+      }
+    });
+
+    if (selected && selected.dataset.value === correct) {
+      correctCount++;
+    }
+  });
+
+  const status = document.getElementById('status');
+  if (correctCount === total) {
+    status.textContent = "Perfect! All answers are correct.";
+    status.className = 'status good';
+  } else {
+    status.textContent = `You got ${correctCount} out of ${total} correct.`;
+    status.className = 'status bad';
+  }
+});
+
+document.getElementById('resetBtn').addEventListener('click', () => {
+  choices.forEach(opt => {
+    opt.classList.remove('selected', 'correct', 'wrong');
+  });
+  document.getElementById('status').textContent = '';
+  document.getElementById('status').className = 'status';
+});
+</script>
+
+</body>
+</html>
