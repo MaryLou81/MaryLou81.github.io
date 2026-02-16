@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connectors Practice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .tab-button {
+            padding: 10px 20px;
+            background-color: #ddd;
+            border: none;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+        .tab-button.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .tab-content {
+            display: none;
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .exercise {
+            margin-bottom: 30px;
+        }
+        .exercise h3 {
+            color: #333;
+        }
+        .text-paragraph {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        .dropdown-placeholder {
+            position: relative;
+            display: inline-block;
+            min-width: 80px;
+            text-align: center;
+        }
+        .dropdown-placeholder select {
+            width: 100%;
+            padding: 2px;
+            border: 1px solid #ccc;
+            background-color: white;
+        }
+        .connectors-list {
+            font-size: 14px;
+            color: #666;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Connectors Practice Exercises</h1>
+    <div class="tabs">
+        <button class="tab-button active" onclick="showTab('sequencing')">Sequencing Connectors</button>
+        <button class="tab-button" onclick="showTab('addition')">Addition Connectors</button>
+        <button class="tab-button" onclick="showTab('contrast')">Contrast Connectors</button>
+        <button class="tab-button" onclick="showTab('cause')">Cause & Effect Connectors</button>
+        <button class="tab-button" onclick="showTab('example')">Example Connectors</button>
+    </div>
+
+    <!-- Sequencing Tab -->
+    <div id="sequencing" class="tab-content active">
+        <div class="exercise">
+            <h3>1. Sequencing Linkers</h3>
+            <div class="connectors-list">Connectors to use: first, second, then, next, finally</div>
+            <div class="text-paragraph">
+                Every school day I wake up at 7 o’clock. <span class="dropdown-placeholder"><select onchange="updatePlaceholder(this)"><option>--</option><option>first</option><option>next</option><option>second</option><option>finally</option><option>then</option></select></span>, I get out of bed and open the curtains. <span class="dropdown-placeholder"><select onchange="updatePlaceholder(this)"><option>--</option><option>second</option><option>first</option><option>then</option><option>next</option><option>finally</option></select></span>, I go to the bathroom and wash my face. <span class="dropdown-placeholder"><select onchange="updatePlaceholder(this)"><option>--</option><option>next</option><option>finally</option><option>second</option><option>first</option><option>then</option></select></span>, I brush my teeth and comb my hair. <span class="dropdown-placeholder"><select onchange="updatePlaceholder(this)"><option>--</option><option>finally</option><option>then</option><option>next</option><option>second</option><option>first</option></select></span>, I go to the kitchen and eat breakfast quickly. <span class="dropdown-placeholder"><select onchange="updatePlaceholder(this)"><option>--</option><option>then</option><option>first</option><option>finally</option><option>second</option><option>next</option></select></span>, I take my school bag and leave the house.
+            </div>
+        </div>
+    </div>
+
+    <!-- Addition Tab -->
+    <div id="addition" class="tab-content">
+        <div class="exercise">
+            <h3>2. Addition Linkers</h3>
+            <div class="connectors-list">Connectors to use: also, moreover, in addition, besides, furthermore</div>
+            <div class="text-paragraph">
+                Weekends are the best days of the week. <span class="dropdown-placeholder"><select onchange="updatePlaceholder(this)"><option>--</option><option>moreover</option><option>also</option><option>besides</option><option>in addition</option><option>furthermore</option></select></span>, I can sleep late and relax. <span class="dropdown-placeholder"><select onchange="updatePlaceholder(this)"><option>--</option><option>in addition</option><option>furthermore</option><option>also</option><option>moreover</option><option>besides</option></select></span>, I meet my friends and go for a walk. <span class="dropdown-placeholder"><select onchange="updatePlaceholder(this)"><option>--</option><option>besides</option><option>in addition</option><option>furthermore</option><option>moreover</option><option>also</option></select></span>, I watch films or play video games at home. <span class="dropdown-placeholder"><select onchange="updatePlaceholder(this)"><option>--</option><option>furthermore</option><option>besides</option><option>also</option><option>in addition</option><option>moreover</option></select></span>, I help my mum in the kitchen sometimes. <span class="dropdown-placeholder"><select onchange="updatePlaceholder(this)"><option>--</option><option>also</option><option>moreover</option><option>furthermore</option><option>besides</option><option>in addition</option></select></span>, I feel happy and full of energy after the weekend.
+            </div>
+        </div>
+    </div>
+
+    <!-- Contrast Tab -->
+    <div id="contrast" class="tab-content">
+        <div class="exercise">
+            <h3>3. Contrast Linkers</h3>
+            <div class="connectors-list">Connectors to use: however, although, but, nevertheless, on the other hand</div>
+            <div class="text-paragraph">
+                I love a big breakfast with eggs and toast. <span class="dropdown-placeholder"><select onchange="updatePlaceholder(this)"><option>--</option><option>but</option><option>however</option><option>on the other hand</option><option>although</option><option>nevertheless</option></select></span>, my sister prefers only coffee and a small croissant. <span class="dropdown-placeholder"><select onchange="updatePlaceholder(this)"><option>--</option><option>although</option><option>nevertheless</option><option>but</option><option>however</option><option>on the other hand</option></select></span>, she says it’s faster in the morning. <span class="dropdown-placeholder"><select onchange="updatePlaceholder(this)"><option>--</option><option>on the other hand</option><option>although</option><option>nevertheless</option><option>but</option><option>however</option></select></span>, I think a big breakfast gives more energy. <span class="dropdown-placeholder"><select onchange="updatePlaceholder(this)"><option>--</option><option>nevertheless</option><option>on the other hand</option><option>however</option><option>although</option><option>but</option></select></span>, she never feels hungry before lunch. <span class="dropdown-placeholder"><select onchange="updatePlaceholder(this)"><option>--</option><option>however</option><option>but</option><option>nevertheless</option><option>on the other hand</option><option>although</option></select></span>, I sometimes try her way when I’m in a hurry.
+            </div>
+        </div>
+    </div>
+
+    <!-- Cause & Effect Tab -->
+    <div id="cause" class="tab-content">
+        <div class="exercise">
+            <h3>4. Cause and Effect Linkers</h3>
+            <div class="connectors-list">Connectors to use: because, so, therefore, as a result, consequently</div>
+            <div class="text-paragraph">
+                Last year I drank a lot of sweet juice every day. <span class="dropdown-placeholder"><select onchange="updatePlaceholder(this)"><option>--</option><option>so</option><option>because</option><option>consequently</option><option>therefore</option><option>as a result</option></select></span>, I felt tired very often. <span class="dropdown-placeholder"><select onchange="updatePlaceholder(this)"><option>--</option><option>as a result</option><option>therefore</option><option>consequently</option><option>so</option><option>because</option></select></span>, my mum told me to drink more water. <span class="dropdown-placeholder"><select onchange="updatePlaceholder(this)"><option>--</option><option>therefore</option><option>as a result</option><option>so</option><option>consequently</option><option>because</option></select></span>, I started drinking two litres of water every day. <span class="dropdown-placeholder"><select onchange="updatePlaceholder(this)"><option>--</option><option>consequently</option><option>therefore</option><option>as a result</option><option>because</option><option>so</option></select></span>, I have much more energy now. <span class="dropdown-placeholder"><select onchange="updatePlaceholder(this)"><option>--</option><option>because</option><option>consequently</option><option>so</option><option>as a result</option><option>therefore</option></select></span>, I feel healthier and my skin looks better.
+            </div>
+        </div>
+    </div>
+
+    <!-- Example Tab -->
+    <div id="example" class="tab-content">
+        <div class="exercise">
+            <h3>5. Example Linkers</h3>
+            <div class="connectors-list">Connectors to use: for example, for instance, such as, namely, in particular</div>
+            <div class="text-paragraph">
+                There are many healthy foods I eat regularly. <span class="dropdown-placeholder"><select onchange="updatePlaceholder(this)"><option>--</option><option>such as</option><option>for example</option><option>for instance</option><option>in particular</option><option>namely</option></select></span>, I eat a lot of fruit every day. <span class="dropdown-placeholder"><select onchange="updatePlaceholder(this)"><option>--</option><option>in particular</option><option>namely</option><option>such as</option><option>for instance</option><option>for example</option></select></span>, apples and bananas are my favourites. <span class="dropdown-placeholder"><select onchange="updatePlaceholder(this)"><option>--</option><option>for instance</option><option>in particular</option><option>for example</option><option>namely</option><option>such as</option></select></span>, vegetables like carrots and tomatoes are very good for me. <span class="dropdown-placeholder"><select onchange="updatePlaceholder(this)"><option>--</option><option>namely</option><option>for instance</option><option>in particular</option><option>such as</option><option>for example</option></select></span>, dark chocolate with 70% cocoa is a healthy sweet option. <span class="dropdown-placeholder"><select onchange="updatePlaceholder(this)"><option>--</option><option>for example</option><option>namely</option><option>for instance</option><option>such as</option><option>in particular</option></select></span>, I try to avoid sweets with too much sugar.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => button.classList.remove('active'));
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function updatePlaceholder(select) {
+            const placeholder = select.parentElement;
+            if (select.value === '--') {
+                placeholder.innerHTML = '--';
+            } else {
+                placeholder.innerHTML = select.value + ',';
+                // Re-add the select if needed for further changes, but for simplicity, we replace it
+                const newSelect = document.createElement('select');
+                newSelect.innerHTML = select.innerHTML;
+                newSelect.onchange = function() { updatePlaceholder(this); };
+                newSelect.value = select.value;
+                placeholder.innerHTML = '';
+                placeholder.appendChild(newSelect);
+            }
+        }
+    </script>
+</body>
+</html>
