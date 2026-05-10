@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Exercises</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #e6f3ff, #f0f8ff);
+      color: #1a2b4c;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1 { color: #0066cc; text-align: center; margin-bottom: 30px; font-size: 2.5rem; }
+    .tabs {
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-bottom: 30px;
+    }
+    .tab-btn {
+      padding: 12px 24px; background: #4da6ff; color: white; border: none; border-radius: 30px;
+      cursor: pointer; font-size: 1.1rem; font-weight: 500; transition: all 0.3s;
+    }
+    .tab-btn:hover { background: #3385ff; transform: translateY(-3px); }
+    .tab-btn.active { background: #0066cc; transform: translateY(-3px); }
+    .exercise {
+      display: none; background: white; padding: 35px; border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1); max-width: 1000px; margin: 0 auto;
+    }
+    .exercise.active { display: block; }
+    h2 { color: #0066cc; margin-bottom: 25px; font-size: 1.8rem; }
+    .intro-foods {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 25px; margin: 30px 0;
+    }
+    .food-item { text-align: center; }
+    .food-item img { max-width: 160px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    .food-item p { margin: 10px 0 0; font-weight: 600; font-size: 1.1rem; }
+    .sentence {
+      margin: 25px 0; font-size: 1.2rem; text-align: center;
+      display: flex; flex-direction: column; align-items: center; gap: 12px;
+    }
+    .sentence img { max-width: 240px; border-radius: 12px; }
+    button.yes-btn, button.no-btn {
+      padding: 10px 24px; font-size: 1.1rem; border: none; border-radius: 10px;
+      cursor: pointer; margin: 8px; transition: all 0.2s;
+    }
+    button.yes-btn { background: #28a745; color: white; }
+    button.no-btn { background: #dc3545; color: white; }
+    .correct-btn { background: #28a745 !important; }
+    .wrong-btn { background: #dc3545 !important; }
+    .word-bank {
+      display: flex; flex-wrap: wrap; gap: 16px; margin: 30px 0; min-height: 80px;
+      padding: 20px; background: #f0f8ff; border-radius: 16px;
+      border: 2px dashed #99c2ff; justify-content: center;
+    }
+    .word {
+      padding: 12px 20px; background: #e6f3ff; border: 1px solid #4da6ff;
+      border-radius: 12px; cursor: grab; user-select: none; font-weight: 500; text-align: center;
+    }
+    .word img { max-width: 110px; border-radius: 8px; }
+    .drop-area {
+      display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; margin-top: 40px;
+    }
+    .drop-box {
+      flex: 1; min-width: 320px; min-height: 220px; padding: 20px;
+      background: #f8f9fa; border-radius: 16px; border: 3px solid #00bfa6; text-align: center;
+    }
+    .drop-box h3 { margin-bottom: 15px; color: #0066cc; }
+    .drop-box .word { display: inline-block; margin: 5px; }
+
+    /* ──────────────────────────────────────────────── */
+    /* Nova ispravka – slike u drop zonama više se ne razvlače */
+    .drop-area .word {
+      width: 134px !important;
+      height: 134px !important;
+      min-width: 134px !important;
+      min-height: 134px !important;
+      padding: 8px !important;
+      margin: 6px !important;
+      box-sizing: border-box !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      background: #e6f3ff !important;
+      border: 1px solid #4da6ff !important;
+      border-radius: 12px !important;
+    }
+
+    .drop-area .word img {
+      max-width: 110px !important;
+      max-height: 110px !important;
+      width: auto !important;
+      height: auto !important;
+      object-fit: contain !important;
+      display: block !important;
+      border-radius: 8px !important;
+    }
+
+    /* Ovo sprečava da drop-box sam menja veličinu slika */
+    .drop-box img {
+      max-width: 110px !important;
+      max-height: 110px !important;
+      width: auto !important;
+      height: auto !important;
+    }
+    /* ──────────────────────────────────────────────── */
+
+  </style>
+</head>
+<body>
+
+<h1>Food Exercises</h1>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="showExercise(1)">Intro</button>
+  <button class="tab-btn" onclick="showExercise(2)">1. Is this … ?</button>
+  <button class="tab-btn" onclick="showExercise(3)">2. Have you ever … ?</button>
+  <button class="tab-btn" onclick="showExercise(4)">3. Do you like … ?</button>
+  <button class="tab-btn" onclick="showExercise(5)">4. Drag & Drop (pictures)</button>
+  <button class="tab-btn" onclick="showExercise(6)">5. Drag & Drop (words)</button>
+</div>
+
+<!-- INTRO – sve tačne slike i nazivi -->
+<div id="ex1" class="exercise active">
+  <h2>Foods – Vocabulary Overview</h2>
+  <p>Here are all the foods with correct names and pictures.</p>
+
+  <div class="intro-foods">
+    <div class="food-item">
+      <img src="https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="pizza">
+      <p>Pizza</p>
+    </div>
+    <div class="food-item">
+      <img src="https://images.pexels.com/photos/539451/pexels-photo-539451.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="soup">
+      <p>Soup</p>
+    </div>
+    <div class="food-item">
+      <img src="https://images.pexels.com/photos/2097090/pexels-photo-2097090.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="salad">
+      <p>Salad</p>
+    </div>
+    <div class="food-item">
+      <img src="https://images.pexels.com/photos/65882/chocolate-dark-coffee-confiserie-65882.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="chocolate">
+      <p>Chocolate</p>
+    </div>
+    <div class="food-item">
+      <img src="https://images.pexels.com/photos/4197485/pexels-photo-4197485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="garlic">
+      <p>Garlic</p>
+    </div>
+    <div class="food-item">
+      <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="salmon">
+      <p>Salmon</p>
+    </div>
+    <div class="food-item">
+      <img src="https://images.pexels.com/photos/1132047/pexels-photo-1132047.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="fruit">
+      <p>Fruit</p>
+    </div>
+    <div class="food-item">
+      <img src="https://images.pexels.com/photos/1586942/pexels-photo-1586942.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="crisps">
+      <p>Crisps</p>
+    </div>
+    <div class="food-item">
+      <img src="https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="burger">
+      <p>Burger</p>
+    </div>
+    <div class="food-item">
+      <img src="https://images.pexels.com/photos/108370/pexels-photo-108370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="ice cream">
+      <p>Ice cream</p>
+    </div>
+  </div>
+</div>
+
+<!-- 1. Is this … ? -->
+<div id="ex2" class="exercise">
+  <h2>TIP 1: Is this … ?</h2>
+  <p>Look at the picture. Click Yes or No.</p>
+
+  <div class="sentence">1. Is this pizza?<br><img src="https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="pizza"><br><button class="yes-btn" onclick="checkAnswer(this, true)">Yes</button><button class="no-btn" onclick="checkAnswer(this, false)">No</button></div>
+  <div class="sentence">2. Is this soup?<br><img src="https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="pizza"><br><button class="yes-btn" onclick="checkAnswer(this, false)">Yes</button><button class="no-btn" onclick="checkAnswer(this, true)">No</button></div>
+  <div class="sentence">3. Is this salad?<br><img src="https://images.pexels.com/photos/2097090/pexels-photo-2097090.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="salad"><br><button class="yes-btn" onclick="checkAnswer(this, true)">Yes</button><button class="no-btn" onclick="checkAnswer(this, false)">No</button></div>
+  <div class="sentence">4. Is this chocolate?<br><img src="https://images.pexels.com/photos/108370/pexels-photo-108370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="ice cream"><br><button class="yes-btn" onclick="checkAnswer(this, false)">Yes</button><button class="no-btn" onclick="checkAnswer(this, true)">No</button></div>
+  <div class="sentence">5. Is this garlic?<br><img src="https://images.pexels.com/photos/4197485/pexels-photo-4197485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="garlic"><br><button class="yes-btn" onclick="checkAnswer(this, true)">Yes</button><button class="no-btn" onclick="checkAnswer(this, false)">No</button></div>
+  <div class="sentence">6. Is this salmon?<br><img src="https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="burger"><br><button class="yes-btn" onclick="checkAnswer(this, false)">Yes</button><button class="no-btn" onclick="checkAnswer(this, true)">No</button></div>
+  <div class="sentence">7. Is this fruit?<br><img src="https://images.pexels.com/photos/1132047/pexels-photo-1132047.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="fruit"><br><button class="yes-btn" onclick="checkAnswer(this, true)">Yes</button><button class="no-btn" onclick="checkAnswer(this, false)">No</button></div>
+  <div class="sentence">8. Is this crisps?<br><img src="https://images.pexels.com/photos/539451/pexels-photo-539451.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="soup"><br><button class="yes-btn" onclick="checkAnswer(this, false)">Yes</button><button class="no-btn" onclick="checkAnswer(this, true)">No</button></div>
+  <div class="sentence">9. Is this burger?<br><img src="https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="burger"><br><button class="yes-btn" onclick="checkAnswer(this, true)">Yes</button><button class="no-btn" onclick="checkAnswer(this, false)">No</button></div>
+  <div class="sentence">10. Is this ice cream?<br><img src="https://images.pexels.com/photos/65882/chocolate-dark-coffee-confiserie-65882.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="chocolate"><br><button class="yes-btn" onclick="checkAnswer(this, false)">Yes</button><button class="no-btn" onclick="checkAnswer(this, true)">No</button></div>
+</div>
+
+<!-- 2. Have you ever … ? -->
+<div id="ex3" class="exercise">
+  <h2>TIP 2: Have you ever … ?</h2>
+  <p>Answer Yes or No. Look at the picture.</p>
+
+  <div class="sentence">1. Have you ever eaten pizza?<br><img src="https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="pizza" style="max-width:200px;"><br><button class="yes-btn">Yes</button><button class="no-btn">No</button></div>
+  <div class="sentence">2. Have you ever eaten chocolate?<br><img src="https://images.pexels.com/photos/65882/chocolate-dark-coffee-confiserie-65882.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="chocolate" style="max-width:200px;"><br><button class="yes-btn">Yes</button><button class="no-btn">No</button></div>
+  <div class="sentence">3. Have you ever eaten soup?<br><img src="https://images.pexels.com/photos/539451/pexels-photo-539451.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="soup" style="max-width:200px;"><br><button class="yes-btn">Yes</button><button class="no-btn">No</button></div>
+  <div class="sentence">4. Have you ever eaten crisps?<br><img src="https://images.pexels.com/photos/1586942/pexels-photo-1586942.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="crisps" style="max-width:200px;"><br><button class="yes-btn">Yes</button><button class="no-btn">No</button></div>
+  <div class="sentence">5. Have you ever eaten fruit?<br><img src="https://images.pexels.com/photos/1132047/pexels-photo-1132047.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="fruit" style="max-width:200px;"><br><button class="yes-btn">Yes</button><button class="no-btn">No</button></div>
+  <div class="sentence">6. Have you ever eaten salad?<br><img src="https://images.pexels.com/photos/2097090/pexels-photo-2097090.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="salad" style="max-width:200px;"><br><button class="yes-btn">Yes</button><button class="no-btn">No</button></div>
+  <div class="sentence">7. Have you ever eaten ice cream?<br><img src="https://images.pexels.com/photos/108370/pexels-photo-108370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="ice cream" style="max-width:200px;"><br><button class="yes-btn">Yes</button><button class="no-btn">No</button></div>
+  <div class="sentence">8. Have you ever eaten bread?<br><img src="https://images.pexels.com/photos/162846/bread-farmer-s-bread-baked-goods-food-162846.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="bread" style="max-width:200px;"><br><button class="yes-btn">Yes</button><button class="no-btn">No</button></div>
+  <div class="sentence">9. Have you ever eaten chicken?<br><img src="https://images.pexels.com/photos/1624487/pexels-photo-1624487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="chicken" style="max-width:200px;"><br><button class="yes-btn">Yes</button><button class="no-btn">No</button></div>
+  <div class="sentence">10. Have you ever eaten fish?<br><img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Plated_grilled_fish_%28cropped%29.jpg" alt="fish" style="max-width:200px;"><br><button class="yes-btn">Yes</button><button class="no-btn">No</button></div>
+  <div class="sentence">11. Have you ever eaten blowfish?<br><img src="https://live.staticflickr.com/5249/5362672336_6c32d3577b_b.jpg" alt="blowfish" style="max-width:200px;"><br><button class="yes-btn">Yes</button><button class="no-btn">No</button></div>
+</div>
+
+<!-- 3. Do you like … ? -->
+<div id="ex4" class="exercise">
+  <h2>TIP 3: Do you like … ?</h2>
+  <p>Do you like this food? Click Yes or No.</p>
+
+  <div class="sentence">1. pizza<br><img src="https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="pizza" style="max-width:220px;"><br><button class="yes-btn">Yes</button><button class="no-btn">No</button></div>
+  <div class="sentence">2. soup<br><img src="https://images.pexels.com/photos/539451/pexels-photo-539451.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="soup" style="max-width:220px;"><br><button class="yes-btn">Yes</button><button class="no-btn">No</button></div>
+  <div class="sentence">3. salad<br><img src="https://images.pexels.com/photos/2097090/pexels-photo-2097090.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="salad" style="max-width:220px;"><br><button class="yes-btn">Yes</button><button class="no-btn">No</button></div>
+  <div class="sentence">4. chocolate<br><img src="https://images.pexels.com/photos/65882/chocolate-dark-coffee-confiserie-65882.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="chocolate" style="max-width:220px;"><br><button class="yes-btn">Yes</button><button class="no-btn">No</button></div>
+  <div class="sentence">5. crisps<br><img src="https://images.pexels.com/photos/1586942/pexels-photo-1586942.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="crisps" style="max-width:220px;"><br><button class="yes-btn">Yes</button><button class="no-btn">No</button></div>
+  <div class="sentence">6. fruit<br><img src="https://images.pexels.com/photos/1132047/pexels-photo-1132047.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="fruit" style="max-width:220px;"><br><button class="yes-btn">Yes</button><button class="no-btn">No</button></div>
+  <div class="sentence">7. fish<br><img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Plated_grilled_fish_%28cropped%29.jpg" alt="fish" style="max-width:220px;"><br><button class="yes-btn">Yes</button><button class="no-btn">No</button></div>
+  <div class="sentence">8. garlic<br><img src="https://images.pexels.com/photos/4197485/pexels-photo-4197485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="garlic" style="max-width:220px;"><br><button class="yes-btn">Yes</button><button class="no-btn">No</button></div>
+</div>
+
+<!-- 4. Drag & Drop pictures -->
+<div id="ex5" class="exercise">
+  <h2>TIP 4: Drag and Drop – Healthy or Unhealthy (Pictures)</h2>
+  <p>Drag each picture to the correct box.</p>
+  <div class="word-bank">
+    <div class="word" draggable="true"><img src="https://images.pexels.com/photos/2097090/pexels-photo-2097090.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="salad"></div>
+    <div class="word" draggable="true"><img src="https://images.pexels.com/photos/1132047/pexels-photo-1132047.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="fruit"></div>
+    <div class="word" draggable="true"><img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="salmon"></div>
+    <div class="word" draggable="true"><img src="https://images.pexels.com/photos/4197485/pexels-photo-4197485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="garlic"></div>
+    <div class="word" draggable="true"><img src="https://images.pexels.com/photos/539451/pexels-photo-539451.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="soup"></div>
+    <div class="word" draggable="true"><img src="https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="pizza"></div>
+    <div class="word" draggable="true"><img src="https://images.pexels.com/photos/65882/chocolate-dark-coffee-confiserie-65882.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="chocolate"></div>
+    <div class="word" draggable="true"><img src="https://images.pexels.com/photos/1586942/pexels-photo-1586942.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="crisps"></div>
+    <div class="word" draggable="true"><img src="https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="burger"></div>
+    <div class="word" draggable="true"><img src="https://images.pexels.com/photos/108370/pexels-photo-108370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="ice cream"></div>
+  </div>
+  <div class="drop-area">
+    <div class="drop-box" id="healthy"><h3>Healthy Food</h3></div>
+    <div class="drop-box" id="unhealthy"><h3>Unhealthy Food</h3></div>
+  </div>
+</div>
+
+<!-- 5. Drag & Drop words -->
+<div id="ex6" class="exercise">
+  <h2>TIP 5: Drag and Drop – Healthy or Unhealthy (Words)</h2>
+  <p>Drag each word to the correct box.</p>
+  <div class="word-bank">
+    <div class="word" draggable="true">salad</div>
+    <div class="word" draggable="true">fruit</div>
+    <div class="word" draggable="true">salmon</div>
+    <div class="word" draggable="true">garlic</div>
+    <div class="word" draggable="true">soup</div>
+    <div class="word" draggable="true">pizza</div>
+    <div class="word" draggable="true">chocolate</div>
+    <div class="word" draggable="true">crisps</div>
+    <div class="word" draggable="true">burger</div>
+    <div class="word" draggable="true">ice cream</div>
+  </div>
+  <div class="drop-area">
+    <div class="drop-box" id="healthy2"><h3>Healthy Food</h3></div>
+    <div class="drop-box" id="unhealthy2"><h3>Unhealthy Food</h3></div>
+  </div>
+</div>
+
+<script>
+function showExercise(n) {
+  document.querySelectorAll('.exercise').forEach(ex => ex.classList.remove('active'));
+  document.getElementById('ex' + n).classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+  document.querySelectorAll('.tab-btn')[n-1].classList.add('active');
+}
+
+function checkAnswer(btn, correct) {
+  btn.parentElement.querySelectorAll('button').forEach(b => b.classList.remove('correct-btn', 'wrong-btn'));
+  if (correct) {
+    btn.classList.add('correct-btn');
+  } else {
+    btn.classList.add('wrong-btn');
+  }
+}
+
+function addDragListeners(word) {
+  word.addEventListener('dragstart', e => {
+    e.dataTransfer.setData('text', e.target.outerHTML);
+    e.target.classList.add('dragging');
+  });
+  word.addEventListener('dragend', e => e.target.classList.remove('dragging'));
+}
+
+document.querySelectorAll('.word').forEach(addDragListeners);
+
+document.querySelectorAll('.drop-box').forEach(box => {
+  box.addEventListener('dragover', e => e.preventDefault());
+  box.addEventListener('drop', e => {
+    e.preventDefault();
+    const data = e.dataTransfer.getData('text');
+    const dragged = document.querySelector('.dragging');
+    if (dragged) {
+      const clone = dragged.cloneNode(true);
+      clone.classList.remove('dragging');
+      box.appendChild(clone);
+      addDragListeners(clone);
+      dragged.remove();
+    }
+  });
+});
+</script>
+</body>
+</html>

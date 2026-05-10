@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EXERCISE – Super Healthy Food</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f9fafc;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      color: #007bff;
+      font-size: 26px;
+      margin: 0;
+    }
+    .back-btn {
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+    h2 {
+      color: #00bfa6;
+      text-align: center;
+      margin: 40px 0 20px;
+    }
+    .matching {
+      display: flex;
+      gap: 30px;
+      margin: 30px 0;
+    }
+    .column {
+      flex: 1;
+      padding: 20px;
+      border: 2px dashed #00bfa6;
+      border-radius: 12px;
+      background: #f8f9fa;
+      min-height: 520px;
+    }
+    .column h3 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #007bff;
+    }
+    .item {
+      padding: 12px 16px;
+      margin: 8px auto;
+      background: #e3f2fd;
+      border: 1px solid #42a5f5;
+      border-radius: 8px;
+      cursor: grab;
+      text-align: center;
+      font-weight: 500;
+      max-width: 240px;
+      user-select: none;
+    }
+    .dropzone {
+      min-height: 50px;
+      padding: 12px;
+      margin: 8px auto;
+      border: 2px dashed #ccc;
+      border-radius: 8px;
+      background: white;
+      text-align: center;
+      transition: all 0.2s;
+      max-width: 280px;
+    }
+    .dropzone.over {
+      border-color: #00bfa6;
+      background: #e6fff2;
+    }
+    .matched {
+      background: #d4edda !important;
+      border-color: #388e3c !important;
+      opacity: 0.95;
+      pointer-events: none;
+    }
+    .feedback {
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin: 20px 0;
+      min-height: 30px;
+    }
+    button {
+      display: block;
+      margin: 30px auto;
+      padding: 12px 40px;
+      background: #28a745;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #218838;
+    }
+
+    /* Drugi zadatak - padajući meni */
+    .fill-blanks {
+      margin-top: 60px;
+    }
+    .sentence {
+      margin: 24px 0;
+      padding: 16px;
+      background: #f8f9fa;
+      border-radius: 10px;
+      font-size: 1.05rem;
+    }
+    select {
+      padding: 8px 12px;
+      font-size: 1rem;
+      border: 2px solid #00bfa6;
+      border-radius: 6px;
+      background: white;
+      min-width: 160px;
+      margin: 0 6px;
+      vertical-align: middle;
+    }
+    select.correct {
+      background: #d4edda;
+      border-color: #388e3c;
+      color: #155724;
+    }
+    select.wrong {
+      background: #f8d7da;
+      border-color: #dc3545;
+      color: #721c24;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>EXERCISE – Super Healthy Food</h1>
+  <a href="vocabulary.html" class="back-btn">Nazad na lekciju</a>
+</header>
+
+<div class="container">
+
+  <h2>Zadatak 1: Poveži riječ sa definicijom (Drag & Drop)</h2>
+
+  <div class="matching">
+    <div class="column" id="wordsColumn">
+      <h3>Riječi</h3>
+      <div class="item" draggable="true">ability</div>
+      <div class="item" draggable="true">multitask</div>
+      <div class="item" draggable="true">abstract</div>
+      <div class="item" draggable="true">improve</div>
+      <div class="item" draggable="true">rich</div>
+      <div class="item" draggable="true">protect</div>
+      <div class="item" draggable="true">disease</div>
+      <div class="item" draggable="true">effect</div>
+      <div class="item" draggable="true">relaxed</div>
+      <div class="item" draggable="true">raw</div>
+      <div class="item" draggable="true">treat</div>
+      <div class="item" draggable="true">common</div>
+      <div class="item" draggable="true">strengthen</div>
+      <div class="item" draggable="true">spicy</div>
+    </div>
+
+    <div class="column" id="definitionsColumn">
+      <h3>Definicije</h3>
+      <div class="dropzone" data-correct="ability">the skill or power to do something</div>
+      <div class="dropzone" data-correct="multitask">to do more than one thing at the same time</div>
+      <div class="dropzone" data-correct="abstract">difficult to understand because it is about ideas, not physical things</div>
+      <div class="dropzone" data-correct="improve">to make something better</div>
+      <div class="dropzone" data-correct="rich">full of flavour or nutrients</div>
+      <div class="dropzone" data-correct="protect">to keep someone or something safe from danger</div>
+      <div class="dropzone" data-correct="disease">an illness that affects the body or mind</div>
+      <div class="dropzone" data-correct="effect">a result or change caused by something</div>
+      <div class="dropzone" data-correct="relaxed">calm, not nervous</div>
+      <div class="dropzone" data-correct="raw">not cooked</div>
+      <div class="dropzone" data-correct="treat">something special (often food)</div>
+      <div class="dropzone" data-correct="common">usual, happens often</div>
+      <div class="dropzone" data-correct="strengthen">to make stronger</div>
+      <div class="dropzone" data-correct="spicy">having a hot, strong taste</div>
+    </div>
+  </div>
+
+  <div class="feedback" id="feedback1"></div>
+  <button onclick="checkMatching()">Provjeri povezivanje</button>
+
+  <!-- ─────────────────────────────────────────────── -->
+
+  <h2>Zadatak 2: Odaberite pravu riječ (padajući meni)</h2>
+
+  <div class="fill-blanks">
+    <div class="word-list" style="text-align:center; margin:20px 0; font-weight:bold;">
+      Dostupne riječi: ability, multitask, abstract, improve, rich, protect, disease, effect, relaxed, raw, treat, common, strengthen, spicy
+    </div>
+
+    <div class="sentence">
+      Dark chocolate can help you 
+      <select data-correct="improve">
+        <option value="">Izaberi...</option>
+        <option value="ability">ability</option>
+        <option value="multitask">multitask</option>
+        <option value="abstract">abstract</option>
+        <option value="improve">improve</option>
+        <option value="rich">rich</option>
+        <option value="protect">protect</option>
+        <option value="disease">disease</option>
+        <option value="effect">effect</option>
+        <option value="relaxed">relaxed</option>
+        <option value="raw">raw</option>
+        <option value="treat">treat</option>
+        <option value="common">common</option>
+        <option value="strengthen">strengthen</option>
+        <option value="spicy">spicy</option>
+      </select> 
+      your memory and concentration.
+    </div>
+
+    <div class="sentence">
+      Garlic has a very 
+      <select data-correct="spicy">
+        <option value="">Izaberi...</option>
+        <!-- iste opcije kao gore – da bi kod bio kraći, koristićemo JS da ih popunimo -->
+      </select> 
+      taste, so use just a little!
+    </div>
+
+    <!-- ostale rečenice – sve imaju isti <select> sa istim opcijama -->
+
+    <div class="sentence">
+      Salmon is 
+      <select data-correct="rich">
+        <option value="">Izaberi...</option>
+        <!-- opcije će biti dodate JS-om -->
+      </select> 
+      in Omega-3 fatty acids.
+    </div>
+
+    <div class="sentence">
+      Eating healthy food has a positive 
+      <select data-correct="effect">
+        <option value="">Izaberi...</option>
+      </select> 
+      on your brain.
+    </div>
+
+    <div class="sentence">
+      Pumpkin seeds are a delicious healthy 
+      <select data-correct="treat">
+        <option value="">Izaberi...</option>
+      </select>.
+    </div>
+
+    <div class="sentence">
+      After yoga I always feel calm and 
+      <select data-correct="relaxed">
+        <option value="">Izaberi...</option>
+      </select>.
+    </div>
+
+    <div class="sentence">
+      Garlic can help 
+      <select data-correct="strengthen">
+        <option value="">Izaberi...</option>
+      </select> 
+      your immune system.
+    </div>
+
+    <div class="sentence">
+      Some children can 
+      <select data-correct="multitask">
+        <option value="">Izaberi...</option>
+      </select> 
+      very well.
+    </div>
+
+    <div class="sentence">
+      It is healthier to eat some vegetables 
+      <select data-correct="raw">
+        <option value="">Izaberi...</option>
+      </select>.
+    </div>
+
+    <div class="sentence">
+      Heart 
+      <select data-correct="disease">
+        <option value="">Izaberi...</option>
+      </select> 
+      is more 
+      <select data-correct="common">
+        <option value="">Izaberi...</option>
+      </select> 
+      in people who eat junk food.
+    </div>
+
+    <div class="sentence">
+      Mathematics and love are 
+      <select data-correct="abstract">
+        <option value="">Izaberi...</option>
+      </select> 
+      ideas.
+    </div>
+
+    <div class="sentence">
+      Sunscreen helps 
+      <select data-correct="protect">
+        <option value="">Izaberi...</option>
+      </select> 
+      your skin.
+    </div>
+
+    <div class="sentence">
+      Playing the piano well requires natural 
+      <select data-correct="ability">
+        <option value="">Izaberi...</option>
+      </select>.
+    </div>
+  </div>
+
+  <div class="feedback" id="feedback2"></div>
+  <button onclick="checkFillBlanks()">Provjeri odgovore</button>
+
+</div>
+
+<script>
+// ───────────────────────────────────────────────
+// Drag & Drop za Zadatak 1 (ostaje isti)
+// ───────────────────────────────────────────────
+
+let draggedItem = null;
+
+document.querySelectorAll('.item').forEach(item => {
+  item.addEventListener('dragstart', e => {
+    draggedItem = item;
+    e.dataTransfer.setData('text', item.textContent);
+    setTimeout(() => item.style.opacity = '0.4', 0);
+  });
+
+  item.addEventListener('dragend', () => {
+    setTimeout(() => item.style.opacity = '1', 0);
+    draggedItem = null;
+  });
+});
+
+document.querySelectorAll('.dropzone').forEach(zone => {
+  zone.addEventListener('dragover', e => {
+    e.preventDefault();
+    zone.classList.add('over');
+  });
+
+  zone.addEventListener('dragleave', () => zone.classList.remove('over'));
+
+  zone.addEventListener('drop', e => {
+    e.preventDefault();
+    zone.classList.remove('over');
+
+    if (!draggedItem) return;
+
+    const text = draggedItem.textContent.trim();
+    zone.textContent = text;
+    draggedItem.remove();
+  });
+});
+
+function checkMatching() {
+  let correct = 0;
+  const zones = document.querySelectorAll('#definitionsColumn .dropzone');
+
+  zones.forEach(zone => {
+    const placed = zone.textContent.trim();
+    const expected = zone.getAttribute('data-correct');
+    if (placed === expected) {
+      correct++;
+      zone.classList.add('matched');
+    }
+  });
+
+  const fb = document.getElementById('feedback1');
+  fb.textContent = correct === 14 
+    ? "Odlično! Sve je povezano tačno! 🎉" 
+    : `Imate ${correct} od 14 tačnih. Probajte ponovo!`;
+  fb.style.color = correct === 14 ? "#155724" : "#d32f2f";
+}
+
+// ───────────────────────────────────────────────
+// Zadatak 2 – Popunjavanje padajućim menijem
+// ───────────────────────────────────────────────
+
+// Popuni sve <select> elemente sa istim opcijama
+const options = [
+  "ability", "multitask", "abstract", "improve", "rich",
+  "protect", "disease", "effect", "relaxed", "raw",
+  "treat", "common", "strengthen", "spicy"
+];
+
+document.querySelectorAll('.fill-blanks select').forEach(select => {
+  // dodaj praznu opciju već postoji
+  options.forEach(opt => {
+    const option = document.createElement('option');
+    option.value = opt;
+    option.textContent = opt;
+    select.appendChild(option);
+  });
+});
+
+function checkFillBlanks() {
+  let correct = 0;
+  let total = 0;
+
+  document.querySelectorAll('.fill-blanks select').forEach(select => {
+    const correctAnswer = select.getAttribute('data-correct');
+    if (correctAnswer) {  // preskoči ako nema atributa (sigurnosno)
+      total++;
+      if (select.value === correctAnswer) {
+        select.classList.add('correct');
+        select.classList.remove('wrong');
+        correct++;
+      } else {
+        select.classList.add('wrong');
+        select.classList.remove('correct');
+      }
+    }
+  });
+
+  const fb = document.getElementById('feedback2');
+  fb.textContent = correct === total 
+    ? `Sjajno! Sve je tačno (${correct}/${total})! 🌟` 
+    : `Imate ${correct} od ${total} tačnih odgovora. Probajte ponovo!`;
+  fb.style.color = correct === total ? "#155724" : "#d32f2f";
+}
+</script>
+
+</body>
+</html>
