@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNIT 4 - ENTERTAIN US!</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #f9f9f9; color: #333; }
+        header { text-align: center; background: black; height: 420px; overflow: hidden; position: relative; }
+        .header-img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+        .overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.2) 70%, rgba(0,0,0,0.6) 100%); pointer-events: none; }
+        .dume { font-size: 3.5em; margin: 30px 0 10px; color: #ff1744; text-align: center; font-weight: bold; text-shadow: 3px 3px 6px rgba(0,0,0,0.7); position: relative; z-index: 2; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+        h1, h2 { color: #b71c1c; }
+        .section { background: white; padding: 25px; margin-bottom: 35px; border-radius: 10px; box-shadow: 0 3px 12px rgba(0,0,0,0.12); }
+        .word { margin-bottom: 30px; border-left: 6px solid #d32f2f; padding-left: 18px; }
+        .meaning { font-style: italic; color: #555; }
+        .word-family table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        .word-family th, .word-family td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        .word-family th { background-color: #f2f2f2; }
+        .film-types .film-item { margin-bottom: 20px; padding: 12px; background: #fff8e1; border-radius: 8px; }
+        .btn, .back-btn { display: block; background: #d50000; color: white; padding: 14px 30px; font-size: 1.2em; text-decoration: none; border-radius: 8px; margin: 20px auto; text-align: center; max-width: 300px; box-shadow: 0 3px 8px rgba(213,0,0,0.3); cursor: pointer; }
+        .back-btn { background: #424242; max-width: 280px; }
+        .back-btn:hover { background: #333; }
+        .btn:hover { background: #b71c1c; transform: translateY(-2px); }
+        #exercises { display: none; }
+        .sentence { margin: 18px 0; font-size: 1.1em; }
+        .drop-zone { min-width: 100px; height: 32px; border-bottom: 2px dashed #d32f2f; display: inline-block; vertical-align: middle; text-align: center; margin: 0 4px; font-style: italic; color: #777; }
+        .drop-zone.filled { border-bottom: 2px solid #4caf50; background: #e8f5e9; color: black; font-weight: bold; padding: 2px 6px; border-radius: 4px; }
+        .drag-word { padding: 8px 14px; margin: 6px; background: #ffebee; border: 1px solid #ef5350; border-radius: 6px; cursor: move; display: inline-block; user-select: none; }
+        select, input[type="text"] { padding: 10px; font-size: 1.1em; width: 240px; margin: 10px 0; border: 1px solid #ccc; border-radius: 6px; }
+        .matching-container { display: flex; justify-content: space-between; flex-wrap: wrap; margin: 30px 0; gap: 20px; }
+        .matching-left, .matching-right { flex: 1; min-width: 300px; }
+        .matching-item { padding: 12px 16px; margin: 10px 0; background: #fff3e0; border: 1px solid #ff9800; border-radius: 8px; cursor: move; text-align: center; font-weight: bold; }
+        .matching-target { padding: 12px 16px; margin: 10px 0; background: #e3f2fd; border: 2px dashed #2196f3; border-radius: 8px; min-height: 60px; text-align: center; display: flex; align-items: center; justify-content: center; }
+        .matched { background: #e8f5e9 !important; border: 2px solid #4caf50 !important; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img class="header-img" src="https://i.ytimg.com/vi/-V17XCnrcw0/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLA4I4KqE7W8-hKKRBrBptBFItY2jQ" alt="UNIT 4 - Entertain Us! Header">
+        <div class="overlay"></div>
+    </header>
+
+    <div class="dume">EXERCISE</div>
+
+    <div class="container">
+
+        <h1>UNIT 4 – ENTERTAIN US!</h1>
+
+        <a href="#exercises" class="btn" onclick="showExercises()">GO TO EXERCISES →</a>
+
+        <div class="section">
+            <h2>🔹 EXPLANATIONS + WORD FAMILIES</h2>
+
+            <div class="word">
+                <strong>location – lokacija</strong><br>
+                <span class="meaning">👉 Meaning: the place where something happens.</span><br>
+                <em>Example: The film was shot in a beautiful location.</em>
+                <div class="word-family">
+                    <strong>Word family</strong><br>
+                    <table>
+                        <tr><th>Form</th><th>Example</th></tr>
+                        <tr><td>locate (v)</td><td>They want to locate the new cinema in the city centre.</td></tr>
+                        <tr><td>location (n)</td><td>This location is perfect for filming.</td></tr>
+                        <tr><td>located (adj)</td><td>The museum is located near the river.</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="word">
+                <strong>perform – nastupati, izvoditi</strong><br>
+                <span class="meaning">👉 Meaning: to act, sing, dance or play music in front of people.</span><br>
+                <em>Example: The actors perform very well.</em>
+                <div class="word-family">
+                    <strong>Word family</strong><br>
+                    <table>
+                        <tr><th>Form</th><th>Example</th></tr>
+                        <tr><td>perform (v)</td><td>She will perform in the school play.</td></tr>
+                        <tr><td>performance (n)</td><td>Her performance was fantastic.</td></tr>
+                        <tr><td>performer (n)</td><td>He is a talented performer.</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="word">
+                <strong>audience – publika</strong><br>
+                <span class="meaning">👉 Meaning: the people who watch a film, show, or performance.</span><br>
+                <em>Example: The audience clapped at the end.</em>
+            </div>
+
+            <div class="word">
+                <strong>entertain – zabavljati</strong><br>
+                <span class="meaning">👉 Meaning: to make people happy and interested.</span><br>
+                <em>Example: The show entertains children.</em>
+                <div class="word-family">
+                    <strong>Word family</strong><br>
+                    <table>
+                        <tr><th>Form</th><th>Example</th></tr>
+                        <tr><td>entertain (v)</td><td>This film will entertain the whole family.</td></tr>
+                        <tr><td>entertainment (n)</td><td>It is great entertainment.</td></tr>
+                        <tr><td>entertainer (n)</td><td>He is a famous entertainer.</td></tr>
+                        <tr><td>entertaining (adj)</td><td>The show is very entertaining.</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="word">
+                <strong>masala film – indijski film koji miješa žanrove</strong><br>
+                <span class="meaning">👉 A popular Indian film that mixes action, romance, comedy and music.</span>
+            </div>
+
+            <div class="word">
+                <strong>music – muzika</strong><br>
+                <span class="meaning">👉 Meaning: sounds and songs.</span><br>
+                <em>Example: I listen to music every day.</em>
+                <div class="word-family">
+                    <strong>Word family</strong><br>
+                    <table>
+                        <tr><th>Form</th><th>Example</th></tr>
+                        <tr><td>music (n)</td><td>This film has beautiful music.</td></tr>
+                        <tr><td>musician (n)</td><td>She is a great musician.</td></tr>
+                        <tr><td>musical (adj / n)</td><td>We watched a musical yesterday.</td></tr>
+                        <tr><td>musically (adv)</td><td>He is musically talented.</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="word">
+                <strong>monsoon – monsun, sezona jakih kiša</strong><br>
+                <span class="meaning">👉 A season with heavy rain in some Asian countries.</span><br>
+                <em>Example: The monsoon brings a lot of rain.</em>
+            </div>
+
+            <div class="word">
+                <strong>produce – proizvoditi, producirati</strong><br>
+                <span class="meaning">👉 Meaning: to make something.</span><br>
+                <em>Example: India produces many films.</em>
+                <div class="word-family">
+                    <strong>Word family</strong><br>
+                    <table>
+                        <tr><th>Form</th><th>Example</th></tr>
+                        <tr><td>produce (v)</td><td>They produce TV shows.</td></tr>
+                        <tr><td>production (n)</td><td>It is a big film production.</td></tr>
+                        <tr><td>producer (n)</td><td>She is a famous producer.</td></tr>
+                        <tr><td>product (n)</td><td>This film is a popular product of Bollywood.</td></tr>
+                        <tr><td>productive (adj)</td><td>It was a very productive day.</td></tr>
+                        <tr><td>productively (adv)</td><td>He worked productively all day.</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="word">
+                <strong>biography – biografija</strong><br>
+                <span class="meaning">👉 A story about a real person’s life.</span><br>
+                <em>Example: I read a biography about a singer.</em>
+                <div class="word-family">
+                    <strong>Word family</strong><br>
+                    <table>
+                        <tr><th>Form</th><th>Example</th></tr>
+                        <tr><td>biography (n)</td><td>This biography is very interesting.</td></tr>
+                        <tr><td>biographer (n)</td><td>The biographer wrote about his life.</td></tr>
+                        <tr><td>biographical (adj)</td><td>This is a biographical film.</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="word">
+                <strong>several – nekoliko</strong><br>
+                <span class="meaning">👉 More than two but not many.</span><br>
+                <em>Example: She won several awards.</em>
+            </div>
+
+            <div class="word">
+                <strong>include – uključivati</strong><br>
+                <span class="meaning">👉 Meaning: to have something as part of a group.</span><br>
+                <em>Example: The film includes famous actors.</em>
+                <div class="word-family">
+                    <strong>Word family</strong><br>
+                    <table>
+                        <tr><th>Form</th><th>Example</th></tr>
+                        <tr><td>include (v)</td><td>The price includes dinner.</td></tr>
+                        <tr><td>inclusion (n)</td><td>The inclusion of music makes the film better.</td></tr>
+                        <tr><td>inclusive (adj)</td><td>The school is very inclusive.</td></tr>
+                        <tr><td>inclusively (adv)</td><td>They spoke inclusively to all students.</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="word">
+                <strong>act – glumiti</strong><br>
+                <span class="meaning">👉 Meaning: to play a role.</span><br>
+                <em>Example: She acts in films.</em>
+                <div class="word-family">
+                    <strong>Word family</strong><br>
+                    <table>
+                        <tr><th>Form</th><th>Example</th></tr>
+                        <tr><td>act (v)</td><td>He wants to act in a movie.</td></tr>
+                        <tr><td>acting (n)</td><td>Her acting is excellent.</td></tr>
+                        <tr><td>actor (n)</td><td>He is a famous actor.</td></tr>
+                        <tr><td>actress (n)</td><td>She is a talented actress.</td></tr>
+                        <tr><td>action (n)</td><td>This film has a lot of action.</td></tr>
+                        <tr><td>active (adj)</td><td>He is very active in school.</td></tr>
+                        <tr><td>actively (adv)</td><td>She actively participates in class.</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="word">
+                <strong>success – uspjeh</strong><br>
+                <span class="meaning">👉 Meaning: when something goes well.</span><br>
+                <em>Example: The film was a success.</em>
+                <div class="word-family">
+                    <strong>Word family</strong><br>
+                    <table>
+                        <tr><th>Form</th><th>Example</th></tr>
+                        <tr><td>success (n)</td><td>The show was a big success.</td></tr>
+                        <tr><td>succeed (v)</td><td>She will succeed one day.</td></tr>
+                        <tr><td>successful (adj)</td><td>He is a successful actor.</td></tr>
+                        <tr><td>successfully (adv)</td><td>They finished the film successfully.</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="word">
+                <strong>history – istorija</strong><br>
+                <span class="meaning">👉 Difference: historic = very important / historical = about history</span><br>
+                <em>Example: We study history at school.</em>
+                <div class="word-family">
+                    <strong>Word family</strong><br>
+                    <table>
+                        <tr><th>Form</th><th>Example</th></tr>
+                        <tr><td>history (n)</td><td>I love history.</td></tr>
+                        <tr><td>historian (n)</td><td>The historian studies the past.</td></tr>
+                        <tr><td>historical (adj)</td><td>This is a historical drama.</td></tr>
+                        <tr><td>historic (adj)</td><td>This was a historic moment.</td></tr>
+                        <tr><td>historically (adv)</td><td>This city is historically important.</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="word">
+                <strong>wonder vs wander – pitati se vs lutati</strong><br>
+                <span class="meaning">👉 wonder = think, be curious</span><br>
+                <span class="meaning">👉 wander = walk without direction</span><br>
+                <em>Example: I wonder what happens next. / We wandered around the old town.</em>
+                <div class="word-family">
+                    <strong>Word family (wonder)</strong><br>
+                    <table>
+                        <tr><th>Form</th><th>Example</th></tr>
+                        <tr><td>wonder (v)</td><td>I wonder why he left.</td></tr>
+                        <tr><td>wonder (n)</td><td>It is a wonder of nature.</td></tr>
+                        <tr><td>wonderful (adj)</td><td>The film was wonderful.</td></tr>
+                        <tr><td>wonderfully (adv)</td><td>She sings wonderfully.</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="word">
+                <strong>involve – uključivati</strong><br>
+                <em>Example: The job involves teamwork.</em>
+                <div class="word-family">
+                    <strong>Word family</strong><br>
+                    <table>
+                        <tr><th>Form</th><th>Example</th></tr>
+                        <tr><td>involve (v)</td><td>The project involves many students.</td></tr>
+                        <tr><td>involvement (n)</td><td>Her involvement helped the team.</td></tr>
+                        <tr><td>involved (adj)</td><td>He is very involved in school activities.</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="word">
+                <strong>proud – ponosan</strong><br>
+                <em>Example: She is proud of her work.</em>
+                <div class="word-family">
+                    <strong>Word family</strong><br>
+                    <table>
+                        <tr><th>Form</th><th>Example</th></tr>
+                        <tr><td>pride (n)</td><td>He felt great pride.</td></tr>
+                        <tr><td>proud (adj)</td><td>I am proud of you.</td></tr>
+                        <tr><td>proudly (adv)</td><td>She smiled proudly.</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="word">
+                <strong>household – domaćinstvo</strong><br>
+                <em>Example: The show is popular in many households.</em>
+            </div>
+
+        </div>
+
+        <div class="section">
+            <h2>🎬 FILM TYPES AND TV WORDS (for kids)</h2>
+
+            <div class="film-types">
+                <h3>🎥 FILM TYPES</h3>
+                <p>👉 These are different types of films. Each type has a special style and story.</p>
+
+                <div class="film-item"><strong>⭐ Action</strong><br>👉 Action films are exciting and full of fights, chases, and adventures.<br><strong>Prevod:</strong> akcioni film</div>
+                <div class="film-item"><strong>⭐ Cartoon</strong><br>👉 Cartoons are films made with drawings or animation, often for children.<br><strong>Prevod:</strong> crtani film</div>
+                <div class="film-item"><strong>⭐ Documentary</strong><br>👉 Documentaries show real people, real life, or real events and facts.<br><strong>Prevod:</strong> dokumentarni film</div>
+                <div class="film-item"><strong>⭐ Science fiction</strong><br>👉 Science fiction films are about the future, space, robots, or aliens.<br><strong>Prevod:</strong> naučnofantastični film</div>
+                <div class="film-item"><strong>⭐ Comedy</strong><br>👉 Comedies are funny and make people laugh.<br><strong>Prevod:</strong> komedija</div>
+                <div class="film-item"><strong>⭐ Romance</strong><br>👉 Romance films are about love and relationships.<br><strong>Prevod:</strong> ljubavni film</div>
+                <div class="film-item"><strong>⭐ Drama</strong><br>👉 Dramas are serious and emotional and often show real-life problems.<br><strong>Prevod:</strong> drama</div>
+                <div class="film-item"><strong>⭐ Thriller</strong><br>👉 Thrillers are exciting, suspenseful, and sometimes scary.<br><strong>Prevod:</strong> triler</div>
+                <div class="film-item"><strong>⭐ Musical</strong><br>👉 Musicals are films with many songs and dancing.<br><strong>Prevod:</strong> mjuzikl</div>
+
+                <h3>📺 TV WORDS</h3>
+                <p>👉 These are important words we use when talking about television.</p>
+
+                <div class="film-item">
+                    <strong>⭐ Channel</strong><br>
+                    👉 A channel is a TV station that shows many different programmes.<br>
+                    <strong>Prevod:</strong> TV kanal
+                </div>
+
+                <div class="film-item">
+                    <strong>⭐ Programme (UK) / Program (US)</strong><br>
+                    <strong>👉 A programme is one show on TV, such as a film, news, or a series.</strong><br>
+                    <strong>Prevod:</strong> emisija, program
+                </div>
+
+                <div class="film-item">
+                    <strong>📌 Important difference:</strong><br>
+                    ✔️ Channel = TV station<br>
+                    ✔️ Programme = one show on a channel
+                </div>
+
+                <div class="film-item"><strong>⭐ Special effects</strong><br>👉 Special effects are visual or computer tricks used in films.<br><strong>Prevod:</strong> specijalni efekti</div>
+                <div class="film-item"><strong>⭐ Lead actor / actress</strong><br>👉 The lead actor or actress is the main star in a film or series.<br><strong>Prevod:</strong> glavni glumac / glumica</div>
+                <div class="film-item"><strong>⭐ Award</strong><br>👉 An award is a prize for good work in films or TV.<br><strong>Prevod:</strong> nagrada</div>
+            </div>
+        </div>
+
+        <div id="exercises" class="section">
+            <a href="#" class="back-btn" onclick="hideExercises()">« Back to Explanations</a>
+
+            <h1>Exercises</h1>
+
+            <h2>🔹 EXERCISE 1</h2>
+            <p>Drag the words into the gaps:</p>
+            <div id="words1" style="text-align:center; margin:30px 0;">
+                <span class="drag-word" draggable="true">performance</span>
+                <span class="drag-word" draggable="true">successful</span>
+                <span class="drag-word" draggable="true">historical</span>
+                <span class="drag-word" draggable="true">wonder</span>
+                <span class="drag-word" draggable="true">episode</span>
+                <span class="drag-word" draggable="true">proud</span>
+                <span class="drag-word" draggable="true">musical</span>
+                <span class="drag-word" draggable="true">include</span>
+                <span class="drag-word" draggable="true">audience</span>
+                <span class="drag-word" draggable="true">hit</span>
+            </div>
+
+            <div class="sentence">1. The <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="audience"></div> loved the film.</div>
+            <div class="sentence">2. Her <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="performance"></div> was fantastic.</div>
+            <div class="sentence">3. The film <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="include"></div> many famous actors.</div>
+            <div class="sentence">4. This is a <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="historical"></div> drama.</div>
+            <div class="sentence">5. The film was a big <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="hit"></div>.</div>
+            <div class="sentence">6. I <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="wonder"></div> what happens next.</div>
+            <div class="sentence">7. The show was very <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="successful"></div>.</div>
+            <div class="sentence">8. I watched the last <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="episode"></div> yesterday.</div>
+            <div class="sentence">9. We saw a great <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="musical"></div>.</div>
+            <div class="sentence">10. She is <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="proud"></div> of her work.</div>
+
+            <h2>🔹 EXERCISE 2</h2>
+            <p>Choose the correct word:</p>
+            <ol>
+                <li>He is a famous <select><option>-- Choose --</option><option>documentary</option><option>viewer</option><option>involve</option><option>channel</option><option>special effects</option><option>production</option><option>character</option><option>actor</option><option>wonderful</option><option>several</option></select>.</li>
+                <li>The <select><option>-- Choose --</option><option>channel</option><option>several</option><option>character</option><option>actor</option><option>wonderful</option><option>viewer</option><option>special effects</option><option>documentary</option><option>production</option><option>involve</option></select> watches TV every evening.</li>
+                <li>This is a big film <select><option>-- Choose --</option><option>actor</option><option>character</option><option>special effects</option><option>channel</option><option>several</option><option>viewer</option><option>wonderful</option><option>production</option><option>involve</option><option>documentary</option></select>.</li>
+                <li>She won <select><option>-- Choose --</option><option>character</option><option>viewer</option><option>wonderful</option><option>special effects</option><option>channel</option><option>several</option><option>production</option><option>actor</option><option>involve</option><option>documentary</option></select> awards.</li>
+                <li>The film was <select><option>-- Choose --</option><option>viewer</option><option>channel</option><option>several</option><option>character</option><option>special effects</option><option>wonderful</option><option>production</option><option>actor</option><option>involve</option><option>documentary</option></select>.</li>
+                <li>The job <select><option>-- Choose --</option><option>channel</option><option>special effects</option><option>several</option><option>character</option><option>viewer</option><option>involve</option><option>production</option><option>actor</option><option>wonderful</option><option>documentary</option></select> travelling.</li>
+                <li>The main <select><option>-- Choose --</option><option>viewer</option><option>actor</option><option>channel</option><option>production</option><option>several</option><option>character</option><option>special effects</option><option>involve</option><option>wonderful</option><option>documentary</option></select> is very brave.</li>
+                <li>The film has amazing <select><option>-- Choose --</option><option>channel</option><option>character</option><option>viewer</option><option>several</option><option>special effects</option><option>production</option><option>actor</option><option>involve</option><option>wonderful</option><option>documentary</option></select>.</li>
+                <li>I like watching <select><option>-- Choose --</option><option>channel</option><option>viewer</option><option>special effects</option><option>several</option><option>character</option><option>documentary</option><option>production</option><option>actor</option><option>involve</option><option>wonderful</option></select> about animals.</li>
+                <li>Change the <select><option>-- Choose --</option><option>viewer</option><option>character</option><option>several</option><option>channel</option><option>special effects</option><option>production</option><option>actor</option><option>involve</option><option>wonderful</option><option>documentary</option></select>, please.</li>
+            </ol>
+
+            <h2>🔹 EXERCISE 3</h2>
+            <p>Words: success, producer, entertain, biographical, sitcom, lead actress, award, household, series, romance</p>
+            <div id="words3" style="text-align:center; margin:30px 0;">
+                <span class="drag-word" draggable="true">series</span>
+                <span class="drag-word" draggable="true">award</span>
+                <span class="drag-word" draggable="true">producer</span>
+                <span class="drag-word" draggable="true">household</span>
+                <span class="drag-word" draggable="true">romance</span>
+                <span class="drag-word" draggable="true">success</span>
+                <span class="drag-word" draggable="true">sitcom</span>
+                <span class="drag-word" draggable="true">lead actress</span>
+                <span class="drag-word" draggable="true">biographical</span>
+                <span class="drag-word" draggable="true">entertain</span>
+            </div>
+
+            <div class="sentence">1. The film was a big <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="success"></div>.</div>
+            <div class="sentence">2. He is the film <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="producer"></div>.</div>
+            <div class="sentence">3. The show <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="entertain"></div> people.</div>
+            <div class="sentence">4. This is a <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="biographical"></div> book about a famous footballer.</div>
+            <div class="sentence">5. My favourite <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="sitcom"></div> is very funny.</div>
+            <div class="sentence">6. She is the <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="lead actress"></div>.</div>
+            <div class="sentence">7. The film won an <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="award"></div>.</div>
+            <div class="sentence">8. The show is popular in every <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="household"></div>.</div>
+            <div class="sentence">9. I love this TV <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="series"></div>.</div>
+            <div class="sentence">10. It is a beautiful <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="romance"></div>.</div>
+
+            <h2>🔹 FINAL TASK</h2>
+            <ol>
+                <li>This museum shows the <input type="text" placeholder="..."> of Montenegro. (history)</li>
+                <li>She wants to <input type="text" placeholder="..."> in a film one day. (act)</li>
+                <li>The show was very <input type="text" placeholder="..."> and fun. (entertain)</li>
+                <li>He gave an amazing <input type="text" placeholder="..."> last night. (perform)</li>
+                <li>The company <input type="text" placeholder="..."> many films every year. (produce)</li>
+                <li>The film was very <input type="text" placeholder="..."> and people loved it. (success)</li>
+                <li>She is a very <input type="text" placeholder="..."> person. Everyone likes her. (wonder)</li>
+                <li>This is a <input type="text" placeholder="..."> story about a real person. (biography)</li>
+                <li>The actor spoke <input type="text" placeholder="..."> during the interview. (confidence)</li>
+                <li>The school visit was very <input type="text" placeholder="..."> for students. (education)</li>
+            </ol>
+        </div>
+
+    </div>
+
+    <script>
+        function showExercises() {
+            document.getElementById('exercises').style.display = 'block';
+            document.getElementById('exercises').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function hideExercises() {
+            document.getElementById('exercises').style.display = 'none';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text").trim();
+            var correct = ev.target.getAttribute("data-answer");
+            if (data.toLowerCase() === correct.toLowerCase()) {
+                ev.target.innerHTML = data;
+                ev.target.classList.add("filled");
+            } else {
+                alert("Wrong! Try again!");
+            }
+        }
+
+        document.querySelectorAll('.drag-word').forEach(el => {
+            el.addEventListener('dragstart', ev => {
+                ev.dataTransfer.setData("text", el.innerText);
+            });
+        });
+
+        // Za matching ako ga imaš
+        document.querySelectorAll('.matching-item').forEach(item => {
+            item.addEventListener('dragstart', ev => {
+                ev.dataTransfer.setData("text", item.getAttribute("data-type"));
+            });
+        });
+
+        function dropMatch(ev) {
+            ev.preventDefault();
+            var draggedType = ev.dataTransfer.getData("text");
+            var correct = ev.target.getAttribute("data-correct");
+            if (draggedType === correct) {
+                ev.target.innerHTML = draggedType + "<br><small>" + ev.target.innerHTML + "</small>";
+                ev.target.classList.add("matched");
+            } else {
+                alert("Wrong match! Try again.");
+            }
+        }
+    </script>
+
+</body>
+</html>
